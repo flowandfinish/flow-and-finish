@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x7llgdahcu");
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TKCRT8V5LE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TKCRT8V5LE');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flow & Finish — Homepage v4.2</title>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Flow & Finish","description":"Transforming private residences and retreat spaces into health-first sanctuaries. Manhattan, New York City.","url":"https://flowandfinish.com","address":{"@type":"PostalAddress","streetAddress":"West Village","addressLocality":"New York","addressRegion":"NY","postalCode":"10014","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":40.7335,"longitude":-74.0027},"priceRange":"$$$$$","serviceType":["Architectural Renovation","Spatial Design Layout","Healthy Home Inspections","Non-Toxic Building Materials","EMF Mitigation","Pre-Acquisition Strategy"],"areaServed":{"@type":"City","name":"New York City"}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Tenor+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --ink:#2C2C2B;--linen:#F2EFE9;--linen-warm:#F9F1F0;
+  --dust:#ede9e2;--stone:#888780;--stone-soft:#a8a59d;
+  --blush:#D4b3ae;--sand:#d8d0c4;
+  --font-serif:'Cormorant Garamond',serif;
+  --font-sans:'Tenor Sans',sans-serif;
+}
+body{font-family:var(--font-sans);background:#eae6df;padding:24px 16px 48px;}
+
+@keyframes ffFade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+.fade{animation:ffFade 1.4s cubic-bezier(.22,.61,.36,1) both;}
+.fade-d1{animation-delay:.15s;} .fade-d2{animation-delay:.3s;} .fade-d3{animation-delay:.45s;} .fade-d4{animation-delay:.6s;}
+.ph-cta,.ipad-cta,.desk-cta,.desk-cta-nav{transition:all .6s cubic-bezier(.22,.61,.36,1);}
+.ph-cta:hover,.ipad-cta:hover,.desk-cta:hover,.desk-cta-nav:hover{background:var(--linen);letter-spacing:.30em;}
+
+.page-eyebrow{font-size:8px;letter-spacing:.32em;text-transform:uppercase;color:var(--stone);text-align:center;margin-bottom:4px;}
+.page-title{font-family:var(--font-serif);font-weight:300;font-size:13px;color:var(--ink);text-align:center;margin-bottom:6px;letter-spacing:.06em;}
+.page-sub{font-size:7px;letter-spacing:.18em;text-transform:uppercase;color:var(--stone);text-align:center;margin-bottom:26px;}
+.device-row{display:flex;gap:20px;align-items:flex-start;justify-content:center;flex-wrap:wrap;margin-bottom:28px;}
+.device-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;}
+.device-label{font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:var(--stone);text-align:center;}
+
+.vid-fill{width:100%;height:100%;object-fit:cover;object-position:center;display:block;background:var(--dust);}
+.vid-crystal{position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.18) 0%,rgba(226,232,234,.10) 100%);pointer-events:none;}
+
+/* footer nav links over video — light, minimal, legible */
+.vid-nav{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:7px;padding:7px 8px;z-index:3;}
+.vid-nav a{text-decoration:none;text-transform:uppercase;color:rgba(44,44,43,.45);cursor:pointer;transition:all .5s cubic-bezier(.22,.61,.36,1);}
+.vid-nav a:hover{color:rgba(44,44,43,.72);letter-spacing:.34em;}
+.vid-nav .sep{color:rgba(44,44,43,.3);}
+.vid-nav.on-dark a{color:rgba(255,255,255,.7);text-shadow:0 1px 4px rgba(44,44,43,.35);}
+.vid-nav.on-dark .sep{color:rgba(255,255,255,.45);}
+
+/* ════════════════════════════════════════ MOBILE ════════════════════════════════════════ */
+.phone{width:162px;background:var(--linen);border-radius:20px;border:2px solid #c0bdb6;overflow:hidden;flex-shrink:0;box-shadow:0 10px 36px rgba(44,44,43,.14);}
+.ph-sticky{background:rgba(242,239,233,.97);padding:9px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:0.5px solid rgba(44,44,43,.08);}
+.ph-logo{font-family:var(--font-serif);font-weight:300;font-size:7.5px;letter-spacing:.1em;color:var(--ink);}
+.ph-hero{padding:20px 18px 26px;text-align:center;}
+.ph-eyebrow{font-size:5px;letter-spacing:.42em;text-transform:uppercase;color:var(--stone-soft);margin-bottom:10px;line-height:2;}
+.ph-h1{font-family:var(--font-serif);font-weight:300;font-size:17px;line-height:1.22;color:var(--ink);margin-bottom:10px;}
+.ph-sub{font-size:4.4px;letter-spacing:.2em;text-transform:uppercase;color:var(--stone-soft);line-height:2.4;margin-bottom:18px;font-weight:400;}
+.ph-cta{display:inline-block;background:var(--linen-warm);border:0.5px solid var(--sand);font-size:5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink);padding:7px 14px;}
+.ph-video{position:relative;width:100%;height:75px;max-height:75px;overflow:hidden;background:var(--dust);flex-shrink:0;display:block;}
+.ph-video .vid-nav a{font-size:5px;letter-spacing:.26em;}
+.ph-video .vid-nav .sep{font-size:5px;}
+.ph-origin{background:var(--linen-warm);padding:12px;display:flex;gap:8px;}
+.ph-portrait{width:34px;height:42px;background:#d4cbc0;border-radius:2px;flex-shrink:0;position:relative;overflow:hidden;}
+.ph-phead{width:13px;height:13px;background:#bbb5aa;border-radius:50%;position:absolute;top:6px;left:50%;transform:translateX(-50%);}
+.ph-pbody{width:26px;height:20px;background:#bbb5aa;border-radius:50% 50% 0 0;position:absolute;bottom:0;left:50%;transform:translateX(-50%);}
+.ph-otext{flex:1;}
+.ph-oeye{font-size:4.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--stone-soft);margin-bottom:5px;}
+.ph-oquote{font-family:var(--font-serif);font-style:italic;font-size:6.5px;color:var(--ink);line-height:1.55;margin-bottom:6px;}
+.ph-octa{font-size:4.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);border-bottom:0.5px solid var(--sand);padding-bottom:2px;}
+/* mobile footer (INSIGHT relocated here) */
+.ph-footer{background:var(--linen);border-top:0.5px solid rgba(44,44,43,.08);padding:14px 12px 16px;text-align:center;}
+.ph-foot-logo{font-family:var(--font-serif);font-weight:300;font-size:7px;letter-spacing:.1em;color:var(--ink);margin-bottom:8px;}
+.ph-foot-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:5px 8px;margin-bottom:8px;}
+.ph-foot-nav a{font-size:4px;letter-spacing:.18em;text-transform:uppercase;color:var(--stone-soft);text-decoration:none;}
+.ph-foot-copy{font-size:3.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(44,44,43,.3);}
+
+/* ════════════════════════════════════════ IPAD ════════════════════════════════════════ */
+.ipad{width:320px;background:var(--linen);border-radius:14px;border:2.5px solid #c0bdb6;overflow:hidden;flex-shrink:0;box-shadow:0 10px 36px rgba(44,44,43,.14);}
+.ipad-sticky{background:rgba(242,239,233,.97);padding:10px 14px;display:flex;justify-content:space-between;align-items:center;border-bottom:0.5px solid rgba(44,44,43,.08);}
+.ipad-logo{font-family:var(--font-serif);font-weight:300;font-size:8px;letter-spacing:.08em;color:var(--ink);flex-shrink:0;}
+.ipad-nav{display:flex;gap:9px;align-items:center;}
+.ipad-navitem{font-size:3.8px;letter-spacing:.16em;text-transform:uppercase;color:var(--stone-soft);white-space:nowrap;}
+.ipad-hero{padding:26px 24px 30px;text-align:center;}
+.ipad-eyebrow{font-size:5.5px;letter-spacing:.46em;text-transform:uppercase;color:var(--stone-soft);margin-bottom:12px;line-height:2;}
+.ipad-h1{font-family:var(--font-serif);font-weight:300;font-size:22px;line-height:1.18;color:var(--ink);margin-bottom:12px;}
+.ipad-sub{font-size:4.6px;letter-spacing:.24em;text-transform:uppercase;color:var(--stone-soft);line-height:2.5;margin-bottom:20px;font-weight:400;}
+.ipad-cta{display:inline-block;background:var(--linen-warm);border:0.5px solid var(--sand);font-size:5.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink);padding:8px 18px;}
+.ipad-video{position:relative;width:100%;height:65px;max-height:65px;overflow:hidden;background:var(--dust);flex-shrink:0;display:block;}
+.ipad-video .vid-nav a{font-size:5px;letter-spacing:.26em;}
+.ipad-video .vid-nav .sep{font-size:5px;}
+/* ipad footer (INSIGHT relocated here) */
+.ipad-footer{background:var(--linen);border-top:0.5px solid rgba(44,44,43,.08);padding:14px 14px 16px;display:flex;justify-content:space-between;align-items:center;}
+.ipad-foot-logo{font-family:var(--font-serif);font-weight:300;font-size:7.5px;letter-spacing:.1em;color:var(--ink);}
+.ipad-foot-nav{display:flex;gap:9px;align-items:center;}
+.ipad-foot-nav a{font-size:3.8px;letter-spacing:.16em;text-transform:uppercase;color:var(--stone-soft);text-decoration:none;}
+
+/* ════════════════════════════════════════ DESKTOP ════════════════════════════════════════ */
+.desk-wrap{width:100%;margin-bottom:4px;}
+.desktop{width:100%;background:var(--linen);border-radius:10px;border:2px solid #c0bdb6;overflow:hidden;box-shadow:0 12px 48px rgba(44,44,43,.18);}
+.desk-bar{height:22px;background:#dedad3;display:flex;align-items:center;padding:0 10px;gap:5px;border-bottom:0.5px solid rgba(44,44,43,.1);}
+.desk-dot{width:7px;height:7px;border-radius:50%;}
+.desk-dot.r{background:#e8a0a0;}.desk-dot.y{background:#e8d8a0;}.desk-dot.g{background:#a8d8a8;}
+.desk-url{flex:1;background:#fff;border-radius:3px;height:11px;margin:0 8px;display:flex;align-items:center;padding:0 7px;}
+.desk-urltext{font-size:6px;letter-spacing:.04em;color:var(--stone);}
+.desk-sticky{background:rgba(242,239,233,.97);padding:9px 22px;display:flex;justify-content:space-between;align-items:center;border-bottom:0.5px solid rgba(44,44,43,.1);}
+.desk-logo{font-family:var(--font-serif);font-weight:300;font-size:11px;letter-spacing:.12em;color:var(--ink);}
+.desk-navgroup{display:flex;align-items:center;gap:18px;}
+.desk-nav{display:flex;gap:14px;}
+.desk-navitem{font-size:5.8px;letter-spacing:.24em;text-transform:uppercase;color:var(--stone-soft);cursor:pointer;}
+.desk-navitem.active{color:var(--ink);border-bottom:0.5px solid var(--ink);padding-bottom:1px;}
+.desk-cta-nav{font-size:5.8px;letter-spacing:.24em;text-transform:uppercase;background:var(--linen-warm);border:0.5px solid var(--sand);color:var(--ink);padding:5px 11px;}
+.desk-hero{position:relative;width:100%;height:240px;overflow:hidden;background:var(--dust);}
+.desk-hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;background:var(--dust);}
+.desk-hero-copy{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 36px 30px;background:rgba(44,44,43,0.13);}
+.desk-eyebrow{font-size:6px;letter-spacing:.46em;text-transform:uppercase;color:rgba(255,255,255,.88);margin-bottom:12px;line-height:2;}
+.desk-h1{font-family:var(--font-serif);font-weight:300;font-size:34px;line-height:1.12;color:#fff;margin-bottom:14px;}
+.desk-sub{font-size:6px;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.78);line-height:2.2;margin-bottom:20px;font-weight:400;}
+.desk-hero-btns{display:flex;align-items:center;gap:16px;}
+.desk-cta{display:inline-block;background:rgba(249,241,240,.92);border:0.5px solid var(--sand);font-size:6.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);padding:9px 20px;}
+.desk-scta{font-size:6.5px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.85);border-bottom:0.5px solid rgba(255,255,255,.45);padding-bottom:1px;}
+.desk-hero .vid-nav{padding:10px;}
+.desk-hero .vid-nav a{font-size:6px;letter-spacing:.3em;}
+.desk-hero .vid-nav .sep{font-size:6px;}
+/* desktop footer (INSIGHT relocated here) */
+.desk-footer{background:var(--linen);border-top:0.5px solid rgba(44,44,43,.1);padding:18px 22px;display:flex;justify-content:space-between;align-items:center;}
+.desk-foot-left{display:flex;flex-direction:column;gap:5px;}
+.desk-foot-logo{font-family:var(--font-serif);font-weight:300;font-size:10px;letter-spacing:.12em;color:var(--ink);}
+.desk-foot-copy{font-size:4.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(44,44,43,.32);}
+.desk-foot-nav{display:flex;gap:16px;align-items:center;}
+.desk-foot-nav a{font-size:5.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--stone-soft);text-decoration:none;transition:color .5s ease;}
+.desk-foot-nav a:hover{color:var(--ink);}
+
+.fb-row{display:flex;gap:8px;flex-direction:column;max-width:780px;margin:20px auto 0;}
+</style>
+</head>
+<body>
+
+<p class="page-eyebrow">Flow &amp; Finish · Homepage v4.2</p>
+<p class="page-title">Nav Trimmed · Insight Relocated to Footer</p>
+<p class="page-sub">4 header links · Connect CTA · BREATH · VITALITY · FLOW · footer added</p>
+
+<div class="device-row">
+
+  <!-- ══ MOBILE ══ -->
+  <div class="device-wrap">
+    <span class="device-label">Mobile · 390px</span>
+    <div class="phone">
+      <div class="ph-sticky fade">
+        <span class="ph-logo">Flow &amp; Finish</span>
+        <i class="ti ti-menu-2" style="font-size:10px;color:var(--ink);"></i>
+      </div>
+      <div class="ph-hero">
+        <p class="ph-eyebrow fade fade-d1">Spatial Wellness · Design Curation</p>
+        <h1 class="ph-h1 fade fade-d2">Spaces Evolved<br>to Restore You.</h1>
+        <p class="ph-sub fade fade-d3">Transforming private<br>residences and retreat spaces<br>into health-first sanctuaries.</p>
+        <span class="ph-cta fade fade-d4">Begin the Evolution</span>
+      </div>
+      <div class="ph-video">
+        <video class="vid-fill" autoplay muted loop playsinline preload="auto">
+          <source src="assets/flow-finish-hero-mobile V2.mp4" type="video/mp4" media="(max-width: 767px)">"assets/flow-finish-hero-mobile V2.mp4" type="video/mp4" media="(max-width: 767px)"> 
+        </video>
+        <div class="vid-crystal"></div>
+        <nav class="vid-nav" aria-label="Methodology shortcuts">
+          <a href="#methodology">Breath</a><span class="sep">·</span><a href="#methodology">Vitality</a><span class="sep">·</span><a href="#methodology">Flow</a>
+        </nav>
+      </div>
+      <div class="ph-origin">
+        <div class="ph-portrait"><div class="ph-phead"></div><div class="ph-pbody"></div></div>
+        <div class="ph-otext">
+          <p class="ph-oeye">The Origin</p>
+          <p class="ph-oquote">"Slowing down is the ultimate modern luxury."</p>
+          <span class="ph-octa">Read Our Story</span>
+        </div>
+      </div>
+      <!-- footer with INSIGHT relocated -->
+      <footer class="ph-footer">
+        <div class="ph-foot-logo">Flow &amp; Finish</div>
+        <nav class="ph-foot-nav" aria-label="Footer">
+          <a href="#home">Home</a>
+          <a href="#methodology">Methodology</a>
+          <a href="#transformations">Transformations</a>
+          <a href="#hospitality">The Hospitality Edit</a>
+          <a href="#insight">Insight</a>
+          <a href="#connect">Connect</a>
+        </nav>
+        <div class="ph-foot-copy">© 2026 · West Village, NYC</div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- ══ IPAD ══ -->
+  <div class="device-wrap">
+    <span class="device-label">iPad · 768px</span>
+    <div class="ipad">
+      <div class="ipad-sticky fade">
+        <span class="ipad-logo">Flow &amp; Finish</span>
+        <div class="ipad-nav">
+          <span class="ipad-navitem">HOME</span>
+          <span class="ipad-navitem">METHODOLOGY</span>
+          <span class="ipad-navitem">TRANSFORMATIONS</span>
+          <span class="ipad-navitem">THE HOSPITALITY EDIT</span>
+        </div>
+      </div>
+      <div class="ipad-hero">
+        <p class="ipad-eyebrow fade fade-d1">Spatial Wellness · Design Curation</p>
+        <h1 class="ipad-h1 fade fade-d2">Spaces Evolved to Restore You.</h1>
+        <p class="ipad-sub fade fade-d3">Transforming private residences and retreat spaces<br>into health-first sanctuaries.</p>
+        <span class="ipad-cta fade fade-d4">Begin the Evolution</span>
+      </div>
+      <div class="ipad-video">
+        <video class="vid-fill" autoplay muted loop playsinline preload="auto">
+          <source src= "assets/flow-finish-hero-desktop V2.mp4" type="video/mp4">
+        </video>
+        <div class="vid-crystal"></div>
+        <nav class="vid-nav" aria-label="Methodology shortcuts">
+          <a href="#methodology">Breath</a><span class="sep">·</span><a href="#methodology">Vitality</a><span class="sep">·</span><a href="#methodology">Flow</a>
+        </nav>
+      </div>
+      <!-- footer with INSIGHT relocated -->
+      <footer class="ipad-footer">
+        <div class="ipad-foot-logo">Flow &amp; Finish</div>
+        <nav class="ipad-foot-nav" aria-label="Footer">
+          <a href="#insight">Insight</a>
+          <a href="#connect">Connect</a>
+          <a href="#privacy">Privacy</a>
+        </nav>
+      </footer>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══ DESKTOP ══ -->
+<div class="desk-wrap">
+  <span class="device-label" style="display:block;text-align:center;margin-bottom:8px;">Desktop · 1440px</span>
+  <div class="desktop">
+    <div class="desk-bar">
+      <div class="desk-dot r"></div><div class="desk-dot y"></div><div class="desk-dot g"></div>
+      <div class="desk-url"><span class="desk-urltext">https://flowandfinish.com</span></div>
+    </div>
+    <div class="desk-sticky">
+      <span class="desk-logo">Flow &amp; Finish</span>
+      <div class="desk-navgroup">
+        <div class="desk-nav">
+          <span class="desk-navitem active">HOME</span>
+          <span class="desk-navitem">METHODOLOGY</span>
+          <span class="desk-navitem">TRANSFORMATIONS</span>
+          <span class="desk-navitem">THE HOSPITALITY EDIT</span>
+        </div>
+        <span class="desk-cta-nav">Connect</span>
+      </div>
+    </div>
+    <div class="desk-hero">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="assets/flow-finish-hero-desktop V2.mp4" type="video/mp4">
+      </video>
+      <div class="vid-crystal"></div>
+      <div class="desk-hero-copy">
+        <p class="desk-eyebrow fade fade-d1">Spatial Wellness · Design Curation</p>
+        <h1 class="desk-h1 fade fade-d2">Spaces Evolved to Restore You.</h1>
+        <p class="desk-sub fade fade-d3">Transforming private residences and retreat spaces<br>into health-first sanctuaries.</p>
+        <div class="desk-hero-btns fade fade-d4">
+          <span class="desk-cta">Begin the Evolution</span>
+          <span class="desk-scta">Explore Methodologies</span>
+        </div>
+      </div>
+      <nav class="vid-nav on-dark" aria-label="Methodology shortcuts">
+        <a href="#methodology">Breath</a><span class="sep">·</span><a href="#methodology">Vitality</a><span class="sep">·</span><a href="#methodology">Flow</a>
+      </nav>
+    </div>
+    <!-- footer with INSIGHT relocated -->
+    <footer class="desk-footer">
+      <div class="desk-foot-left">
+        <span class="desk-foot-logo">Flow &amp; Finish</span>
+        <span class="desk-foot-copy">© 2026 · West Village, New York City</span>
+      </div>
+      <nav class="desk-foot-nav" aria-label="Footer">
+        <a href="#home">Home</a>
+        <a href="#methodology">Methodology</a>
+        <a href="#transformations">Transformations</a>
+        <a href="#hospitality">The Hospitality Edit</a>
+        <a href="#insight">Insight</a>
+        <a href="#connect">Connect</a>
+      </nav>
+    </footer>
+  </div>
+</div>
+
+<div class="fb-row">
+  <button onclick="sendPrompt('Homepage v4.2 approved — proceed to building all remaining pages: Methodology, Transformations, The Hospitality Edit, Insight, and Contact.')" style="width:100%;padding:14px;font-family:var(--font-sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;background:#2C2C2B;color:#F2EFE9;border:none;border-radius:4px;cursor:pointer;">Homepage approved · build remaining pages →</button>
+  <button onclick="sendPrompt('One more adjustment needed on v4.2.')" style="width:100%;padding:12px;font-family:var(--font-sans);font-size:10px;letter-spacing:.22em;text-transform:uppercase;background:#F9F1F0;color:#2C2C2B;border:0.5px solid rgba(44,44,43,.18);border-radius:4px;cursor:pointer;">One more adjustment →</button>
+</div>
+
+</body>
+</html>
