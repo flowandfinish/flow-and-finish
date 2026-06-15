@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Microsoft Clarity -->
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -14,291 +15,398 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-TKCRT8V5LE');
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flow & Finish — Homepage v4.2</title>
+<title>Flow &amp; Finish — Spatial Wellness &amp; Design Curation</title>
+<meta name="description" content="Transforming private residences and retreat spaces into health-first sanctuaries. West Village, New York City.">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LocalBusiness","name":"Flow & Finish","description":"Transforming private residences and retreat spaces into health-first sanctuaries. Manhattan, New York City.","url":"https://flowandfinish.com","address":{"@type":"PostalAddress","streetAddress":"West Village","addressLocality":"New York","addressRegion":"NY","postalCode":"10014","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":40.7335,"longitude":-74.0027},"priceRange":"$$$$$","serviceType":["Architectural Renovation","Spatial Design Layout","Healthy Home Inspections","Non-Toxic Building Materials","EMF Mitigation","Pre-Acquisition Strategy"],"areaServed":{"@type":"City","name":"New York City"}}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Tenor+Sans&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
 :root{
-  --ink:#2C2C2B;--linen:#F2EFE9;--linen-warm:#F9F1F0;
-  --dust:#ede9e2;--stone:#888780;--stone-soft:#a8a59d;
-  --blush:#D4b3ae;--sand:#d8d0c4;
+  --ink:#2C2C2B;
+  --linen:#F2EFE9;
+  --linen-warm:#F9F1F0;
+  --dust:#ede9e2;
+  --stone:#888780;
+  --stone-soft:#a8a59d;
+  --blush:#D4b3ae;
+  --sand:#d8d0c4;
   --font-serif:'Cormorant Garamond',serif;
   --font-sans:'Tenor Sans',sans-serif;
+  --header-h:64px;
 }
-body{font-family:var(--font-sans);background:#eae6df;padding:24px 16px 48px;}
 
-@keyframes ffFade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+html{scroll-behavior:smooth;scroll-padding-top:var(--header-h);}
+body{
+  font-family:var(--font-sans);
+  background:var(--linen);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+/* ── motion ──────────────────────────────────────── */
+@keyframes ffFade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
 .fade{animation:ffFade 1.4s cubic-bezier(.22,.61,.36,1) both;}
-.fade-d1{animation-delay:.15s;} .fade-d2{animation-delay:.3s;} .fade-d3{animation-delay:.45s;} .fade-d4{animation-delay:.6s;}
-.ph-cta,.ipad-cta,.desk-cta,.desk-cta-nav{transition:all .6s cubic-bezier(.22,.61,.36,1);}
-.ph-cta:hover,.ipad-cta:hover,.desk-cta:hover,.desk-cta-nav:hover{background:var(--linen);letter-spacing:.30em;}
+.fade-d1{animation-delay:.15s;} .fade-d2{animation-delay:.30s;}
+.fade-d3{animation-delay:.45s;} .fade-d4{animation-delay:.60s;}
 
-.page-eyebrow{font-size:8px;letter-spacing:.32em;text-transform:uppercase;color:var(--stone);text-align:center;margin-bottom:4px;}
-.page-title{font-family:var(--font-serif);font-weight:300;font-size:13px;color:var(--ink);text-align:center;margin-bottom:6px;letter-spacing:.06em;}
-.page-sub{font-size:7px;letter-spacing:.18em;text-transform:uppercase;color:var(--stone);text-align:center;margin-bottom:26px;}
-.device-row{display:flex;gap:20px;align-items:flex-start;justify-content:center;flex-wrap:wrap;margin-bottom:28px;}
-.device-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;}
-.device-label{font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:var(--stone);text-align:center;}
+/* ── accessibility ───────────────────────────────── */
+a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:2px;}
+.hero a:focus-visible{outline-color:#fff;}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--linen);padding:10px 16px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;z-index:200;}
+.skip-link:focus{left:8px;top:8px;}
 
-.vid-fill{width:100%;height:100%;object-fit:cover;object-position:center;display:block;background:var(--dust);}
-.vid-crystal{position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.18) 0%,rgba(226,232,234,.10) 100%);pointer-events:none;}
+/* ════════════════════════ HEADER / NAV ════════════════════════ */
+.site-header{
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  height:var(--header-h);
+  padding:0 clamp(1.25rem,4vw,3rem);
+  background:rgba(242,239,233,.94);
+  backdrop-filter:saturate(1.1) blur(6px);
+  border-bottom:0.5px solid rgba(44,44,43,.1);
+}
+.wordmark{
+  font-family:var(--font-serif);font-weight:300;
+  font-size:clamp(1.05rem,1.6vw,1.4rem);letter-spacing:.1em;
+  color:var(--ink);text-decoration:none;white-space:nowrap;
+}
+.primary-nav{display:none;align-items:center;gap:clamp(1.1rem,2vw,1.9rem);}
+.primary-nav a{
+  font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--stone-soft);text-decoration:none;white-space:nowrap;
+  transition:color .5s cubic-bezier(.22,.61,.36,1);
+}
+.primary-nav a:hover,.primary-nav a.active{color:var(--ink);}
+.connect-cta{
+  display:none;
+  font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;
+  background:var(--linen-warm);border:0.5px solid var(--sand);
+  color:var(--ink);text-decoration:none;padding:.55rem .95rem;
+  transition:all .5s cubic-bezier(.22,.61,.36,1);
+}
+.connect-cta:hover{background:#fff;letter-spacing:.28em;}
+.nav-toggle{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:38px;height:38px;background:none;border:none;cursor:pointer;
+  color:var(--ink);font-size:1.25rem;
+}
+.mobile-nav{
+  display:flex;flex-direction:column;
+  background:var(--linen-warm);
+  border-bottom:0.5px solid rgba(44,44,43,.1);
+  padding:.5rem 0;
+}
+.mobile-nav[hidden]{display:none;}
+.mobile-nav a{
+  font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ink);text-decoration:none;
+  padding:.85rem clamp(1.25rem,4vw,3rem);
+  border-top:0.5px solid rgba(44,44,43,.06);
+}
+.mobile-nav a:first-child{border-top:none;}
 
-/* footer nav links over video — light, minimal, legible */
-.vid-nav{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:7px;padding:7px 8px;z-index:3;}
-.vid-nav a{text-decoration:none;text-transform:uppercase;color:rgba(44,44,43,.45);cursor:pointer;transition:all .5s cubic-bezier(.22,.61,.36,1);}
-.vid-nav a:hover{color:rgba(44,44,43,.72);letter-spacing:.34em;}
-.vid-nav .sep{color:rgba(44,44,43,.3);}
-.vid-nav.on-dark a{color:rgba(255,255,255,.7);text-shadow:0 1px 4px rgba(44,44,43,.35);}
-.vid-nav.on-dark .sep{color:rgba(255,255,255,.45);}
+/* ════════════════════════ HERO ════════════════════════ */
+.hero{position:relative;display:flex;flex-direction:column;}
+.hero-copy{
+  order:1;background:var(--linen);text-align:center;
+  padding:clamp(2.75rem,8vw,4.5rem) clamp(1.5rem,6vw,2.5rem) clamp(2.5rem,7vw,4rem);
+}
+.eyebrow{
+  font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;
+  color:var(--stone);margin-bottom:1.15rem;line-height:1.9;
+}
+.hero-title{
+  font-family:var(--font-serif);font-weight:300;
+  font-size:clamp(2.1rem,5vw,4.25rem);line-height:1.12;
+  color:var(--ink);margin-bottom:1.15rem;
+}
+.lede{
+  font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--stone);line-height:2.3;margin-bottom:1.85rem;
+  max-width:34ch;margin-left:auto;margin-right:auto;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:1.1rem;justify-content:center;align-items:center;}
 
-/* ════════════════════════════════════════ MOBILE ════════════════════════════════════════ */
-.phone{width:162px;background:var(--linen);border-radius:20px;border:2px solid #c0bdb6;overflow:hidden;flex-shrink:0;box-shadow:0 10px 36px rgba(44,44,43,.14);}
-.ph-sticky{background:rgba(242,239,233,.97);padding:9px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:0.5px solid rgba(44,44,43,.08);}
-.ph-logo{font-family:var(--font-serif);font-weight:300;font-size:7.5px;letter-spacing:.1em;color:var(--ink);}
-.ph-hero{padding:20px 18px 26px;text-align:center;}
-.ph-eyebrow{font-size:5px;letter-spacing:.42em;text-transform:uppercase;color:var(--stone-soft);margin-bottom:10px;line-height:2;}
-.ph-h1{font-family:var(--font-serif);font-weight:300;font-size:17px;line-height:1.22;color:var(--ink);margin-bottom:10px;}
-.ph-sub{font-size:4.4px;letter-spacing:.2em;text-transform:uppercase;color:var(--stone-soft);line-height:2.4;margin-bottom:18px;font-weight:400;}
-.ph-cta{display:inline-block;background:var(--linen-warm);border:0.5px solid var(--sand);font-size:5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink);padding:7px 14px;}
-.ph-video{position:relative;width:100%;height:75px;max-height:75px;overflow:hidden;background:var(--dust);flex-shrink:0;display:block;}
-.ph-video .vid-nav a{font-size:5px;letter-spacing:.26em;}
-.ph-video .vid-nav .sep{font-size:5px;}
-.ph-origin{background:var(--linen-warm);padding:12px;display:flex;gap:8px;}
-.ph-portrait{width:34px;height:42px;background:#d4cbc0;border-radius:2px;flex-shrink:0;position:relative;overflow:hidden;}
-.ph-phead{width:13px;height:13px;background:#bbb5aa;border-radius:50%;position:absolute;top:6px;left:50%;transform:translateX(-50%);}
-.ph-pbody{width:26px;height:20px;background:#bbb5aa;border-radius:50% 50% 0 0;position:absolute;bottom:0;left:50%;transform:translateX(-50%);}
-.ph-otext{flex:1;}
-.ph-oeye{font-size:4.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--stone-soft);margin-bottom:5px;}
-.ph-oquote{font-family:var(--font-serif);font-style:italic;font-size:6.5px;color:var(--ink);line-height:1.55;margin-bottom:6px;}
-.ph-octa{font-size:4.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);border-bottom:0.5px solid var(--sand);padding-bottom:2px;}
-/* mobile footer (INSIGHT relocated here) */
-.ph-footer{background:var(--linen);border-top:0.5px solid rgba(44,44,43,.08);padding:14px 12px 16px;text-align:center;}
-.ph-foot-logo{font-family:var(--font-serif);font-weight:300;font-size:7px;letter-spacing:.1em;color:var(--ink);margin-bottom:8px;}
-.ph-foot-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:5px 8px;margin-bottom:8px;}
-.ph-foot-nav a{font-size:4px;letter-spacing:.18em;text-transform:uppercase;color:var(--stone-soft);text-decoration:none;}
-.ph-foot-copy{font-size:3.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(44,44,43,.3);}
+.cta{
+  display:inline-block;font-family:var(--font-sans);
+  text-transform:uppercase;letter-spacing:.24em;font-size:.68rem;
+  text-decoration:none;cursor:pointer;
+  transition:all .55s cubic-bezier(.22,.61,.36,1);
+}
+.cta--solid{
+  background:var(--linen-warm);border:0.5px solid var(--sand);
+  color:var(--ink);padding:.95rem 1.9rem;
+}
+.cta--solid:hover{background:#fff;letter-spacing:.3em;}
+.cta--text{
+  color:var(--ink);border-bottom:0.5px solid var(--sand);
+  padding-bottom:3px;
+}
+.cta--text:hover{letter-spacing:.3em;}
+.hero-actions .cta--text{display:none;} /* desktop only */
 
-/* ════════════════════════════════════════ IPAD ════════════════════════════════════════ */
-.ipad{width:320px;background:var(--linen);border-radius:14px;border:2.5px solid #c0bdb6;overflow:hidden;flex-shrink:0;box-shadow:0 10px 36px rgba(44,44,43,.14);}
-.ipad-sticky{background:rgba(242,239,233,.97);padding:10px 14px;display:flex;justify-content:space-between;align-items:center;border-bottom:0.5px solid rgba(44,44,43,.08);}
-.ipad-logo{font-family:var(--font-serif);font-weight:300;font-size:8px;letter-spacing:.08em;color:var(--ink);flex-shrink:0;}
-.ipad-nav{display:flex;gap:9px;align-items:center;}
-.ipad-navitem{font-size:3.8px;letter-spacing:.16em;text-transform:uppercase;color:var(--stone-soft);white-space:nowrap;}
-.ipad-hero{padding:26px 24px 30px;text-align:center;}
-.ipad-eyebrow{font-size:5.5px;letter-spacing:.46em;text-transform:uppercase;color:var(--stone-soft);margin-bottom:12px;line-height:2;}
-.ipad-h1{font-family:var(--font-serif);font-weight:300;font-size:22px;line-height:1.18;color:var(--ink);margin-bottom:12px;}
-.ipad-sub{font-size:4.6px;letter-spacing:.24em;text-transform:uppercase;color:var(--stone-soft);line-height:2.5;margin-bottom:20px;font-weight:400;}
-.ipad-cta{display:inline-block;background:var(--linen-warm);border:0.5px solid var(--sand);font-size:5.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink);padding:8px 18px;}
-.ipad-video{position:relative;width:100%;height:65px;max-height:65px;overflow:hidden;background:var(--dust);flex-shrink:0;display:block;}
-.ipad-video .vid-nav a{font-size:5px;letter-spacing:.26em;}
-.ipad-video .vid-nav .sep{font-size:5px;}
-/* ipad footer (INSIGHT relocated here) */
-.ipad-footer{background:var(--linen);border-top:0.5px solid rgba(44,44,43,.08);padding:14px 14px 16px;display:flex;justify-content:space-between;align-items:center;}
-.ipad-foot-logo{font-family:var(--font-serif);font-weight:300;font-size:7.5px;letter-spacing:.1em;color:var(--ink);}
-.ipad-foot-nav{display:flex;gap:9px;align-items:center;}
-.ipad-foot-nav a{font-size:3.8px;letter-spacing:.16em;text-transform:uppercase;color:var(--stone-soft);text-decoration:none;}
+.hero-media{
+  order:2;position:relative;
+  height:clamp(280px,42vh,420px);overflow:hidden;background:var(--dust);
+}
+.hero-video{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;display:block;background:var(--dust);
+}
+.hero-scrim{
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top,rgba(44,44,43,.38) 0%,rgba(44,44,43,0) 38%);
+}
+.methodology-pills{
+  position:absolute;bottom:0;left:0;right:0;z-index:3;
+  display:flex;justify-content:center;align-items:center;gap:.55rem;
+  padding:.85rem 1rem;
+}
+.methodology-pills a{
+  font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;
+  color:rgba(255,255,255,.82);text-decoration:none;
+  text-shadow:0 1px 4px rgba(44,44,43,.45);
+  transition:all .5s cubic-bezier(.22,.61,.36,1);
+}
+.methodology-pills a:hover{color:#fff;letter-spacing:.34em;}
+.methodology-pills .sep{color:rgba(255,255,255,.5);font-size:.62rem;}
 
-/* ════════════════════════════════════════ DESKTOP ════════════════════════════════════════ */
-.desk-wrap{width:100%;margin-bottom:4px;}
-.desktop{width:100%;background:var(--linen);border-radius:10px;border:2px solid #c0bdb6;overflow:hidden;box-shadow:0 12px 48px rgba(44,44,43,.18);}
-.desk-bar{height:22px;background:#dedad3;display:flex;align-items:center;padding:0 10px;gap:5px;border-bottom:0.5px solid rgba(44,44,43,.1);}
-.desk-dot{width:7px;height:7px;border-radius:50%;}
-.desk-dot.r{background:#e8a0a0;}.desk-dot.y{background:#e8d8a0;}.desk-dot.g{background:#a8d8a8;}
-.desk-url{flex:1;background:#fff;border-radius:3px;height:11px;margin:0 8px;display:flex;align-items:center;padding:0 7px;}
-.desk-urltext{font-size:6px;letter-spacing:.04em;color:var(--stone);}
-.desk-sticky{background:rgba(242,239,233,.97);padding:9px 22px;display:flex;justify-content:space-between;align-items:center;border-bottom:0.5px solid rgba(44,44,43,.1);}
-.desk-logo{font-family:var(--font-serif);font-weight:300;font-size:11px;letter-spacing:.12em;color:var(--ink);}
-.desk-navgroup{display:flex;align-items:center;gap:18px;}
-.desk-nav{display:flex;gap:14px;}
-.desk-navitem{font-size:5.8px;letter-spacing:.24em;text-transform:uppercase;color:var(--stone-soft);cursor:pointer;}
-.desk-navitem.active{color:var(--ink);border-bottom:0.5px solid var(--ink);padding-bottom:1px;}
-.desk-cta-nav{font-size:5.8px;letter-spacing:.24em;text-transform:uppercase;background:var(--linen-warm);border:0.5px solid var(--sand);color:var(--ink);padding:5px 11px;}
-.desk-hero{position:relative;width:100%;height:240px;overflow:hidden;background:var(--dust);}
-.desk-hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;background:var(--dust);}
-.desk-hero-copy{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 36px 30px;background:rgba(44,44,43,0.13);}
-.desk-eyebrow{font-size:6px;letter-spacing:.46em;text-transform:uppercase;color:rgba(255,255,255,.88);margin-bottom:12px;line-height:2;}
-.desk-h1{font-family:var(--font-serif);font-weight:300;font-size:34px;line-height:1.12;color:#fff;margin-bottom:14px;}
-.desk-sub{font-size:6px;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.78);line-height:2.2;margin-bottom:20px;font-weight:400;}
-.desk-hero-btns{display:flex;align-items:center;gap:16px;}
-.desk-cta{display:inline-block;background:rgba(249,241,240,.92);border:0.5px solid var(--sand);font-size:6.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);padding:9px 20px;}
-.desk-scta{font-size:6.5px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.85);border-bottom:0.5px solid rgba(255,255,255,.45);padding-bottom:1px;}
-.desk-hero .vid-nav{padding:10px;}
-.desk-hero .vid-nav a{font-size:6px;letter-spacing:.3em;}
-.desk-hero .vid-nav .sep{font-size:6px;}
-/* desktop footer (INSIGHT relocated here) */
-.desk-footer{background:var(--linen);border-top:0.5px solid rgba(44,44,43,.1);padding:18px 22px;display:flex;justify-content:space-between;align-items:center;}
-.desk-foot-left{display:flex;flex-direction:column;gap:5px;}
-.desk-foot-logo{font-family:var(--font-serif);font-weight:300;font-size:10px;letter-spacing:.12em;color:var(--ink);}
-.desk-foot-copy{font-size:4.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(44,44,43,.32);}
-.desk-foot-nav{display:flex;gap:16px;align-items:center;}
-.desk-foot-nav a{font-size:5.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--stone-soft);text-decoration:none;transition:color .5s ease;}
-.desk-foot-nav a:hover{color:var(--ink);}
+/* ════════════════════════ ORIGIN ════════════════════════ */
+.origin{
+  background:var(--linen-warm);text-align:center;
+  padding:clamp(3rem,9vw,5.5rem) clamp(1.5rem,6vw,2.5rem);
+}
+.origin-eyebrow{
+  font-size:.64rem;letter-spacing:.36em;text-transform:uppercase;
+  color:var(--stone-soft);margin-bottom:1.1rem;
+}
+.origin-quote{
+  font-family:var(--font-serif);font-style:italic;font-weight:300;
+  font-size:clamp(1.5rem,3.4vw,2.5rem);line-height:1.45;
+  color:var(--ink);margin-bottom:1.4rem;max-width:24ch;
+  margin-left:auto;margin-right:auto;
+}
+.origin-cta{font-size:.66rem;}
 
-.fb-row{display:flex;gap:8px;flex-direction:column;max-width:780px;margin:20px auto 0;}
+/* ════════════════════════ FOOTER ════════════════════════ */
+.site-footer{
+  background:var(--linen);
+  border-top:0.5px solid rgba(44,44,43,.1);
+  padding:clamp(2.25rem,6vw,2.75rem) clamp(1.5rem,5vw,3rem);
+  display:flex;flex-direction:column;align-items:center;gap:1.4rem;text-align:center;
+}
+.footer-brand{display:flex;flex-direction:column;gap:.5rem;}
+.footer-logo{
+  font-family:var(--font-serif);font-weight:300;
+  font-size:1.15rem;letter-spacing:.1em;color:var(--ink);
+}
+.footer-copy{
+  font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(44,44,43,.34);
+}
+.footer-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem 1.2rem;}
+.footer-nav a{
+  font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--stone-soft);text-decoration:none;
+  transition:color .5s ease;
+}
+.footer-nav a:hover{color:var(--ink);}
+
+/* ════════════════════════ ≥ 768px — iPad ════════════════════════ */
+@media (min-width:768px){
+  :root{--header-h:72px;}
+  .primary-nav{display:flex;}
+  .nav-toggle{display:none;}
+  .mobile-nav{display:none !important;}
+  .hero-media{height:clamp(360px,48vh,520px);}
+  .lede{max-width:46ch;}
+  .site-footer{
+    flex-direction:row;justify-content:space-between;align-items:center;
+    text-align:left;
+  }
+  .footer-nav{justify-content:flex-end;}
+}
+
+/* ════════════════════════ ≥ 1024px — Desktop (overlay hero) ════════════════════════ */
+@media (min-width:1024px){
+  .connect-cta{display:inline-block;}
+
+  .hero{min-height:78vh;max-height:780px;display:block;}
+  .hero-media{
+    order:0;position:absolute;inset:0;height:100%;
+  }
+  .hero-scrim{
+    background:linear-gradient(90deg,rgba(44,44,43,.62) 0%,rgba(44,44,43,.28) 50%,rgba(44,44,43,.06) 100%);
+  }
+  .hero-copy{
+    order:0;position:absolute;inset:0;background:transparent;
+    display:flex;flex-direction:column;justify-content:center;align-items:flex-start;
+    text-align:left;padding:0 clamp(3rem,6vw,6rem);z-index:2;
+  }
+  .eyebrow{color:rgba(255,255,255,.9);}
+  .hero-title{color:#fff;}
+  .lede{color:rgba(255,255,255,.82);margin-left:0;margin-right:0;}
+  .hero-actions{justify-content:flex-start;}
+  .hero-actions .cta--text{display:inline-block;}
+  .cta--solid{background:rgba(249,241,240,.94);}
+  .hero .cta--text{color:rgba(255,255,255,.9);border-bottom-color:rgba(255,255,255,.5);}
+  .methodology-pills{justify-content:center;padding:1.15rem;}
+  .methodology-pills a{font-size:.66rem;}
+}
+
+/* ════════════════════════ reduced motion ════════════════════════ */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .fade{animation:none;}
+  .cta,.primary-nav a,.connect-cta,.methodology-pills a,.footer-nav a{transition:none;}
+}
 </style>
 </head>
 <body>
 
-<p class="page-eyebrow">Flow &amp; Finish · Homepage v4.2</p>
-<p class="page-title">Nav Trimmed · Insight Relocated to Footer</p>
-<p class="page-sub">4 header links · Connect CTA · BREATH · VITALITY · FLOW · footer added</p>
+<a class="skip-link" href="#home">Skip to content</a>
 
+<header class="site-header">
+  <a href="#home" class="wordmark">Flow &amp; Finish</a>
+  <nav class="primary-nav" aria-label="Primary">
+    <a href="#home" class="active">Home</a>
+    <a href="#methodology">Methodology</a>
+    <a href="#transformations">Transformations</a>
+    <a href="#hospitality">The Hospitality Edit</a>
+  </nav>
+  <a href="#connect" class="connect-cta">Connect</a>
+  <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+    <i class="ti ti-menu-2" aria-hidden="true"></i>
+  </button>
+</header>
 
-  <!-- ══ MOBILE ══ -->
-    <span class="device-label">Mobile · 390px</span>
-    <div class="phone">
-      <div class="ph-sticky fade">
-        <span class="ph-logo">Flow &amp; Finish</span>
-        <i class="ti ti-menu-2" style="font-size:10px;color:var(--ink);"></i>
-      </div>
-      <div class="ph-hero">
-        <p class="ph-eyebrow fade fade-d1">Spatial Wellness · Design Curation</p>
-        <h1 class="ph-h1 fade fade-d2">Spaces Evolved<br>to Restore You.</h1>
-        <p class="ph-sub fade fade-d3">Transforming private<br>residences and retreat spaces<br>into health-first sanctuaries.</p>
-        <span class="ph-cta fade fade-d4">Begin the Evolution</span>
-      </div>
-      <div class="ph-video">
-    <video class="vid-fill" autoplay loop muted playsinline preload="auto">
-        <source src="flow-finish-hero-mobile-v2.mp4" type="video/mp4" media="(max-width: 767px)">
-        
-        <source src="flow-finish-hero-desktop-v2.mp4" type="video/mp4">
-        
-        Your browser does not support the video tag.
-    </video>
-</div>
-        <div class="ph-otext">
-          <p class="ph-oeye">The Origin</p>
-          <p class="ph-oquote">"Slowing down is the ultimate modern luxury."</p>
-          <span class="ph-octa">Read Our Story</span>
-        </div>
-      </div>
-      <!-- footer with INSIGHT relocated -->
-      <footer class="ph-footer">
-        <div class="ph-foot-logo">Flow &amp; Finish</div>
-        <nav class="ph-foot-nav" aria-label="Footer">
-          <a href="#home">Home</a>
-          <a href="#methodology">Methodology</a>
-          <a href="#transformations">Transformations</a>
-          <a href="#hospitality">The Hospitality Edit</a>
-          <a href="#insight">Insight</a>
-          <a href="#connect">Connect</a>
-        </nav>
-        <div class="ph-foot-copy">© 2026 · West Village, NYC</div>
-      </footer>
-    </div>
-  </div>
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile" hidden>
+  <a href="#home">Home</a>
+  <a href="#methodology">Methodology</a>
+  <a href="#transformations">Transformations</a>
+  <a href="#hospitality">The Hospitality Edit</a>
+  <a href="#insight">Insight</a>
+  <a href="#connect">Connect</a>
+</nav>
 
-  <!-- ══ IPAD ══ -->
-    <span class="device-label">iPad · 768px</span>
-    <div class="ipad">
-      <div class="ipad-sticky fade">
-        <span class="ipad-logo">Flow &amp; Finish</span>
-        <div class="ipad-nav">
-          <span class="ipad-navitem">HOME</span>
-          <span class="ipad-navitem">METHODOLOGY</span>
-          <span class="ipad-navitem">TRANSFORMATIONS</span>
-          <span class="ipad-navitem">THE HOSPITALITY EDIT</span>
-        </div>
-      </div>
-      <div class="ipad-hero">
-        <p class="ipad-eyebrow fade fade-d1">Spatial Wellness · Design Curation</p>
-        <h1 class="ipad-h1 fade fade-d2">Spaces Evolved to Restore You.</h1>
-        <p class="ipad-sub fade fade-d3">Transforming private residences and retreat spaces<br>into health-first sanctuaries.</p>
-        <span class="ipad-cta fade fade-d4">Begin the Evolution</span>
-      </div>
-      <div class="ipad-video">
-        <video class="vid-fill" autoplay muted loop playsinline preload="auto">
-          <source src= "assets/flow-finish-hero-desktop V2.mp4" type="video/mp4">
-        </video>
-        <div class="vid-crystal"></div>
-        <nav class="vid-nav" aria-label="Methodology shortcuts">
-          <a href="#methodology">Breath</a><span class="sep">·</span><a href="#methodology">Vitality</a><span class="sep">·</span><a href="#methodology">Flow</a>
-        </nav>
-      </div>
-      <!-- footer with INSIGHT relocated -->
-      <footer class="ipad-footer">
-        <div class="ipad-foot-logo">Flow &amp; Finish</div>
-        <nav class="ipad-foot-nav" aria-label="Footer">
-          <a href="#insight">Insight</a>
-          <a href="#connect">Connect</a>
-          <a href="#privacy">Privacy</a>
-        </nav>
-      </footer>
-    </div>
-  </div>
-
-</div>
-
-<!-- ══ DESKTOP ══ -->
-
-  <span class="device-label" style="display:block;text-align:center;margin-bottom:8px;">Desktop · 1440px</span>
-  <div class="desktop">
-    <div class="desk-bar">
-      <div class="desk-dot r"></div><div class="desk-dot y"></div><div class="desk-dot g"></div>
-      <div class="desk-url"><span class="desk-urltext">https://flowandfinish.com</span></div>
-    </div>
-    <div class="desk-sticky">
-      <span class="desk-logo">Flow &amp; Finish</span>
-      <div class="desk-navgroup">
-        <div class="desk-nav">
-          <span class="desk-navitem active">HOME</span>
-          <span class="desk-navitem">METHODOLOGY</span>
-          <span class="desk-navitem">TRANSFORMATIONS</span>
-          <span class="desk-navitem">THE HOSPITALITY EDIT</span>
-        </div>
-        <span class="desk-cta-nav">Connect</span>
-      </div>
-    </div>
-    <div class="desk-hero">
-      <video autoplay muted loop playsinline preload="auto">
-        <source src="assets/flow-finish-hero-desktop V2.mp4" type="video/mp4">
-      </video>
-      <div class="vid-crystal"></div>
-      <div class="desk-hero-copy">
-        <p class="desk-eyebrow fade fade-d1">Spatial Wellness · Design Curation</p>
-        <h1 class="desk-h1 fade fade-d2">Spaces Evolved to Restore You.</h1>
-        <p class="desk-sub fade fade-d3">Transforming private residences and retreat spaces<br>into health-first sanctuaries.</p>
-        <div class="desk-hero-btns fade fade-d4">
-          <span class="desk-cta">Begin the Evolution</span>
-          <span class="desk-scta">Explore Methodologies</span>
-        </div>
-      </div>
-      <nav class="vid-nav on-dark" aria-label="Methodology shortcuts">
+<main>
+  <section class="hero" id="home">
+    <div class="hero-media">
+      <video id="heroVideo" class="hero-video" autoplay muted loop playsinline preload="auto"></video>
+      <div class="hero-scrim"></div>
+      <nav class="methodology-pills" aria-label="Methodology">
         <a href="#methodology">Breath</a><span class="sep">·</span><a href="#methodology">Vitality</a><span class="sep">·</span><a href="#methodology">Flow</a>
       </nav>
     </div>
-    <!-- footer with INSIGHT relocated -->
-    <footer class="desk-footer">
-      <div class="desk-foot-left">
-        <span class="desk-foot-logo">Flow &amp; Finish</span>
-        <span class="desk-foot-copy">© 2026 · West Village, New York City</span>
+    <div class="hero-copy">
+      <p class="eyebrow fade fade-d1">Spatial Wellness · Design Curation</p>
+      <h1 class="hero-title fade fade-d2">Spaces Evolved to Restore You.</h1>
+      <p class="lede fade fade-d3">Transforming private residences and retreat spaces into health-first sanctuaries.</p>
+      <div class="hero-actions fade fade-d4">
+        <a href="#connect" class="cta cta--solid">Begin the Evolution</a>
+        <a href="#methodology" class="cta cta--text">Explore Methodologies</a>
       </div>
-      <nav class="desk-foot-nav" aria-label="Footer">
-        <a href="#home">Home</a>
-        <a href="#methodology">Methodology</a>
-        <a href="#transformations">Transformations</a>
-        <a href="#hospitality">The Hospitality Edit</a>
-        <a href="#insight">Insight</a>
-        <a href="#connect">Connect</a>
-      </nav>
-    </footer>
-  </div>
-</div>
+    </div>
+  </section>
 
-<div class="fb-row">
-  <button onclick="sendPrompt('Homepage v4.2 approved — proceed to building all remaining pages: Methodology, Transformations, The Hospitality Edit, Insight, and Contact.')" style="width:100%;padding:14px;font-family:var(--font-sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;background:#2C2C2B;color:#F2EFE9;border:none;border-radius:4px;cursor:pointer;">Homepage approved · build remaining pages →</button>
-  <button onclick="sendPrompt('One more adjustment needed on v4.2.')" style="width:100%;padding:12px;font-family:var(--font-sans);font-size:10px;letter-spacing:.22em;text-transform:uppercase;background:#F9F1F0;color:#2C2C2B;border:0.5px solid rgba(44,44,43,.18);border-radius:4px;cursor:pointer;">One more adjustment →</button>
-</div>
+  <section class="origin" id="insight">
+    <p class="origin-eyebrow">The Origin</p>
+    <blockquote class="origin-quote">"Slowing down is the ultimate modern luxury."</blockquote>
+    <a href="#insight" class="cta cta--text origin-cta">Read Our Story</a>
+  </section>
+</main>
+
+<footer class="site-footer" id="connect">
+  <div class="footer-brand">
+    <span class="footer-logo">Flow &amp; Finish</span>
+    <span class="footer-copy">© 2026 · West Village, New York City</span>
+  </div>
+  <nav class="footer-nav" aria-label="Footer">
+    <a href="#home">Home</a>
+    <a href="#methodology">Methodology</a>
+    <a href="#transformations">Transformations</a>
+    <a href="#hospitality">The Hospitality Edit</a>
+    <a href="#insight">Insight</a>
+    <a href="#connect">Connect</a>
+    <a href="#privacy">Privacy</a>
+  </nav>
+</footer>
+
+<script>
+/* ── Responsive hero video ─────────────────────────────────────────
+   Phone (< 768px)  → mobile cut
+   iPad + Desktop   → desktop cut (per design)
+   The `media` attribute on <source> is ignored by browsers, so we
+   swap the source in JS and only load one file per device.          */
+(function(){
+  var video      = document.getElementById('heroVideo');
+  var MOBILE_SRC = 'flow-finish-hero-mobile-v2.mp4';
+  var DESK_SRC   = 'flow-finish-hero-desktop-v2.mp4';
+  var mobileMQ   = window.matchMedia('(max-width: 767px)');
+  var reduceMQ   = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var current    = '';
+
+  function applySource(){
+    var wanted = mobileMQ.matches ? MOBILE_SRC : DESK_SRC;
+    if (wanted === current) return;
+    current = wanted;
+    video.src = wanted;
+    video.muted = true;       // belt-and-suspenders for iOS autoplay
+    video.load();
+    if (!reduceMQ.matches){
+      var p = video.play();
+      if (p && p.catch) p.catch(function(){}); // ignore autoplay blocks
+    }
+  }
+
+  applySource();
+
+  // React to breakpoint crossings (debounced) + orientation changes
+  var timer;
+  function onResize(){ clearTimeout(timer); timer = setTimeout(applySource, 200); }
+  if (mobileMQ.addEventListener) mobileMQ.addEventListener('change', applySource);
+  else if (mobileMQ.addListener) mobileMQ.addListener(applySource); // older Safari
+  window.addEventListener('resize', onResize);
+  window.addEventListener('orientationchange', applySource);
+})();
+
+/* ── Mobile menu toggle ─────────────────────────────────────────── */
+(function(){
+  var btn  = document.getElementById('navToggle');
+  var menu = document.getElementById('mobileNav');
+  var icon = btn.querySelector('i');
+
+  function setOpen(open){
+    menu.hidden = !open;
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    icon.className = open ? 'ti ti-x' : 'ti ti-menu-2';
+  }
+
+  btn.addEventListener('click', function(){
+    setOpen(menu.hidden);
+  });
+  // Close after tapping a link
+  menu.addEventListener('click', function(e){
+    if (e.target.tagName === 'A') setOpen(false);
+  });
+  // Close when resizing up into the desktop nav
+  window.addEventListener('resize', function(){
+    if (window.innerWidth >= 768 && !menu.hidden) setOpen(false);
+  });
+})();
+</script>
 
 </body>
 </html>
