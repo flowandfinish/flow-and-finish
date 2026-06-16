@@ -397,11 +397,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset
   btn.addEventListener('click', function(){
     setOpen(menu.hidden);
   });
-  // Close after tapping a link
   menu.addEventListener('click', function(e){
     if (e.target.tagName === 'A') setOpen(false);
   });
-  // Close when resizing up into the desktop nav
   window.addEventListener('resize', function(){
     if (window.innerWidth >= 768 && !menu.hidden) setOpen(false);
   });
