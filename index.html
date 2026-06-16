@@ -61,10 +61,13 @@ body{
 .fade-d3{animation-delay:.45s;} .fade-d4{animation-delay:.60s;}
 
 /* ── accessibility ───────────────────────────────── */
-a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:2px;}
+a:focus-visible,label:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:2px;}
 .hero a:focus-visible{outline-color:#fff;}
 .skip-link{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--linen);padding:10px 16px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;z-index:200;}
 .skip-link:focus{left:8px;top:8px;}
+
+/* visually-hidden checkbox that drives the mobile menu (no JS needed) */
+.nav-toggle-cb{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
 
 /* ════════════════════════ HEADER / NAV ════════════════════════ */
 .site-header{
@@ -98,16 +101,20 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset
 .connect-cta:hover{background:#fff;letter-spacing:.28em;}
 .nav-toggle{
   display:inline-flex;align-items:center;justify-content:center;
-  width:38px;height:38px;background:none;border:none;cursor:pointer;
-  color:var(--ink);font-size:1.25rem;
+  width:38px;height:38px;cursor:pointer;color:var(--ink);font-size:1.25rem;
 }
+.nav-toggle .icon-close{display:none;}
+.nav-toggle-cb:checked ~ .site-header .nav-toggle .icon-open{display:none;}
+.nav-toggle-cb:checked ~ .site-header .nav-toggle .icon-close{display:inline;}
+.nav-toggle-cb:focus-visible ~ .site-header .nav-toggle{outline:2px solid var(--ink);outline-offset:3px;border-radius:2px;}
+
 .mobile-nav{
-  display:flex;flex-direction:column;
+  display:none;flex-direction:column;
   background:var(--linen-warm);
   border-bottom:0.5px solid rgba(44,44,43,.1);
   padding:.5rem 0;
 }
-.mobile-nav[hidden]{display:none;}
+.nav-toggle-cb:checked ~ .mobile-nav{display:flex;}
 .mobile-nav a{
   font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
   color:var(--ink);text-decoration:none;
@@ -160,10 +167,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset
   order:2;position:relative;
   height:clamp(280px,42vh,420px);overflow:hidden;background:var(--dust);
 }
+/* TWO video tags, swapped by CSS — no JavaScript required */
 .hero-video{
   position:absolute;inset:0;width:100%;height:100%;
   object-fit:cover;object-position:center;display:block;background:var(--dust);
 }
+.hero-video--desktop{display:none;}      /* phone shows the mobile cut */
 .hero-scrim{
   position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(to top,rgba(44,44,43,.38) 0%,rgba(44,44,43,0) 38%);
@@ -228,7 +237,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset
   :root{--header-h:72px;}
   .primary-nav{display:flex;}
   .nav-toggle{display:none;}
-  .mobile-nav{display:none !important;}
+  .mobile-nav,.nav-toggle-cb:checked ~ .mobile-nav{display:none !important;}
+  .hero-video--mobile{display:none;}     /* iPad + desktop use the desktop cut */
+  .hero-video--desktop{display:block;}
   .hero-media{height:clamp(360px,48vh,520px);}
   .lede{max-width:46ch;}
   .site-footer{
@@ -243,9 +254,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset
   .connect-cta{display:inline-block;}
 
   .hero{min-height:78vh;max-height:780px;display:block;}
-  .hero-media{
-    order:0;position:absolute;inset:0;height:100%;
-  }
+  .hero-media{order:0;position:absolute;inset:0;height:100%;}
   .hero-scrim{
     background:linear-gradient(90deg,rgba(44,44,43,.62) 0%,rgba(44,44,43,.28) 50%,rgba(44,44,43,.06) 100%);
   }
@@ -277,6 +286,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset
 
 <a class="skip-link" href="#home">Skip to content</a>
 
+<!-- drives the mobile menu with zero JavaScript -->
+<input type="checkbox" id="nav-toggle-cb" class="nav-toggle-cb" aria-label="Toggle navigation menu">
+
 <header class="site-header">
   <a href="#home" class="wordmark">Flow &amp; Finish</a>
   <nav class="primary-nav" aria-label="Primary">
@@ -286,12 +298,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset
     <a href="#hospitality">The Hospitality Edit</a>
   </nav>
   <a href="#connect" class="connect-cta">Connect</a>
-  <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
-    <i class="ti ti-menu-2" aria-hidden="true"></i>
-  </button>
+  <label for="nav-toggle-cb" class="nav-toggle" tabindex="0" aria-label="Open menu">
+    <i class="ti ti-menu-2 icon-open" aria-hidden="true"></i>
+    <i class="ti ti-x icon-close" aria-hidden="true"></i>
+  </label>
 </header>
 
-<nav class="mobile-nav" id="mobileNav" aria-label="Mobile" hidden>
+<nav class="mobile-nav" aria-label="Mobile">
   <a href="#home">Home</a>
   <a href="#methodology">Methodology</a>
   <a href="#transformations">Transformations</a>
@@ -303,7 +316,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset
 <main>
   <section class="hero" id="home">
     <div class="hero-media">
-      <video id="heroVideo" class="hero-video" autoplay muted loop playsinline preload="auto"></video>
+      <video class="hero-video hero-video--mobile" autoplay muted loop playsinline preload="auto">
+        <source src="flow-finish-hero-mobile-v2.mp4" type="video/mp4">
+      </video>
+      <video class="hero-video hero-video--desktop" autoplay muted loop playsinline preload="auto">
+        <source src="flow-finish-hero-desktop-v2.mp4" type="video/mp4">
+      </video>
       <div class="hero-scrim"></div>
       <nav class="methodology-pills" aria-label="Methodology">
         <a href="#methodology">Breath</a><span class="sep">·</span><a href="#methodology">Vitality</a><span class="sep">·</span><a href="#methodology">Flow</a>
@@ -343,68 +361,733 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset
   </nav>
 </footer>
 
-<script>
-/* ── Responsive hero video ─────────────────────────────────────────
-   Phone (< 768px)  → mobile cut
-   iPad + Desktop   → desktop cut (per design)
-   The `media` attribute on <source> is ignored by browsers, so we
-   swap the source in JS and only load one file per device.          */
-(function(){
-  var video      = document.getElementById('heroVideo');
-  var MOBILE_SRC = 'flow-finish-hero-mobile-v2.mp4';
-  var DESK_SRC   = 'flow-finish-hero-desktop-v2.mp4';
-  var mobileMQ   = window.matchMedia('(max-width: 767px)');
-  var reduceMQ   = window.matchMedia('(prefers-reduced-motion: reduce)');
-  var current    = '';
-
-  function applySource(){
-    var wanted = mobileMQ.matches ? MOBILE_SRC : DESK_SRC;
-    if (wanted === current) return;
-    current = wanted;
-    video.src = wanted;
-    video.muted = true;       // belt-and-suspenders for iOS autoplay
-    video.load();
-    if (!reduceMQ.matches){
-      var p = video.play();
-      if (p && p.catch) p.catch(function(){}); // ignore autoplay blocks
-    }
-  }
-
-  applySource();
-
-  // React to breakpoint crossings (debounced) + orientation changes
-  var timer;
-  function onResize(){ clearTimeout(timer); timer = setTimeout(applySource, 200); }
-  if (mobileMQ.addEventListener) mobileMQ.addEventListener('change', applySource);
-  else if (mobileMQ.addListener) mobileMQ.addListener(applySource); // older Safari
-  window.addEventListener('resize', onResize);
-  window.addEventListener('orientationchange', applySource);
-})();
-
-/* ── Mobile menu toggle ─────────────────────────────────────────── */
-(function(){
-  var btn  = document.getElementById('navToggle');
-  var menu = document.getElementById('mobileNav');
-  var icon = btn.querySelector('i');
-
-  function setOpen(open){
-    menu.hidden = !open;
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    icon.className = open ? 'ti ti-x' : 'ti ti-menu-2';
-  }
-
-  btn.addEventListener('click', function(){
-    setOpen(menu.hidden);
-  });
-  menu.addEventListener('click', function(e){
-    if (e.target.tagName === 'A') setOpen(false);
-  });
-  window.addEventListener('resize', function(){
-    if (window.innerWidth >= 768 && !menu.hidden) setOpen(false);
-  });
-})();
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x7llgdahcu");
 </script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TKCRT8V5LE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TKCRT8V5LE');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flow &amp; Finish — Spatial Wellness &amp; Design Curation</title>
+<meta name="description" content="Transforming private residences and retreat spaces into health-first sanctuaries. West Village, New York City.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Flow & Finish","description":"Transforming private residences and retreat spaces into health-first sanctuaries. Manhattan, New York City.","url":"https://flowandfinish.com","address":{"@type":"PostalAddress","streetAddress":"West Village","addressLocality":"New York","addressRegion":"NY","postalCode":"10014","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":40.7335,"longitude":-74.0027},"priceRange":"$$$$$","serviceType":["Architectural Renovation","Spatial Design Layout","Healthy Home Inspections","Non-Toxic Building Materials","EMF Mitigation","Pre-Acquisition Strategy"],"areaServed":{"@type":"City","name":"New York City"}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Tenor+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+:root{
+  --ink:#2C2C2B;
+  --linen:#F2EFE9;
+  --linen-warm:#F9F1F0;
+  --dust:#ede9e2;
+  --stone:#888780;
+  --stone-soft:#a8a59d;
+  --blush:#D4b3ae;
+  --sand:#d8d0c4;
+  --font-serif:'Cormorant Garamond',serif;
+  --font-sans:'Tenor Sans',sans-serif;
+  --header-h:64px;
+}
+
+html{scroll-behavior:smooth;scroll-padding-top:var(--header-h);}
+body{
+  font-family:var(--font-sans);
+  background:var(--linen);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+/* ── motion ──────────────────────────────────────── */
+@keyframes ffFade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.fade{animation:ffFade 1.4s cubic-bezier(.22,.61,.36,1) both;}
+.fade-d1{animation-delay:.15s;} .fade-d2{animation-delay:.30s;}
+.fade-d3{animation-delay:.45s;} .fade-d4{animation-delay:.60s;}
+
+/* ── accessibility ───────────────────────────────── */
+a:focus-visible,label:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:2px;}
+.hero a:focus-visible{outline-color:#fff;}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--linen);padding:10px 16px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;z-index:200;}
+.skip-link:focus{left:8px;top:8px;}
+
+/* visually-hidden checkbox that drives the mobile menu (no JS needed) */
+.nav-toggle-cb{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+
+/* ════════════════════════ HEADER / NAV ════════════════════════ */
+.site-header{
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  height:var(--header-h);
+  padding:0 clamp(1.25rem,4vw,3rem);
+  background:rgba(242,239,233,.94);
+  backdrop-filter:saturate(1.1) blur(6px);
+  border-bottom:0.5px solid rgba(44,44,43,.1);
+}
+.wordmark{
+  font-family:var(--font-serif);font-weight:300;
+  font-size:clamp(1.05rem,1.6vw,1.4rem);letter-spacing:.1em;
+  color:var(--ink);text-decoration:none;white-space:nowrap;
+}
+.primary-nav{display:none;align-items:center;gap:clamp(1.1rem,2vw,1.9rem);}
+.primary-nav a{
+  font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--stone-soft);text-decoration:none;white-space:nowrap;
+  transition:color .5s cubic-bezier(.22,.61,.36,1);
+}
+.primary-nav a:hover,.primary-nav a.active{color:var(--ink);}
+.connect-cta{
+  display:none;
+  font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;
+  background:var(--linen-warm);border:0.5px solid var(--sand);
+  color:var(--ink);text-decoration:none;padding:.55rem .95rem;
+  transition:all .5s cubic-bezier(.22,.61,.36,1);
+}
+.connect-cta:hover{background:#fff;letter-spacing:.28em;}
+.nav-toggle{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:38px;height:38px;cursor:pointer;color:var(--ink);font-size:1.25rem;
+}
+.nav-toggle .icon-close{display:none;}
+.nav-toggle-cb:checked ~ .site-header .nav-toggle .icon-open{display:none;}
+.nav-toggle-cb:checked ~ .site-header .nav-toggle .icon-close{display:inline;}
+.nav-toggle-cb:focus-visible ~ .site-header .nav-toggle{outline:2px solid var(--ink);outline-offset:3px;border-radius:2px;}
+
+.mobile-nav{
+  display:none;flex-direction:column;
+  background:var(--linen-warm);
+  border-bottom:0.5px solid rgba(44,44,43,.1);
+  padding:.5rem 0;
+}
+.nav-toggle-cb:checked ~ .mobile-nav{display:flex;}
+.mobile-nav a{
+  font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ink);text-decoration:none;
+  padding:.85rem clamp(1.25rem,4vw,3rem);
+  border-top:0.5px solid rgba(44,44,43,.06);
+}
+.mobile-nav a:first-child{border-top:none;}
+
+/* ════════════════════════ HERO ════════════════════════ */
+.hero{position:relative;display:flex;flex-direction:column;}
+.hero-copy{
+  order:1;background:var(--linen);text-align:center;
+  padding:clamp(2.75rem,8vw,4.5rem) clamp(1.5rem,6vw,2.5rem) clamp(2.5rem,7vw,4rem);
+}
+.eyebrow{
+  font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;
+  color:var(--stone);margin-bottom:1.15rem;line-height:1.9;
+}
+.hero-title{
+  font-family:var(--font-serif);font-weight:300;
+  font-size:clamp(2.1rem,5vw,4.25rem);line-height:1.12;
+  color:var(--ink);margin-bottom:1.15rem;
+}
+.lede{
+  font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--stone);line-height:2.3;margin-bottom:1.85rem;
+  max-width:34ch;margin-left:auto;margin-right:auto;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:1.1rem;justify-content:center;align-items:center;}
+
+.cta{
+  display:inline-block;font-family:var(--font-sans);
+  text-transform:uppercase;letter-spacing:.24em;font-size:.68rem;
+  text-decoration:none;cursor:pointer;
+  transition:all .55s cubic-bezier(.22,.61,.36,1);
+}
+.cta--solid{
+  background:var(--linen-warm);border:0.5px solid var(--sand);
+  color:var(--ink);padding:.95rem 1.9rem;
+}
+.cta--solid:hover{background:#fff;letter-spacing:.3em;}
+.cta--text{
+  color:var(--ink);border-bottom:0.5px solid var(--sand);
+  padding-bottom:3px;
+}
+.cta--text:hover{letter-spacing:.3em;}
+.hero-actions .cta--text{display:none;} /* desktop only */
+
+.hero-media{
+  order:2;position:relative;
+  height:clamp(280px,42vh,420px);overflow:hidden;background:var(--dust);
+}
+/* TWO video tags, swapped by CSS — no JavaScript required */
+.hero-video{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;display:block;background:var(--dust);
+}
+.hero-video--desktop{display:none;}      /* phone shows the mobile cut */
+.hero-scrim{
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top,rgba(44,44,43,.38) 0%,rgba(44,44,43,0) 38%);
+}
+.methodology-pills{
+  position:absolute;bottom:0;left:0;right:0;z-index:3;
+  display:flex;justify-content:center;align-items:center;gap:.55rem;
+  padding:.85rem 1rem;
+}
+.methodology-pills a{
+  font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;
+  color:rgba(255,255,255,.82);text-decoration:none;
+  text-shadow:0 1px 4px rgba(44,44,43,.45);
+  transition:all .5s cubic-bezier(.22,.61,.36,1);
+}
+.methodology-pills a:hover{color:#fff;letter-spacing:.34em;}
+.methodology-pills .sep{color:rgba(255,255,255,.5);font-size:.62rem;}
+
+/* ════════════════════════ ORIGIN ════════════════════════ */
+.origin{
+  background:var(--linen-warm);text-align:center;
+  padding:clamp(3rem,9vw,5.5rem) clamp(1.5rem,6vw,2.5rem);
+}
+.origin-eyebrow{
+  font-size:.64rem;letter-spacing:.36em;text-transform:uppercase;
+  color:var(--stone-soft);margin-bottom:1.1rem;
+}
+.origin-quote{
+  font-family:var(--font-serif);font-style:italic;font-weight:300;
+  font-size:clamp(1.5rem,3.4vw,2.5rem);line-height:1.45;
+  color:var(--ink);margin-bottom:1.4rem;max-width:24ch;
+  margin-left:auto;margin-right:auto;
+}
+.origin-cta{font-size:.66rem;}
+
+/* ════════════════════════ FOOTER ════════════════════════ */
+.site-footer{
+  background:var(--linen);
+  border-top:0.5px solid rgba(44,44,43,.1);
+  padding:clamp(2.25rem,6vw,2.75rem) clamp(1.5rem,5vw,3rem);
+  display:flex;flex-direction:column;align-items:center;gap:1.4rem;text-align:center;
+}
+.footer-brand{display:flex;flex-direction:column;gap:.5rem;}
+.footer-logo{
+  font-family:var(--font-serif);font-weight:300;
+  font-size:1.15rem;letter-spacing:.1em;color:var(--ink);
+}
+.footer-copy{
+  font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(44,44,43,.34);
+}
+.footer-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem 1.2rem;}
+.footer-nav a{
+  font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--stone-soft);text-decoration:none;
+  transition:color .5s ease;
+}
+.footer-nav a:hover{color:var(--ink);}
+
+/* ════════════════════════ ≥ 768px — iPad ════════════════════════ */
+@media (min-width:768px){
+  :root{--header-h:72px;}
+  .primary-nav{display:flex;}
+  .nav-toggle{display:none;}
+  .mobile-nav,.nav-toggle-cb:checked ~ .mobile-nav{display:none !important;}
+  .hero-video--mobile{display:none;}     /* iPad + desktop use the desktop cut */
+  .hero-video--desktop{display:block;}
+  .hero-media{height:clamp(360px,48vh,520px);}
+  .lede{max-width:46ch;}
+  .site-footer{
+    flex-direction:row;justify-content:space-between;align-items:center;
+    text-align:left;
+  }
+  .footer-nav{justify-content:flex-end;}
+}
+
+/* ════════════════════════ ≥ 1024px — Desktop (overlay hero) ════════════════════════ */
+@media (min-width:1024px){
+  .connect-cta{display:inline-block;}
+
+  .hero{min-height:78vh;max-height:780px;display:block;}
+  .hero-media{order:0;position:absolute;inset:0;height:100%;}
+  .hero-scrim{
+    background:linear-gradient(90deg,rgba(44,44,43,.62) 0%,rgba(44,44,43,.28) 50%,rgba(44,44,43,.06) 100%);
+  }
+  .hero-copy{
+    order:0;position:absolute;inset:0;background:transparent;
+    display:flex;flex-direction:column;justify-content:center;align-items:flex-start;
+    text-align:left;padding:0 clamp(3rem,6vw,6rem);z-index:2;
+  }
+  .eyebrow{color:rgba(255,255,255,.9);}
+  .hero-title{color:#fff;}
+  .lede{color:rgba(255,255,255,.82);margin-left:0;margin-right:0;}
+  .hero-actions{justify-content:flex-start;}
+  .hero-actions .cta--text{display:inline-block;}
+  .cta--solid{background:rgba(249,241,240,.94);}
+  .hero .cta--text{color:rgba(255,255,255,.9);border-bottom-color:rgba(255,255,255,.5);}
+  .methodology-pills{justify-content:center;padding:1.15rem;}
+  .methodology-pills a{font-size:.66rem;}
+}
+
+/* ════════════════════════ reduced motion ════════════════════════ */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .fade{animation:none;}
+  .cta,.primary-nav a,.connect-cta,.methodology-pills a,.footer-nav a{transition:none;}
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#home">Skip to content</a>
+
+<!-- drives the mobile menu with zero JavaScript -->
+<input type="checkbox" id="nav-toggle-cb" class="nav-toggle-cb" aria-label="Toggle navigation menu">
+
+<header class="site-header">
+  <a href="#home" class="wordmark">Flow &amp; Finish</a>
+  <nav class="primary-nav" aria-label="Primary">
+    <a href="#home" class="active">Home</a>
+    <a href="#methodology">Methodology</a>
+    <a href="#transformations">Transformations</a>
+    <a href="#hospitality">The Hospitality Edit</a>
+  </nav>
+  <a href="#connect" class="connect-cta">Connect</a>
+  <label for="nav-toggle-cb" class="nav-toggle" tabindex="0" aria-label="Open menu">
+    <i class="ti ti-menu-2 icon-open" aria-hidden="true"></i>
+    <i class="ti ti-x icon-close" aria-hidden="true"></i>
+  </label>
+</header>
+
+<nav class="mobile-nav" aria-label="Mobile">
+  <a href="#home">Home</a>
+  <a href="#methodology">Methodology</a>
+  <a href="#transformations">Transformations</a>
+  <a href="#hospitality">The Hospitality Edit</a>
+  <a href="#insight">Insight</a>
+  <a href="#connect">Connect</a>
+</nav>
+
+<main>
+  <section class="hero" id="home">
+    <div class="hero-media">
+      <video class="hero-video hero-video--mobile" autoplay muted loop playsinline preload="auto">
+        <source src="flow-finish-hero-mobile-v2.mp4" type="video/mp4">
+      </video>
+      <video class="hero-video hero-video--desktop" autoplay muted loop playsinline preload="auto">
+        <source src="flow-finish-hero-desktop-v2.mp4" type="video/mp4">
+      </video>
+      <div class="hero-scrim"></div>
+      <nav class="methodology-pills" aria-label="Methodology">
+        <a href="#methodology">Breath</a><span class="sep">·</span><a href="#methodology">Vitality</a><span class="sep">·</span><a href="#methodology">Flow</a>
+      </nav>
+    </div>
+    <div class="hero-copy">
+      <p class="eyebrow fade fade-d1">Spatial Wellness · Design Curation</p>
+      <h1 class="hero-title fade fade-d2">Spaces Evolved to Restore You.</h1>
+      <p class="lede fade fade-d3">Transforming private residences and retreat spaces into health-first sanctuaries.</p>
+      <div class="hero-actions fade fade-d4">
+        <a href="#connect" class="cta cta--solid">Begin the Evolution</a>
+        <a href="#methodology" class="cta cta--text">Explore Methodologies</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="origin" id="insight">
+    <p class="origin-eyebrow">The Origin</p>
+    <blockquote class="origin-quote">"Slowing down is the ultimate modern luxury."</blockquote>
+    <a href="#insight" class="cta cta--text origin-cta">Read Our Story</a>
+  </section>
+</main>
+
+<footer class="site-footer" id="connect">
+  <div class="footer-brand">
+    <span class="footer-logo">Flow &amp; Finish</span>
+    <span class="footer-copy">© 2026 · West Village, New York City</span>
+  </div>
+  <nav class="footer-nav" aria-label="Footer">
+    <a href="#home">Home</a>
+    <a href="#methodology">Methodology</a>
+    <a href="#transformations">Transformations</a>
+    <a href="#hospitality">The Hospitality Edit</a>
+    <a href="#insight">Insight</a>
+    <a href="#connect">Connect</a>
+    <a href="#privacy">Privacy</a>
+  </nav>
+</footer>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x7llgdahcu");
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TKCRT8V5LE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TKCRT8V5LE');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flow &amp; Finish — Spatial Wellness &amp; Design Curation</title>
+<meta name="description" content="Transforming private residences and retreat spaces into health-first sanctuaries. West Village, New York City.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Flow & Finish","description":"Transforming private residences and retreat spaces into health-first sanctuaries. Manhattan, New York City.","url":"https://flowandfinish.com","address":{"@type":"PostalAddress","streetAddress":"West Village","addressLocality":"New York","addressRegion":"NY","postalCode":"10014","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":40.7335,"longitude":-74.0027},"priceRange":"$$$$$","serviceType":["Architectural Renovation","Spatial Design Layout","Healthy Home Inspections","Non-Toxic Building Materials","EMF Mitigation","Pre-Acquisition Strategy"],"areaServed":{"@type":"City","name":"New York City"}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Tenor+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+:root{
+  --ink:#2C2C2B;
+  --linen:#F2EFE9;
+  --linen-warm:#F9F1F0;
+  --dust:#ede9e2;
+  --stone:#888780;
+  --stone-soft:#a8a59d;
+  --blush:#D4b3ae;
+  --sand:#d8d0c4;
+  --font-serif:'Cormorant Garamond',serif;
+  --font-sans:'Tenor Sans',sans-serif;
+  --header-h:64px;
+}
+
+html{scroll-behavior:smooth;scroll-padding-top:var(--header-h);}
+body{
+  font-family:var(--font-sans);
+  background:var(--linen);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+/* ── motion ──────────────────────────────────────── */
+@keyframes ffFade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.fade{animation:ffFade 1.4s cubic-bezier(.22,.61,.36,1) both;}
+.fade-d1{animation-delay:.15s;} .fade-d2{animation-delay:.30s;}
+.fade-d3{animation-delay:.45s;} .fade-d4{animation-delay:.60s;}
+
+/* ── accessibility ───────────────────────────────── */
+a:focus-visible,label:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:2px;}
+.hero a:focus-visible{outline-color:#fff;}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--linen);padding:10px 16px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;z-index:200;}
+.skip-link:focus{left:8px;top:8px;}
+
+/* visually-hidden checkbox that drives the mobile menu (no JS needed) */
+.nav-toggle-cb{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+
+/* ════════════════════════ HEADER / NAV ════════════════════════ */
+.site-header{
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  height:var(--header-h);
+  padding:0 clamp(1.25rem,4vw,3rem);
+  background:rgba(242,239,233,.94);
+  backdrop-filter:saturate(1.1) blur(6px);
+  border-bottom:0.5px solid rgba(44,44,43,.1);
+}
+.wordmark{
+  font-family:var(--font-serif);font-weight:300;
+  font-size:clamp(1.05rem,1.6vw,1.4rem);letter-spacing:.1em;
+  color:var(--ink);text-decoration:none;white-space:nowrap;
+}
+.primary-nav{display:none;align-items:center;gap:clamp(1.1rem,2vw,1.9rem);}
+.primary-nav a{
+  font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--stone-soft);text-decoration:none;white-space:nowrap;
+  transition:color .5s cubic-bezier(.22,.61,.36,1);
+}
+.primary-nav a:hover,.primary-nav a.active{color:var(--ink);}
+.connect-cta{
+  display:none;
+  font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;
+  background:var(--linen-warm);border:0.5px solid var(--sand);
+  color:var(--ink);text-decoration:none;padding:.55rem .95rem;
+  transition:all .5s cubic-bezier(.22,.61,.36,1);
+}
+.connect-cta:hover{background:#fff;letter-spacing:.28em;}
+.nav-toggle{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:38px;height:38px;cursor:pointer;color:var(--ink);font-size:1.25rem;
+}
+.nav-toggle .icon-close{display:none;}
+.nav-toggle-cb:checked ~ .site-header .nav-toggle .icon-open{display:none;}
+.nav-toggle-cb:checked ~ .site-header .nav-toggle .icon-close{display:inline;}
+.nav-toggle-cb:focus-visible ~ .site-header .nav-toggle{outline:2px solid var(--ink);outline-offset:3px;border-radius:2px;}
+
+.mobile-nav{
+  display:none;flex-direction:column;
+  background:var(--linen-warm);
+  border-bottom:0.5px solid rgba(44,44,43,.1);
+  padding:.5rem 0;
+}
+.nav-toggle-cb:checked ~ .mobile-nav{display:flex;}
+.mobile-nav a{
+  font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ink);text-decoration:none;
+  padding:.85rem clamp(1.25rem,4vw,3rem);
+  border-top:0.5px solid rgba(44,44,43,.06);
+}
+.mobile-nav a:first-child{border-top:none;}
+
+/* ════════════════════════ HERO ════════════════════════ */
+.hero{position:relative;display:flex;flex-direction:column;}
+.hero-copy{
+  order:1;background:var(--linen);text-align:center;
+  padding:clamp(2.75rem,8vw,4.5rem) clamp(1.5rem,6vw,2.5rem) clamp(2.5rem,7vw,4rem);
+}
+.eyebrow{
+  font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;
+  color:var(--stone);margin-bottom:1.15rem;line-height:1.9;
+}
+.hero-title{
+  font-family:var(--font-serif);font-weight:300;
+  font-size:clamp(2.1rem,5vw,4.25rem);line-height:1.12;
+  color:var(--ink);margin-bottom:1.15rem;
+}
+.lede{
+  font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--stone);line-height:2.3;margin-bottom:1.85rem;
+  max-width:34ch;margin-left:auto;margin-right:auto;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:1.1rem;justify-content:center;align-items:center;}
+
+.cta{
+  display:inline-block;font-family:var(--font-sans);
+  text-transform:uppercase;letter-spacing:.24em;font-size:.68rem;
+  text-decoration:none;cursor:pointer;
+  transition:all .55s cubic-bezier(.22,.61,.36,1);
+}
+.cta--solid{
+  background:var(--linen-warm);border:0.5px solid var(--sand);
+  color:var(--ink);padding:.95rem 1.9rem;
+}
+.cta--solid:hover{background:#fff;letter-spacing:.3em;}
+.cta--text{
+  color:var(--ink);border-bottom:0.5px solid var(--sand);
+  padding-bottom:3px;
+}
+.cta--text:hover{letter-spacing:.3em;}
+.hero-actions .cta--text{display:none;} /* desktop only */
+
+.hero-media{
+  order:2;position:relative;
+  height:clamp(280px,42vh,420px);overflow:hidden;background:var(--dust);
+}
+/* TWO video tags, swapped by CSS — no JavaScript required */
+.hero-video{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;display:block;background:var(--dust);
+}
+.hero-video--desktop{display:none;}      /* phone shows the mobile cut */
+.hero-scrim{
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top,rgba(44,44,43,.38) 0%,rgba(44,44,43,0) 38%);
+}
+.methodology-pills{
+  position:absolute;bottom:0;left:0;right:0;z-index:3;
+  display:flex;justify-content:center;align-items:center;gap:.55rem;
+  padding:.85rem 1rem;
+}
+.methodology-pills a{
+  font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;
+  color:rgba(255,255,255,.82);text-decoration:none;
+  text-shadow:0 1px 4px rgba(44,44,43,.45);
+  transition:all .5s cubic-bezier(.22,.61,.36,1);
+}
+.methodology-pills a:hover{color:#fff;letter-spacing:.34em;}
+.methodology-pills .sep{color:rgba(255,255,255,.5);font-size:.62rem;}
+
+/* ════════════════════════ ORIGIN ════════════════════════ */
+.origin{
+  background:var(--linen-warm);text-align:center;
+  padding:clamp(3rem,9vw,5.5rem) clamp(1.5rem,6vw,2.5rem);
+}
+.origin-eyebrow{
+  font-size:.64rem;letter-spacing:.36em;text-transform:uppercase;
+  color:var(--stone-soft);margin-bottom:1.1rem;
+}
+.origin-quote{
+  font-family:var(--font-serif);font-style:italic;font-weight:300;
+  font-size:clamp(1.5rem,3.4vw,2.5rem);line-height:1.45;
+  color:var(--ink);margin-bottom:1.4rem;max-width:24ch;
+  margin-left:auto;margin-right:auto;
+}
+.origin-cta{font-size:.66rem;}
+
+/* ════════════════════════ FOOTER ════════════════════════ */
+.site-footer{
+  background:var(--linen);
+  border-top:0.5px solid rgba(44,44,43,.1);
+  padding:clamp(2.25rem,6vw,2.75rem) clamp(1.5rem,5vw,3rem);
+  display:flex;flex-direction:column;align-items:center;gap:1.4rem;text-align:center;
+}
+.footer-brand{display:flex;flex-direction:column;gap:.5rem;}
+.footer-logo{
+  font-family:var(--font-serif);font-weight:300;
+  font-size:1.15rem;letter-spacing:.1em;color:var(--ink);
+}
+.footer-copy{
+  font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(44,44,43,.34);
+}
+.footer-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem 1.2rem;}
+.footer-nav a{
+  font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--stone-soft);text-decoration:none;
+  transition:color .5s ease;
+}
+.footer-nav a:hover{color:var(--ink);}
+
+/* ════════════════════════ ≥ 768px — iPad ════════════════════════ */
+@media (min-width:768px){
+  :root{--header-h:72px;}
+  .primary-nav{display:flex;}
+  .nav-toggle{display:none;}
+  .mobile-nav,.nav-toggle-cb:checked ~ .mobile-nav{display:none !important;}
+  .hero-video--mobile{display:none;}     /* iPad + desktop use the desktop cut */
+  .hero-video--desktop{display:block;}
+  .hero-media{height:clamp(360px,48vh,520px);}
+  .lede{max-width:46ch;}
+  .site-footer{
+    flex-direction:row;justify-content:space-between;align-items:center;
+    text-align:left;
+  }
+  .footer-nav{justify-content:flex-end;}
+}
+
+/* ════════════════════════ ≥ 1024px — Desktop (overlay hero) ════════════════════════ */
+@media (min-width:1024px){
+  .connect-cta{display:inline-block;}
+
+  .hero{min-height:78vh;max-height:780px;display:block;}
+  .hero-media{order:0;position:absolute;inset:0;height:100%;}
+  .hero-scrim{
+    background:linear-gradient(90deg,rgba(44,44,43,.62) 0%,rgba(44,44,43,.28) 50%,rgba(44,44,43,.06) 100%);
+  }
+  .hero-copy{
+    order:0;position:absolute;inset:0;background:transparent;
+    display:flex;flex-direction:column;justify-content:center;align-items:flex-start;
+    text-align:left;padding:0 clamp(3rem,6vw,6rem);z-index:2;
+  }
+  .eyebrow{color:rgba(255,255,255,.9);}
+  .hero-title{color:#fff;}
+  .lede{color:rgba(255,255,255,.82);margin-left:0;margin-right:0;}
+  .hero-actions{justify-content:flex-start;}
+  .hero-actions .cta--text{display:inline-block;}
+  .cta--solid{background:rgba(249,241,240,.94);}
+  .hero .cta--text{color:rgba(255,255,255,.9);border-bottom-color:rgba(255,255,255,.5);}
+  .methodology-pills{justify-content:center;padding:1.15rem;}
+  .methodology-pills a{font-size:.66rem;}
+}
+
+/* ════════════════════════ reduced motion ════════════════════════ */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .fade{animation:none;}
+  .cta,.primary-nav a,.connect-cta,.methodology-pills a,.footer-nav a{transition:none;}
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#home">Skip to content</a>
+
+<!-- drives the mobile menu with zero JavaScript -->
+<input type="checkbox" id="nav-toggle-cb" class="nav-toggle-cb" aria-label="Toggle navigation menu">
+
+<header class="site-header">
+  <a href="#home" class="wordmark">Flow &amp; Finish</a>
+  <nav class="primary-nav" aria-label="Primary">
+    <a href="#home" class="active">Home</a>
+    <a href="#methodology">Methodology</a>
+    <a href="#transformations">Transformations</a>
+    <a href="#hospitality">The Hospitality Edit</a>
+  </nav>
+  <a href="#connect" class="connect-cta">Connect</a>
+  <label for="nav-toggle-cb" class="nav-toggle" tabindex="0" aria-label="Open menu">
+    <i class="ti ti-menu-2 icon-open" aria-hidden="true"></i>
+    <i class="ti ti-x icon-close" aria-hidden="true"></i>
+  </label>
+</header>
+
+<nav class="mobile-nav" aria-label="Mobile">
+  <a href="#home">Home</a>
+  <a href="#methodology">Methodology</a>
+  <a href="#transformations">Transformations</a>
+  <a href="#hospitality">The Hospitality Edit</a>
+  <a href="#insight">Insight</a>
+  <a href="#connect">Connect</a>
+</nav>
+
+<main>
+  <section class="hero" id="home">
+    <div class="hero-media">
+      <video class="hero-video hero-video--mobile" autoplay muted loop playsinline preload="auto">
+        <source src="flow-finish-hero-mobile-v2.mp4" type="video/mp4">
+      </video>
+      <video class="hero-video hero-video--desktop" autoplay muted loop playsinline preload="auto">
+        <source src="flow-finish-hero-desktop-v2.mp4" type="video/mp4">
+      </video>
+      <div class="hero-scrim"></div>
+      <nav class="methodology-pills" aria-label="Methodology">
+        <a href="#methodology">Breath</a><span class="sep">·</span><a href="#methodology">Vitality</a><span class="sep">·</span><a href="#methodology">Flow</a>
+      </nav>
+    </div>
+    <div class="hero-copy">
+      <p class="eyebrow fade fade-d1">Spatial Wellness · Design Curation</p>
+      <h1 class="hero-title fade fade-d2">Spaces Evolved to Restore You.</h1>
+      <p class="lede fade fade-d3">Transforming private residences and retreat spaces into health-first sanctuaries.</p>
+      <div class="hero-actions fade fade-d4">
+        <a href="#connect" class="cta cta--solid">Begin the Evolution</a>
+        <a href="#methodology" class="cta cta--text">Explore Methodologies</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="origin" id="insight">
+    <p class="origin-eyebrow">The Origin</p>
+    <blockquote class="origin-quote">"Slowing down is the ultimate modern luxury."</blockquote>
+    <a href="#insight" class="cta cta--text origin-cta">Read Our Story</a>
+  </section>
+</main>
+
+<footer class="site-footer" id="connect">
+  <div class="footer-brand">
+    <span class="footer-logo">Flow &amp; Finish</span>
+    <span class="footer-copy">© 2026 · West Village, New York City</span>
+  </div>
+  <nav class="footer-nav" aria-label="Footer">
+    <a href="#home">Home</a>
+    <a href="#methodology">Methodology</a>
+    <a href="#transformations">Transformations</a>
+    <a href="#hospitality">The Hospitality Edit</a>
+    <a href="#insight">Insight</a>
+    <a href="#connect">Connect</a>
+    <a href="#privacy">Privacy</a>
+  </nav>
+</footer>
 
 </body>
 </html>
