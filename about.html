@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flow & Finish — About Gigi Malfitano</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Tenor+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ink: #2C2C2B;
+  --linen: #F2EFE9;
+  --linen-warm: #F9F1F0;
+  --dust: #ede9e2;
+  --stone: #888780;
+  --stone-soft: #a8a59d;
+  --gold: #B28651;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Tenor Sans', sans-serif;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  background: var(--linen);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ═══════════════════════════ HEADER ═══════════════════════════ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  padding: 0 clamp(1.25rem, 4vw, 3rem);
+  background: rgba(242, 239, 233, .94);
+  backdrop-filter: saturate(1.1) blur(6px);
+  border-bottom: 0.5px solid rgba(44, 44, 43, .1);
+}
+.wordmark {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(1.05rem, 1.6vw, 1.4rem);
+  letter-spacing: .1em;
+  color: var(--ink);
+  text-decoration: none;
+}
+@media (min-width: 768px) {
+  .site-header { height: 72px; }
+}
+
+/* ═══════════════════════════ MAIN CONTENT ═══════════════════════════ */
+main {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 5vw, 3rem);
+}
+
+/* ─────────────────── ARTICLE LAYOUT WITH IMAGE WRAP ───────────────── */
+.opening {
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+}
+
+.article-body {
+  max-width: 100%;
+}
+
+/* Floating portrait image — arch-framed PNG with transparent corners */
+.article-image {
+  float: right;
+  width: clamp(200px, 36%, 320px);
+  margin: 0 0 1rem 1.25rem;
+  height: auto;
+  display: block;
+}
+.eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+.headline {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+.subheadline {
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  line-height: 1.65;
+  color: var(--stone);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+/* Body paragraphs */
+.article-body p {
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 1.8;
+  color: var(--stone);
+  margin-bottom: 1.4rem;
+  text-align: left;
+}
+.article-body p:first-of-type::first-letter {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(3.2em, 5.5vw, 4.2em);
+  line-height: 0.88;
+  float: left;
+  padding: 0.05em 0.12em 0 0;
+  color: var(--ink);
+}
+
+/* Pull quote */
+.pull-quote {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  line-height: 1.5;
+  color: var(--ink);
+  margin: clamp(2rem, 4vw, 3rem) 0;
+  padding: clamp(1.5rem, 2vw, 2rem);
+  border-left: 0.5px solid var(--stone);
+  text-align: left;
+}
+
+/* ─────────────────── WELLNESS WHEEL — FLOATED IN PATTERN RECOGNITION ───────────────── */
+.wheel-float {
+  float: right;
+  width: clamp(240px, 42%, 360px);
+  margin: 0.3rem 0 1rem 1.75rem;
+  shape-outside: circle(50%);
+}
+
+.wheel-float img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .wheel-float {
+    float: none;
+    width: 100%;
+    max-width: 340px;
+    margin: 1.5rem auto;
+    shape-outside: none;
+  }
+}
+
+/* ─────────────────── CLOSING SECTION ───────────────── */
+/* ─────────────────── SECTIONS ───────────────── */
+.closing-section {
+  margin-top: clamp(2rem, 5vw, 3rem);
+  padding-top: clamp(1.75rem, 3.5vw, 2.5rem);
+  border-top: 0.5px solid rgba(44, 44, 43, .1);
+  clear: both;
+}
+
+.closing-heading {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+}
+
+.closing-text {
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 1.8;
+  color: var(--stone);
+  margin-bottom: 1.5rem;
+}
+
+/* ─────────────────── SIGNATURE SECTION ───────────────── */
+.signature-section {
+  margin-top: clamp(3rem, 7vw, 4.5rem);
+  padding: clamp(2rem, 4vw, 3rem);
+  background: rgba(249, 241, 240, .5);
+  border: 0.5px solid rgba(44, 44, 43, .08);
+  text-align: left;
+}
+
+.signature-text {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  line-height: 1.7;
+  color: var(--ink);
+  margin-bottom: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+.signature-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.signature-name {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  color: var(--ink);
+  letter-spacing: 0.05em;
+}
+
+.signature-title {
+  font-size: clamp(0.8rem, 1vw, 0.95rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stone-soft);
+}
+
+/* ─────────────────── MOBILE ADJUSTMENTS ───────────────── */
+@media (max-width: 640px) {
+  .article-image {
+    float: none;
+    width: 100%;
+    margin: 0 0 2rem 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .signature-section {
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+}
+
+/* ─────────────────── CTA SECTION ───────────────── */
+.cta-section {
+  margin-top: clamp(2.5rem, 6vw, 3.5rem);
+  text-align: center;
+}
+
+.cta-heading {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  color: var(--ink);
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+}
+
+.cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.cta-btn {
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: clamp(0.7rem, 1vw, 0.8rem);
+  text-decoration: none;
+  padding: clamp(0.85rem, 1.5vw, 1.1rem) clamp(1.5rem, 2.5vw, 2rem);
+  transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+  cursor: pointer;
+  display: inline-block;
+}
+
+.cta-btn.primary {
+  background: var(--ink);
+  border: 0.5px solid var(--ink);
+  color: var(--linen);
+}
+.cta-btn.primary:hover {
+  background: #45433f;
+}
+
+.cta-btn.secondary {
+  background: transparent;
+  border: 0.5px solid var(--stone);
+  color: var(--ink);
+}
+.cta-btn.secondary:hover {
+  background: rgba(44, 44, 43, .04);
+  letter-spacing: 0.24em;
+}
+
+/* ─────────────────── INSTAGRAM FEED ───────────────── */
+.instagram-section {
+  width: 100%;
+  max-width: 1280px;
+  margin: clamp(3rem, 7vw, 5rem) auto 0;
+  padding: 0 clamp(0.5rem, 2vw, 1rem);
+}
+
+.ig-header {
+  text-align: center;
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.ig-handle {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+  color: var(--ink);
+  margin-bottom: 0.35rem;
+  letter-spacing: 0.02em;
+}
+
+.ig-tagline {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+.ig-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+
+.ig-tile {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--dust);
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+}
+
+.ig-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.85s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.ig-tile::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(44, 44, 43, 0);
+  transition: background 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+  pointer-events: none;
+}
+
+.ig-tile-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  opacity: 0;
+  transition: opacity 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
+              transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+  color: #fff;
+  font-size: 1.4rem;
+  pointer-events: none;
+  z-index: 2;
+  letter-spacing: 0.08em;
+}
+
+.ig-tile:hover img {
+  transform: scale(1.06);
+}
+
+.ig-tile:hover::after {
+  background: rgba(44, 44, 43, 0.28);
+}
+
+.ig-tile:hover .ig-tile-icon {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.ig-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--dust) 0%, var(--linen-warm) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(44, 44, 43, 0.25);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: transform 0.85s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.ig-tile:hover .ig-placeholder {
+  transform: scale(1.06);
+}
+
+.ig-cta {
+  text-align: center;
+  margin-top: clamp(1.5rem, 3vw, 2rem);
+}
+
+.ig-cta a {
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 0.72rem;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 0.5px solid var(--stone);
+  padding-bottom: 4px;
+  transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.ig-cta a:hover {
+  border-color: var(--ink);
+  letter-spacing: 0.3em;
+}
+
+@media (max-width: 1024px) {
+  .ig-grid { grid-template-columns: repeat(4, 1fr); }
+  .ig-tile:nth-child(5) { display: none; }
+}
+
+@media (max-width: 720px) {
+  .ig-grid { grid-template-columns: repeat(3, 1fr); }
+  .ig-tile:nth-child(4),
+  .ig-tile:nth-child(5) { display: none; }
+}
+
+@media (max-width: 480px) {
+  .ig-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+  }
+  .ig-tile:nth-child(4),
+  .ig-tile:nth-child(5) { display: block; }
+}
+
+/* ─────────────────── FOOTER ───────────────── */
+footer {
+  background: var(--linen);
+  border-top: 0.5px solid rgba(44, 44, 43, .1);
+  padding: clamp(2rem, 6vw, 3rem) clamp(1.5rem, 5vw, 3rem);
+  text-align: center;
+  margin-top: clamp(3rem, 10vw, 5rem);
+}
+
+.footer-logo {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: 1.15rem;
+  letter-spacing: 0.1em;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.footer-copy {
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(44, 44, 43, .34);
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="#home" class="wordmark">Flow &amp; Finish</a>
+</header>
+
+<main>
+
+  <!-- OPENING + ARTICLE WITH IMAGE WRAP -->
+  <section class="opening">
+    <p class="eyebrow">About Me</p>
+  </section>
+
+  <article class="article-body">
+    <img src="gigi-portrait-arch.png" alt="Gigi Malfitano" class="article-image">
+
+    <p>I began traveling the world out of a profound, burning curiosity—and a desperate need—to understand what people across different cultures were doing to genuinely thrive. I wanted to understand exactly why it worked for them, specifically down to their health.</p>
+
+    <p>I watched how Italians navigate life's inevitable stressors and eat with unapologetic vibrancy, yet bypass the chronic physical ailments that plague so many Americans. I observed villagers in remote parts of Indonesia who smile with a deep, eye-led joy despite material poverty, living long, vibrant lives. I saw communities in small African villages, with little to no access to modern western medicine, who possessed a striking physical and psychological resilience.</p>
+
+    <p>Driven to decode this, I sought out the most beautiful, significant, and restorative places on earth. I moved between legendary, historic, neolithic, and time-honored sanctuaries, to quiet luxury retreats, wellness lead journeys and unnamed corners of the map. I was on a rigorous mission to absorb, identify, and isolate the precise, invisible elements that make a physical space inherently healing, peaceful, and deeply restorative for the human body and mind.</p>
+
+    <div class="pull-quote">"This wasn't a casual exploration. It was a rescue mission for my own life."</div>
+
+    <p>For years, I was fighting a silent war against my own body. Managing insulin-dependent diabetes and Hashimoto's thyroiditis was exhausting enough, but it was compounded by a heavy blanket of chronic inflammation and depression that I couldn't seem to lift.</p>
+
+    <p>I did everything "right." For decades, I worked with top Western doctors, specialists, and clinical teams. When modern medicine hit a wall, I threw myself into the alternative world, trying almost every healing modality in existence: herbalism, color therapy, family constellation work, Ayurveda, Traditional Chinese Medicine, yoga, mindfulness, Akashic records, a strictly organic lifestyle, tapping, and EMDR. There are so many more I can't even name them all.</p>
+
+    <p>At every single turn, I hit a frustrating dead end. My vitality kept slipping away, and I felt completely defeated. It was terrifying—for the first time in my life, my health was the one thing I couldn't achieve through sheer willpower and focus. Despite the constant love and encouragement from my friends and family, the silent toll of this battle eventually dismantled my career, my identity, and my life.</p>
+
+    <p>The breakthrough didn't come from a medical treatment, a single location, or a solitary cure. It came from a realization: my body, mind, spirit, visual field, and emotional state only felt completely at ease when my physical surroundings allowed them to. I discovered that to heal my body, I first had to heal my space.</p>
+  </article>
+
+  <!-- WELLNESS WHEEL SECTION REMOVED — wheel now floats into Pattern Recognition below -->
+
+  <!-- THE GIFT OF PATTERN RECOGNITION -->
+  <section class="closing-section" style="border-top: none; padding-top: 0; margin-top: clamp(1.5rem, 3vw, 2rem);">
+    <h2 class="closing-heading">The Gift of Pattern Recognition</h2>
+
+    <p class="closing-text">Traveling the world taught me that environments leave clues. After observing how different spaces impact human biology, I began to synthesize a highly unique ability—what many now call a distinct gift for creating spaces that help a human feel at their absolute best, or even achieve levels of vibrant health they didn't know were possible.</p>
+
+    <p class="closing-text">I possess an extreme sensitivity to pattern recognition and a hyper-attention to detail. I can walk into any environment and immediately interpret the unmeasurable elements—the smell, the tactile feel, the subtle energy—while simultaneously diagnosing the hard science of the space. As a realist, I am exceptionally clear, defined, and capable of sorting through the mess, both literal and figurative. I don't just identify the invisible friction points that are secretly dysregulating your nervous system; I creatively troubleshoot them, foresee potential implementation challenges to pivot swiftly, and ensure the best possible outcome in even the most complex or unforeseen situations.</p>
+
+    <p class="closing-text">My approach fuses modern building science with a foundation of curated, natural simplicity. Balancing what can be measured with these highly specialized intuitive skills is what makes my methodology completely unstoppable and uniquely for you.</p>
+
+    <div class="wheel-float">
+      <img src="wellness-wheel.png" alt="The Elements of a Calibrated Space — wellness wheel">
+    </div>
+
+    <p class="closing-text">Not only do I deeply understand the space and its environment, but also the person and their known or unknown challenges—solving for what some may already recognize, but more importantly, for what most don't even know is affecting them in significant ways.</p>
+  </section>
+
+  <!-- A NEW WORLDWIDE STANDARD -->
+  <section class="closing-section">
+    <h2 class="closing-heading">A New Worldwide Standard</h2>
+
+    <p class="closing-text">Having completely transformed my own health when it felt like my end, I know exactly what is realistically achievable and attainable—even in one of the most complex, high-stress environments in the world: New York City. I am intimately familiar with the raw realities of urban spaces: from street-level trash and pollution outside your window and structural noise from upstairs or downstairs neighbors, to outdoor AQIs (Air Quality Indexes) leaking through historic, single-pane windows or optimizing for space like not needing a standalone sound machine to mask that loud city noise pollution; instead using the sweet, calming hum of an air filtration system to elegantly serve both vital purposes at once. True mitigation means protecting your biology while simultaneously navigating the bruising bureaucratic maze of co-op boards, the Department of Buildings (DOB), and strict Landmark Preservation guidelines in historic areas like the West Village. But mastering these high-stakes complexities showed me that if you can create a true sanctuary here, you can do it anywhere.</p>
+
+    <p class="closing-text">Now, my larger goal is to take this blueprint to a grander scale, allowing everyone to access a foundational understanding of their space and why it matters so deeply. By creating an ultra-rigorous, worldwide certification standard for residences, businesses, and hospitality, I am going lightyears beyond anything the industry has ever considered. I am here to challenge the old paradigm and empower you to ask more of your workplace, lifestyle, vacation plans, and well-being. When you step into a calibrated space, you breathe differently. Your heart rate variability shifts, and your biomarkers signal to your body that you have finally arrived. It is never just visually pleasing; it is entirely biological.</p>
+
+    <p class="closing-text">This certification audits every layer of an environment to completely protect and elevate human vitality is protected and accounted for. This is a movement to redefine well-being from the ground up, ensuring that anywhere you step, your biology is accounted for with purpose.</p>
+  </section>
+
+  <!-- LIFE BEYOND THE WORK -->
+  <section class="closing-section">
+    <h2 class="closing-heading">Life Beyond the Work</h2>
+
+    <p class="closing-text">When I am not consulting or transforming environments, you can usually find me exploring the quiet corners of the West Village, researching clean-ingredient culinary methods, or out for a walk with my thirteen-pound canine companion.</p>
+
+    <p class="closing-text">This work is deeply personal. It is a direct reflection of my own healing journey, and every environment touched by Flow &amp; Finish carries that exact intention.</p>
+
+    <!-- SIGNATURE SECTION -->
+    <div class="signature-section">
+      <p class="signature-text">"Logic can restore your body to a baseline, but the right environment will take your biology anywhere. When a home becomes a living sanctuary for your cells, healing stops being a struggle and becomes your default state. My purpose is to reveal a blueprint people don't yet realize is missing, because vitality is not an appointment—it is your everyday atmosphere."</p>
+
+      <div class="signature-block">
+        <div class="signature-name">Gigi Malfitano</div>
+        <div class="signature-title">Founder &amp; Chief Strategist, Flow &amp; Finish</div>
+      </div>
+    </div>
+
+    <!-- CTA SECTION -->
+    <div class="cta-section">
+      <p class="cta-heading">Ready to transform your environment?</p>
+      <div class="cta-group">
+        <a href="#strategy-session" class="cta-btn primary">Book a Private Strategy Session</a>
+        <a href="#certification" class="cta-btn secondary">Inquire About the Worldwide Certification</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- INSTAGRAM FEED — anchors the bottom of the page -->
+<section class="instagram-section" aria-label="Instagram feed">
+  <div class="ig-header">
+    <p class="ig-handle">@flowandfinish</p>
+    <p class="ig-tagline">Follow the journey</p>
+  </div>
+
+  <div class="ig-grid" id="ig-grid">
+    <a class="ig-tile" href="https://instagram.com/flowandfinish" target="_blank" rel="noopener">
+      <div class="ig-placeholder">Post 01</div>
+      <span class="ig-tile-icon">View</span>
+    </a>
+    <a class="ig-tile" href="https://instagram.com/flowandfinish" target="_blank" rel="noopener">
+      <div class="ig-placeholder">Post 02</div>
+      <span class="ig-tile-icon">View</span>
+    </a>
+    <a class="ig-tile" href="https://instagram.com/flowandfinish" target="_blank" rel="noopener">
+      <div class="ig-placeholder">Post 03</div>
+      <span class="ig-tile-icon">View</span>
+    </a>
+    <a class="ig-tile" href="https://instagram.com/flowandfinish" target="_blank" rel="noopener">
+      <div class="ig-placeholder">Post 04</div>
+      <span class="ig-tile-icon">View</span>
+    </a>
+    <a class="ig-tile" href="https://instagram.com/flowandfinish" target="_blank" rel="noopener">
+      <div class="ig-placeholder">Post 05</div>
+      <span class="ig-tile-icon">View</span>
+    </a>
+  </div>
+
+  <div class="ig-cta">
+    <a href="https://instagram.com/flowandfinish" target="_blank" rel="noopener">Follow on Instagram</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Flow &amp; Finish</div>
+  <div class="footer-copy">© 2026 · West Village, New York City</div>
+</footer>
+
+</body>
+</html>
