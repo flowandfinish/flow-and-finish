@@ -6,7 +6,7 @@
 <title>Flow & Finish — About Gigi Malfitano</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Tenor+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Tenor+Sans&family=Dancing+Script:wght@500;600&family=Mr+De+Haviland&family=Allura&family=Pinyon+Script&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -134,28 +134,39 @@ main {
   text-align: left;
 }
 
-/* ─────────────────── WELLNESS WHEEL — FLOATED IN PATTERN RECOGNITION ───────────────── */
-.wheel-float {
-  float: right;
-  width: clamp(240px, 42%, 360px);
-  margin: 0.3rem 0 1rem 1.75rem;
-  shape-outside: circle(50%);
+/* ─────────────────── WELLNESS WHEEL — DEDICATED SECTION ───────────────── */
+.elements-section {
+  margin: clamp(3rem, 8vw, 5rem) 0;
+  clear: both;
 }
 
-.wheel-float img {
+.section-heading {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  text-align: center;
+}
+
+.wheel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: clamp(2rem, 5vw, 4rem) 0;
+}
+
+.wheel-image {
   width: 100%;
+  max-width: 190px;
   height: auto;
   display: block;
 }
 
-@media (max-width: 768px) {
-  .wheel-float {
-    float: none;
-    width: 100%;
-    max-width: 340px;
-    margin: 1.5rem auto;
-    shape-outside: none;
-  }
+/* Remove the wheel-float styles since wheel is no longer floating */
+.wheel-float {
+  display: none;
 }
 
 /* ─────────────────── CLOSING SECTION ───────────────── */
@@ -184,14 +195,6 @@ main {
 }
 
 /* ─────────────────── SIGNATURE SECTION ───────────────── */
-.signature-section {
-  margin-top: clamp(3rem, 7vw, 4.5rem);
-  padding: clamp(2rem, 4vw, 3rem);
-  background: rgba(249, 241, 240, .5);
-  border: 0.5px solid rgba(44, 44, 43, .08);
-  text-align: left;
-}
-
 .signature-text {
   font-family: var(--font-serif);
   font-weight: 300;
@@ -200,12 +203,15 @@ main {
   line-height: 1.7;
   color: var(--ink);
   margin-bottom: clamp(1.5rem, 2.5vw, 2rem);
+  max-width: 42ch;
 }
 
 .signature-block {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  clear: both;
+  padding-top: 0.5rem;
 }
 
 .signature-name {
@@ -468,12 +474,103 @@ footer {
   text-transform: uppercase;
   color: rgba(44, 44, 43, .34);
 }
+
+/* ─── ELEMENTS SECTION — CENTERED (matches wheel) ─── */
+.elements-section {
+  margin: clamp(2.5rem, 6vw, 4rem) 0;
+  clear: both;
+  text-align: center;
+}
+.elements-section .section-heading {
+  text-align: center;
+  margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
+}
+.elements-intro {
+  font-size: clamp(0.92rem, 1.05vw, 1rem);
+  line-height: 1.75;
+  color: var(--stone);
+  font-style: italic;
+  max-width: 56ch;
+  margin: 0 auto clamp(1rem, 2vw, 1.5rem);
+}
+.wheel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: clamp(0.5rem, 1.5vw, 1rem) 0;
+}
+.wheel-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  display: block;
+}
+
+/* ─── HANDWRITTEN GOLD SIGNATURE ─── */
+.signature-cursive {
+  font-family: 'Mr De Haviland', cursive;
+  font-weight: 400;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  color: var(--gold);
+  line-height: 1.1;
+  margin-bottom: 0.4rem;
+  opacity: 0.9;
+}
+
+/* ─── CLOSING SIGNATURE — large photo right, clean gutter, smaller quote ─── */
+.signature-section {
+  margin-top: clamp(3rem, 7vw, 4.5rem);
+  padding: clamp(2rem, 4vw, 3rem);
+  background: rgba(249, 241, 240, .5);
+  border: 0.5px solid rgba(44, 44, 43, .08);
+  overflow: hidden;
+}
+.closing-portrait {
+  float: right;
+  width: clamp(300px, 46%, 440px);
+  height: auto;
+  display: block;
+  margin: 0 0 1.5rem 2.75rem;
+}
+.signature-copy {
+  display: contents;
+}
+@media (max-width: 700px) {
+  .closing-portrait {
+    float: none;
+    width: clamp(240px, 72%, 320px);
+    margin: 0 auto 1.5rem;
+  }
+}
+
+/* ─── EINSTEIN QUOTE (matches existing pull-quote style) ─── */
+.einstein-quote {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  line-height: 1.45;
+  color: var(--ink);
+  border-left: 2px solid var(--gold);
+  padding-left: clamp(1.25rem, 2.5vw, 1.75rem);
+  margin: clamp(2rem, 4vw, 2.75rem) 0;
+}
+.einstein-attribution {
+  display: block;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-top: 0.85rem;
+}
 </style>
 </head>
 <body>
 
 <header class="site-header">
-  <a href="index.html" class="wordmark">Flow &amp; Finish</a>
+  <a href="#home" class="wordmark">Flow &amp; Finish</a>
 </header>
 
 <main>
@@ -484,21 +581,20 @@ footer {
   </section>
 
   <article class="article-body">
-    <img src="gigi-portrait.png" alt="Gigi Malfitano" class="article-image">
+    <p>I began traveling the world out of a profound, burning curiosity—and a desperate need—to understand what people across different cultures were doing to genuinely thrive. I wanted to understand exactly why it worked for them, specifically for their health.</p>
 
-    <p>I began traveling the world out of a profound, burning curiosity—and a desperate need—to understand what people across different cultures were doing to genuinely thrive. I wanted to understand exactly why it worked for them, specifically down to their health.</p>
+    <p>I watched how Italians navigate life's inevitable stressors and eat with unapologetic vibrancy, yet bypass the chronic physical ailments that plague so many Americans. I observed villagers in remote parts of Indonesia who smile with a deep, heart-led joy despite material poverty, living long, vibrant lives. I saw communities in small African villages, with little to no access to modern western medicine, who possessed a striking physical and psychological resilience. I marveled at how the elderly in Japan remain so beautifully engaged and clear, channeling a youthful spirit and a quiet, sacred balance.</p>
 
-    <p>I watched how Italians navigate life’s inevitable stressors and eat with unapologetic vibrancy, yet bypass the chronic physical ailments that plague so many Americans. I observed villagers in remote parts of Indonesia who smile with a deep, heart-led joy despite material poverty, living long, vibrant lives. I saw communities in small African villages, with little to no access to modern western medicine, who possessed a striking physical and psychological resilience. I marveled at how the elderly in Japan remain so beautifully engaged and clear, channeling a youthful spirit and a quiet, sacred balance.<p>
-      
-    <p>Today, these very regions are widely celebrated as 'Blue Zones'—with endless studies analyzing their non-GMO ecosystems, rich community bonds, and daily movement like climbing village stairs. But as I immersed myself in their worlds, I realized true vitality goes far beyond lifestyle habits; it requires addressing a deeper, invisible layer. I began to notice how homes and spaces gracefully greet the earth, tracing the sun’s path to fill a room with warm light during cold winters while also opening its structure so air can flow effortlessly to cool the same space in summer. It became clear that combining pure, living materials, shapes and layouts with the superior strategic knowledge of ancient builders allowed walls to breathe right alongside the inhabitants, nurturing them both emotionally and on a deeper cellular level restoring balance. This simple yet intelligent way of curating spaces is a foundational factor in wellness. . This simple yet intelligent way of curating spaces is a foundational factor in wellness. Not just for centenarians, but us for living in a modern world, here and now.<p>
+    <p>Today, these very regions are widely celebrated as 'Blue Zones'—with endless studies analyzing their non-GMO ecosystems, rich community bonds, and daily movement like climbing village stairs. But as I immersed myself in their worlds, I realized true vitality goes far beyond lifestyle habits; it requires addressing a deeper, invisible layer. I began to notice how homes and spaces gracefully greet the earth, tracing the sun's path to fill a room with warm light during cold winters while also opening its structure so air can flow effortlessly to cool the same space in summer. It became clear that combining pure, living materials, shapes and layouts with the superior strategic knowledge of ancient builders allowed walls to breathe right alongside the inhabitants, nurturing them both emotionally and on a deeper cellular level restoring balance. This simple yet intelligent way of curating spaces is a foundational factor in wellness. Not just for centenarians, but for us living in a modern world, here and now.</p>
 
-    <p>Driven to decode this, I sought out the most beautiful, significant, and restorative places on earth. I moved between legendary, historic, neolithic, and time-honored sanctuaries, to quiet luxury retreats, wellness lead journeys and unnamed corners of the map. I was on a rigorous mission to absorb, identify, and isolate the precise, invisible elements that make a physical space inherently healing, peaceful, and deeply restorative for the human body and mind. </p>
+    <p>Driven to decode this, I sought out the most beautiful, significant, and restorative places on earth. I moved between legendary, historic, neolithic, and time-honored sanctuaries, to quiet luxury retreats, wellness lead journeys and unnamed corners of the map. I was on a rigorous mission to absorb, identify, and isolate the precise, invisible elements that make a physical space inherently healing, peaceful, and deeply restorative for the human body and mind.</p>
+
     <div class="pull-quote">"This wasn't a casual exploration. It was a rescue mission for my own life."</div>
 
     <p>For years, I was fighting a silent war against my own body. Managing insulin-dependent diabetes and Hashimoto's thyroiditis was exhausting enough, but it was compounded by a heavy blanket of chronic inflammation and depression that I couldn't seem to lift.</p>
 
-    <p>I did everything “right.” For decades, I worked with top Western doctors, specialists, and clinical teams. When modern medicine hit a wall, I threw myself into the alternative world, trying almost every healing modality in existence: meditation, mindfulness, yoga, a strictly organic lifestyle, functional medicine, herbalism, breathwork, astrology, homeopathy, and Traditional Chinese Medicine. From there, I moved into less-traveled waters like Ayurveda, chakra balancing, tapping, EMDR, breathwork, and regression therapy—eventually pushing way past the surface into family constellation work, color therapy, Akashic records, HSP integration techniques, and even Emoto’s water memory theory via vibrational energy medicine. The list goes on so long, I can’t even name them all.<p>
-      
+    <p>I did everything "right." For decades, I worked with top Western doctors, specialists, and clinical teams. When modern medicine hit a wall, I threw myself into the alternative world, trying almost every healing modality in existence: meditation, mindfulness, yoga, a strictly organic lifestyle, functional medicine, herbalism, breathwork, astrology, homeopathy, and Traditional Chinese Medicine. From there, I moved into less-traveled waters like Ayurveda, chakra balancing, tapping, EMDR, breathwork, and regression therapy—eventually pushing way past the surface into family constellation work, color therapy, Akashic records, HSP integration techniques, and even Emoto's water memory theory via vibrational energy medicine. The list goes on so long, I can't even name them all.</p>
+
     <p>At every single turn, I hit a frustrating dead end. My vitality kept slipping away, and I felt completely defeated. It was terrifying—for the first time in my life, my health was the one thing I couldn't achieve through sheer willpower and focus. Despite the constant love and encouragement from my friends and family, the silent toll of this battle eventually dismantled my career, my identity, and my life.</p>
 
     <p>The breakthrough didn't come from a medical treatment, a single location, or a solitary cure. It came from a realization: my body, mind, spirit, visual field, and emotional state only felt completely at ease when my physical surroundings allowed them to. I discovered that to heal my body, I first had to heal my space.</p>
@@ -513,36 +609,50 @@ footer {
     <p class="closing-text">Traveling the world taught me that environments leave clues. After observing how different spaces impact human biology, I began to synthesize a highly unique ability—what many now call a distinct gift for creating spaces that help a human feel at their absolute best, or even achieve levels of vibrant health they didn't know were possible.</p>
 
     <p class="closing-text">I possess an extreme sensitivity to pattern recognition and a hyper-attention to detail. I can walk into any environment and immediately interpret the unmeasurable elements—the smell, the tactile feel, the subtle energy—while simultaneously diagnosing the hard science of the space. As a realist, I am exceptionally clear, defined, and capable of sorting through the mess, both literal and figurative. I don't just identify the invisible friction points that are secretly dysregulating your nervous system; I creatively troubleshoot them, foresee potential implementation challenges to pivot swiftly, and ensure the best possible outcome in even the most complex or unforeseen situations.</p>
-    <p class="closing-text">Not only do I deeply understand the space and its environment, but also the person and their known or unknown challenges—solving for what some may already recognize, but more importantly, for what most don't even know is affecting them in significant ways.</p>
+
+    <blockquote class="einstein-quote">Look deep into nature, and then you will understand everything better.<span class="einstein-attribution">— Albert Einstein</span></blockquote>
+
+    <p class="closing-text">My approach fuses modern building science with a foundation of curated, natural simplicity. Balancing what can be measured with these highly specialized intuitive skills is what makes my methodology completely unstoppable and uniquely for you. Not only do I deeply understand the space and its environment, but also the person and their known or unknown challenges—solving for what some may already recognize, but more importantly, for what most don't even know is affecting them in significant ways.</p>
   </section>
 
-  <!-- A NEW WORLDWIDE STANDARD -->
+  <!-- THE ELEMENTS OF A CALIBRATED SPACE — LEFT ALIGNED WITH INTRO -->
+  <section class="elements-section">
+    <h2 class="section-heading">The Elements of a Calibrated Space</h2>
+    <p class="elements-intro">These seven elements form the foundation of every calibrated space. Each plays a vital role in supporting your biology and well-being.</p>
+
+    <div class="wheel-container">
+      <img src="wellness-wheel.png" alt="The Elements of a Calibrated Space — wellness wheel" class="wheel-image">
+    </div>
+  </section>
+
+  <!-- A NEW GLOBAL STANDARD -->
   <section class="closing-section">
-    <h2 class="closing-heading">A New Worldwide Standard</h2>
+    <h2 class="closing-heading">A New Global Standard</h2>
 
     <p class="closing-text">Having completely transformed my own health when it felt like my end, I know exactly what is realistically achievable and attainable—even in one of the most complex, high-stress environments in the world: New York City. I am intimately familiar with the raw realities of urban spaces: from street-level trash and pollution outside your window and structural noise from upstairs or downstairs neighbors, to outdoor AQIs (Air Quality Indexes) leaking through historic, single-pane windows or optimizing for space like not needing a standalone sound machine to mask that loud city noise pollution; instead using the sweet, calming hum of an air filtration system to elegantly serve both vital purposes at once. True mitigation means protecting your biology while simultaneously navigating the bruising bureaucratic maze of co-op boards, the Department of Buildings (DOB), and strict Landmark Preservation guidelines in historic areas like the West Village. But mastering these high-stakes complexities showed me that if you can create a true sanctuary here, you can do it anywhere.</p>
 
-    <p class="closing-text">Now, my larger goal is to take this blueprint to a grander scale, allowing everyone to access a foundational understanding of their space and why it matters so deeply. By creating an ultra-rigorous, worldwide certification standard for residences, businesses, and hospitality, I am going lightyears beyond anything the industry has ever considered. I am here to challenge the old paradigm and empower you to ask more of your workplace, lifestyle, vacation plans, and well-being. When you step into a calibrated space, you breathe differently. Your heart rate variability shifts, and your biomarkers signal to your body that you have finally arrived. It is never just visually pleasing; it is entirely biological.</p>
+    <p class="closing-text">This blueprint is now expanding with deliberate intent, establishing a global benchmark for how spaces must support human life. By creating an ultra-rigorous, worldwide certification standard for residences, businesses, and hospitality, I am going lightyears beyond anything the industry has ever considered. I am here to challenge the old paradigm and empower you to ask more of your workplace, lifestyle, vacation plans, and well-being. When you step into a calibrated space, you breathe differently. Your heart rate variability shifts, and your biomarkers signal to your body that you have finally arrived. It is never just visually pleasing; it is entirely biological.</p>
 
-    <p class="closing-text">This certification audits every layer of an environment to completely protect and elevate human vitality is protected and accounted for. This is a movement to redefine well-being from the ground up, ensuring that anywhere you step, your biology is accounted for with purpose.</p>
-  
-    <img src="wellness-wheel.png" alt="The Elements of a Calibrated Space — wellness wheel" class="wheel-image">
+    <p class="closing-text">This certification audits every layer of an environment to ensure human vitality is completely optimized, and elevated. This is a movement to redefine well-being from the ground up, transforming the spaces we inhabit into intentional sanctuaries.</p>
+  </section>
 
   <!-- LIFE BEYOND THE WORK -->
   <section class="closing-section">
     <h2 class="closing-heading">Life Beyond the Work</h2>
 
-    <p class="closing-text">When I am not consulting or transforming environments, you can usually find me exploring the quiet corners of the West Village, researching clean-ingredient culinary methods, or out for a walk with my thirteen-pound canine companion.</p>
+    <p class="closing-text">When I am not consulting or transforming environments, you can usually find me exploring the West Village, supporting local farmers at the market to get colorful, seasonal organic veggies, or crafting a 'buffachino.' Other days are spent surfing, or out for a walk with my thirteen-pound canine companion.</p>
 
     <p class="closing-text">This work is deeply personal. It is a direct reflection of my own healing journey, and every environment touched by Flow &amp; Finish carries that exact intention.</p>
 
-    <!-- SIGNATURE SECTION -->
+    <!-- SIGNATURE SECTION — photo floats right, text wraps -->
     <div class="signature-section">
+      <img src="gigi-portrait.png" alt="Gigi Malfitano" class="closing-portrait">
+
       <p class="signature-text">"Logic can restore your body to a baseline, but the right environment will take your biology anywhere. When a home becomes a living sanctuary for your cells, healing stops being a struggle and becomes your default state. My purpose is to reveal a blueprint people don't yet realize is missing, because vitality is not an appointment—it is your everyday atmosphere."</p>
 
       <div class="signature-block">
-        <div class="signature-name">Gigi Malfitano</div>
-        <div class="signature-title">Founder &amp; Chief Strategist, Flow &amp; Finish</div>
+        <div class="signature-cursive">Gigi Malfitano</div>
+        <div class="signature-title">Founder &amp; Chief Strategist</div>
       </div>
     </div>
 
@@ -551,7 +661,7 @@ footer {
       <p class="cta-heading">Ready to transform your environment?</p>
       <div class="cta-group">
         <a href="#strategy-session" class="cta-btn primary">Book a Private Strategy Session</a>
-        <a href="#certification" class="cta-btn secondary">Inquire About the Worldwide Certification</a>
+        <a href="#certification" class="cta-btn secondary">Inquire About the Global Certification</a>
       </div>
     </div>
   </section>
