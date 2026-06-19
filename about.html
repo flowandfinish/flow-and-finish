@@ -320,6 +320,22 @@ main {
   color: var(--ink);
   margin-bottom: 0.35rem;
   letter-spacing: 0.02em;
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: opacity 0.4s ease, border-color 0.4s ease;
+}
+
+.ig-handle:hover {
+  opacity: 0.7;
+  border-bottom-color: var(--stone);
+}
+
+.ig-handle:focus,
+.ig-handle:focus-visible {
+  outline: 2px solid #8B5E34;
+  outline-offset: 4px;
+  border-radius: 2px;
 }
 
 .ig-tagline {
@@ -408,28 +424,6 @@ main {
   transform: scale(1.06);
 }
 
-.ig-cta {
-  text-align: center;
-  margin-top: clamp(1.5rem, 3vw, 2rem);
-}
-
-.ig-cta a {
-  font-family: var(--font-sans);
-  text-transform: uppercase;
-  letter-spacing: 0.24em;
-  font-size: 0.72rem;
-  color: var(--ink);
-  text-decoration: none;
-  border-bottom: 0.5px solid var(--stone);
-  padding-bottom: 4px;
-  transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-
-.ig-cta a:hover {
-  border-color: var(--ink);
-  letter-spacing: 0.3em;
-}
-
 @media (max-width: 1024px) {
   .ig-grid { grid-template-columns: repeat(4, 1fr); }
   .ig-tile:nth-child(5) { display: none; }
@@ -473,6 +467,30 @@ footer {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: rgba(44, 44, 43, .34);
+}
+.footer-nav {
+  margin-top: 0.6rem;
+}
+.footer-nav a {
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #5C5C5C; /* 5.8:1 on linen — AA-compliant */
+  text-decoration: none;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+.footer-nav .footer-nav-sep {
+  color: rgba(44, 44, 43, .3);
+  margin: 0 0.55em;
+  font-size: 0.62rem;
+}
+.footer-nav a:hover { opacity: 1; }
+.footer-nav a:focus-visible {
+  outline: 2px solid #8B5E34;
+  outline-offset: 3px;
+  border-radius: 2px;
+  opacity: 1;
 }
 
 /* ─── ELEMENTS SECTION — CENTERED (matches wheel) ─── */
@@ -570,7 +588,7 @@ footer {
 <body>
 
 <header class="site-header">
-  <a href="/flow-and-finish/" class="wordmark">Flow &amp; Finish</a>
+  <a href="index.html" class="wordmark">Flow &amp; Finish</a>
 </header>
 
 <main>
@@ -671,7 +689,7 @@ footer {
 <!-- INSTAGRAM FEED — anchors the bottom of the page -->
 <section class="instagram-section" aria-label="Instagram feed">
   <div class="ig-header">
-    <p class="ig-handle">@flowandfinish</p>
+    <a class="ig-handle" href="https://www.instagram.com/flowandfinish" target="_blank" rel="noopener">@flowandfinish</a>
     <p class="ig-tagline">Follow the journey</p>
   </div>
 
@@ -697,15 +715,14 @@ footer {
       <span class="ig-tile-icon">View</span>
     </a>
   </div>
-
-  <div class="ig-cta">
-    <a href="https://instagram.com/flowandfinish" target="_blank" rel="noopener">Follow on Instagram</a>
-  </div>
 </section>
 
 <footer>
   <div class="footer-logo">Flow &amp; Finish</div>
   <div class="footer-copy">© 2026 · West Village, New York City</div>
+  <nav class="footer-nav" aria-label="Footer">
+    <a href="privacy-policy/">Privacy</a><span class="footer-nav-sep">·</span><a href="legal/">ADA</a>
+  </nav>
 </footer>
 
 </body>
