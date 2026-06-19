@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legal &amp; Compliance — Flow &amp; Finish</title>
+<meta name="description" content="Flow & Finish legal hub: Website Terms of Use and our Accessibility Statement.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Tenor+Sans&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #2C2C2B;          /* headings — 12.2:1 on linen */
+    --body-text: #5C5C5C;    /* body — 5.8:1 on linen (AA-safe) */
+    --linen: #F2EFE9;
+    --link: #8B5E34;         /* accessible bronze — 4.9:1 on linen */
+    --link-hover: #6E4A29;
+    --rule: rgba(44, 44, 43, 0.14);
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-sans: 'Tenor Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--linen);
+    color: var(--body-text);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Skip link — visible only on keyboard focus */
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -3rem;
+    background: var(--ink);
+    color: #fff;
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: top 0.2s ease;
+    z-index: 200;
+  }
+  .skip-link:focus { top: 1rem; }
+
+  /* Header */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    padding: 0 clamp(1.25rem, 4vw, 3rem);
+    background: rgba(242, 239, 233, .94);
+    backdrop-filter: saturate(1.1) blur(6px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .wordmark {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+    letter-spacing: .1em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .wordmark:hover { opacity: 0.7; }
+  .home-link-top { font-size: 0.85rem; letter-spacing: 0.06em; }
+
+  /* Layout */
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.25rem, 5vw, 2rem) clamp(3rem, 8vw, 5rem);
+  }
+
+  .page-eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--body-text);
+    margin-bottom: 0.85rem;
+    text-align: center;
+  }
+
+  h1 {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    font-size: clamp(2rem, 4.5vw, 2.8rem);
+    line-height: 1.15;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+    text-align: center;
+    margin-bottom: clamp(2rem, 4vw, 2.75rem);
+  }
+
+  /* Stacked menu */
+  .legal-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
+    padding: clamp(1.75rem, 4vw, 2.5rem) 0;
+    margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .legal-menu a {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+  .legal-menu a:hover { opacity: 1; }
+  .legal-menu a:focus-visible {
+    outline: 2px solid var(--link);
+    outline-offset: 4px;
+    border-radius: 2px;
+    opacity: 1;
+  }
+
+  /* Document sections */
+  .legal-doc { margin-bottom: clamp(3rem, 7vw, 4.5rem); }
+  .legal-doc:last-of-type { margin-bottom: 0; }
+
+  h2 {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1.2;
+    color: var(--ink);
+    letter-spacing: 0.03em;
+    padding-bottom: 0.7rem;
+    margin-bottom: 1.1rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .doc-meta {
+    font-size: 0.85rem;
+    color: var(--body-text);
+    margin-bottom: 1.75rem;
+  }
+
+  h3 {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 0.92rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-top: 1.9rem;
+    margin-bottom: 0.65rem;
+  }
+
+  p { margin-bottom: 1.1rem; max-width: 66ch; }
+
+  ul { margin: 0 0 1.1rem 0; padding-left: 1.3rem; }
+  li { margin-bottom: 0.8rem; max-width: 64ch; }
+  li:last-child { margin-bottom: 0; }
+
+  strong { color: var(--ink); font-weight: 400; }
+
+  .disclaimer {
+    background: rgba(249, 241, 240, .55);
+    border: 1px solid var(--rule);
+    padding: clamp(1.1rem, 2.5vw, 1.5rem);
+    margin-bottom: 1.5rem;
+  }
+  .disclaimer p { margin-bottom: 0; }
+
+  /* In-content links */
+  a.inline-link {
+    color: var(--link);
+    text-decoration: none;
+    opacity: 1;
+    border-bottom: 1px solid var(--link);
+    padding-bottom: 1px;
+    transition: opacity 0.3s ease;
+  }
+  a.inline-link:hover { opacity: 0.6; }
+  a.inline-link:focus-visible {
+    outline: 2px solid var(--link);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Return home */
+  .return-home {
+    margin-top: clamp(3rem, 7vw, 4rem);
+    padding-top: clamp(2rem, 4vw, 2.5rem);
+    border-top: 1px solid var(--rule);
+    text-align: center;
+  }
+  .return-home a {
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    color: var(--link);
+    text-decoration: none;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  .return-home a:hover { opacity: 0.6; }
+  .return-home a:focus-visible {
+    outline: 2px solid var(--link);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    a, .skip-link { transition: none; }
+  }
+
+  /* Footer */
+  footer {
+    background: var(--linen);
+    border-top: 1px solid var(--rule);
+    padding: clamp(2rem, 6vw, 3rem) clamp(1.5rem, 5vw, 3rem);
+    text-align: center;
+  }
+  .footer-logo {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    font-size: 1.05rem;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .footer-copy {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: var(--body-text);
+  }
+
+  @media (max-width: 600px) {
+    .home-link-top { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header">
+  <a href="../" class="wordmark">Flow &amp; Finish</a>
+  <a href="../" class="home-link-top">Return to Home</a>
+</header>
+
+<main id="main-content">
+
+  <p class="page-eyebrow">Legal &amp; Compliance</p>
+  <h1>Legal &amp; Compliance</h1>
+
+  <!-- STACKED MENU -->
+  <nav class="legal-menu" aria-label="Legal documents">
+    <a href="#terms">Terms &amp; Conditions</a>
+    <a href="#accessibility">Accessibility Statement</a>
+  </nav>
+
+  <!-- TERMS & CONDITIONS -->
+  <section class="legal-doc" id="terms" aria-labelledby="terms-heading">
+    <h2 id="terms-heading">Website Terms of Use</h2>
+    <p class="doc-meta">Effective Date: <time datetime="2026-06-19">June 19, 2026</time></p>
+
+    <p>Welcome to the website of Flow &amp; Finish ("Company," "we," "us," or "our"). By accessing or browsing this website (the "Site"), you agree to comply with and be bound by the following terms and conditions of use (the "Terms"). If you disagree with any part of these Terms, please do not use our Site.</p>
+
+    <h3>1. Scope of Agreement</h3>
+    <p>These Terms govern your public use, browsing, and interaction with the Site, including all imagery, written portfolios, strategy highlights, and educational insights displayed here.</p>
+    <div class="disclaimer">
+      <p><strong>Important Professional Disclaimer:</strong> The content contained on this Site is for informational and educational purposes only. Browsing this Site, executing contact forms, or reviewing online materials does not constitute a formal, contractual designer-client relationship. All formal interior design commissions, space planning configurations, and spatial strategy consulting services are governed strictly by a separate, physical or electronic signed Letter of Agreement (LOA) entered into directly between Flow &amp; Finish and the client.</p>
+    </div>
+
+    <h3>2. Intellectual Property Rights</h3>
+    <p>All content, text, spatial layout concepts, portfolio imagery, photographic documentation, branding assets, and original copy displayed on this Site are the exclusive intellectual property of Flow &amp; Finish, protected under United States and international copyright, trademark, and proprietary rights laws. Unauthorised reproduction, modification, distribution, or duplication of any material without express written consent from Flow &amp; Finish is strictly prohibited.</p>
+
+    <h3>3. Automated Access, Crawling, and AI Data Usage</h3>
+    <p>We honor the standard infrastructure of the global web while maintaining strict boundaries regarding the exploitation of our creative assets:</p>
+    <ul>
+      <li><strong>Authorized Indexing:</strong> Public search engine spiders, pay-per-click (PPC) diagnostic bots, and conversational search AI large language models (LLMs) are granted a limited, revocable, non-exclusive license to crawl and index the public text content of this Site solely for the purpose of directory reference, search indexing, and user discovery or brand recommendation.</li>
+      <li><strong>Scraping &amp; Training Restrictions:</strong> Automated harvesting, extraction, web-scraping, or copying of our original portfolio imagery, architectural diagrams, layout mockups, or proprietary text copy for the purpose of training machine learning datasets, artificial intelligence generative platforms, or replication models without written authorization is explicitly prohibited.</li>
+    </ul>
+
+    <h3>4. Accuracy of Information &amp; Disclaimer of Warranties</h3>
+    <p>While we strive to maintain pristine clarity and accuracy regarding our building science insights, material curations, and portfolio breakdowns, the Site is provided on an "as-is" and "as-available" basis. We do not warrant that any informational tips, environmental notes, or spatial recommendations are flawless, exhaustive, or applicable to your specific structural layout or municipal regulations.</p>
+
+    <h3>5. Limitation of Liability</h3>
+    <p>To the fullest extent permitted by applicable law, Flow &amp; Finish and its representatives shall not be held liable for any indirect, incidental, consequential, or special damages arising out of or in connection with your ability or inability to utilize this Site, its public articles, or external links.</p>
+
+    <h3>6. Governing Law &amp; Jurisdiction</h3>
+    <p>These Terms, your access to the Site, and any digital interactions or disputes arising directly from your use of this web platform shall be governed by, interpreted, and enforced in accordance with the laws of the State of New York, without regard to conflict of law principles. Any legal proceedings must be initiated strictly within the courts located in the County of New York, New York.</p>
+
+    <h3>7. Modifications to Terms</h3>
+    <p>We reserve the right to audit, refine, and update these Terms at our absolute discretion to reflect ongoing operational, technical, or legislative compliance shifts. Your continued use of the Site following the publication of revised terms indicates your acceptance of those updates.</p>
+
+    <h3>8. Contact Information</h3>
+    <p>For questions or formal inquiries regarding these Website Terms, please contact us at: <a class="inline-link" href="mailto:beflowandfinish@gmail.com">beflowandfinish@gmail.com</a></p>
+  </section>
+
+  <!-- ACCESSIBILITY STATEMENT -->
+  <section class="legal-doc" id="accessibility" aria-labelledby="a11y-heading">
+    <h2 id="a11y-heading">Accessibility Statement</h2>
+
+    <h3>Our Commitment to Accessibility</h3>
+    <p>At Flow &amp; Finish, we believe that exceptional spatial design should be rooted in natural simplicity, clarity, and universal ease of use. We are deeply committed to ensuring that our digital experience is fully accessible and welcoming to all individuals, regardless of physical, sensory, or cognitive ability.</p>
+    <p>We are actively working to align our website configuration with the Web Content Accessibility Guidelines (WCAG) 2.2 Level AA standards. These international guidelines establish clear criteria for improving web accessibility for individuals with disabilities, and satisfying them helps us ensure our platform is easily navigable around the world.</p>
+
+    <h3>Actions and Accomplishments</h3>
+    <p>To ensure a robust, inclusive user experience, our website integration incorporates the following core accessibility measures:</p>
+    <ul>
+      <li><strong>Semantic Structure:</strong> We utilize clean, hierarchical HTML structural formatting to ensure assistive technologies and screen readers can easily parse, scan, and interpret our content sequence.</li>
+      <li><strong>Text Alternatives:</strong> We proactively implement descriptive Alternative Text (Alt Text) for all essential portfolio imagery, project highlights, and graphic elements, conveying visual texture and layouts to low-vision or blind visitors.</li>
+      <li><strong>Color Contrast Configuration:</strong> Our brand color palette text displays are evaluated to meet or exceed the required 4.5:1 contrast ratio, guaranteeing optimal text legibility across varying lighting and device conditions.</li>
+      <li><strong>Keyboard Navigation Compatibility:</strong> Our site elements are engineered to be entirely operable without a mouse. Users can tab through menus, open or close dialog boxes, and fill out our contact and inquiry fields utilizing a standard keyboard layout.</li>
+      <li><strong>Global Technical Foundation:</strong> We integrate proper language attributes within our code framework to allow seamless machine translation and local screen-reader pronunciation across international boundaries.</li>
+    </ul>
+
+    <h3>Conformance Status</h3>
+    <p>The Web Content Accessibility Guidelines define three levels of conformance: Level A, Level AA, and Level AAA. Flow &amp; Finish is currently partially conformant with WCAG 2.2 Level AA. "Partially conformant" means that while the vast majority of our core content, brand messaging, and contact systems fully satisfy the accessibility criteria, certain specialized components or older media elements may occasionally undergo adjustments to optimize their interface.</p>
+
+    <h3>Known Limitations and Alternatives</h3>
+    <p>Despite our rigorous efforts to ensure total digital accessibility across our platform, a highly visual interior design and space planning portfolio may occasionally present minor structural challenges.</p>
+    <ul>
+      <li><strong>Third-Party Scripts &amp; Integrations:</strong> Our website utilizes specific third-party integrations (such as interactive maps for office navigation, real-time font rendering systems, or social media portfolio feeds). While we encourage all partners to provide fully compliant plugins, these external frames remain outside of our direct operational modification control.</li>
+      <li><strong>Archival Documentation:</strong> Older downloadable project files or historical blueprint diagrams may lack full text alternatives.</li>
+    </ul>
+    <p>If you encounter an element that presents a barrier, please contact us directly, and we will happily provide a fully accessible, manual alternative version of that asset immediately.</p>
+
+    <h3>Feedback &amp; Accessibility Contact Information</h3>
+    <p>We welcome your feedback and observations as we continuously refine the universal usability of our digital space. If you encounter any accessibility barriers or find areas of our platform difficult to navigate, please let us know:</p>
+    <ul>
+      <li><strong>Email:</strong> <a class="inline-link" href="mailto:privacy@flowandfinish.com">privacy@flowandfinish.com</a></li>
+      <li><strong>Typical Response Window:</strong> We aim to review and respond to all accessibility feedback or accommodation requests within 3 business days.</li>
+    </ul>
+
+    <h3>Technical Specifications</h3>
+    <p>The accessibility of Flow &amp; Finish relies on the following standard web technologies to operate harmoniously with the unique combination of modern web browsers and any assistive software or plugins installed on your device:</p>
+    <ul>
+      <li>HTML</li>
+      <li>WAI-ARIA</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+    </ul>
+    <p>These layers are fundamentally relied upon to meet the WCAG 2.2 conformance standards.</p>
+
+    <h3>Date of Publication</h3>
+    <p>This statement was formally adopted and published on <time datetime="2026-06-19">June 19, 2026</time>.</p>
+  </section>
+
+  <div class="return-home">
+    <a href="../">← Return to Home</a>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-logo">Flow &amp; Finish</div>
+  <div class="footer-copy">© 2026 · West Village, New York City</div>
+</footer>
+
+</body>
+</html>
