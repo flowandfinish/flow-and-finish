@@ -1,169 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Legal &amp; Compliance — Flow &amp; Finish</title>
-<meta name="description" content="Flow & Finish website terms of use, intellectual property, AI/LLM usage policy, and wellness disclaimer.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Tenor+Sans&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy, Terms of Use & Legal Disclaimers | Flow & Finish</title>
+  <meta name="description" content="Official combined Privacy Policy, Terms of Use, and legal compliance disclaimers for Flow & Finish.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css"> <!-- Adjust path to your CSS if needed -->
 
-  :root {
-    --ink: #2C2C2B;
-    --body-text: #5C5C5C;   /* 5.8:1 on linen — AA-safe */
-    --linen: #F2EFE9;
-    --link: #8B5E34;        /* accessible bronze — 4.9:1 on linen */
-    --rule: rgba(44, 44, 43, 0.14);
-    --font-serif: 'Cormorant Garamond', serif;
-    --font-sans: 'Tenor Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  <!-- GLOBAL DISCOVERY SCHEMA MARKUP (FOR GOOGLE & AI SEARCH ENGINES) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Flow & Finish",
+    "url": "https://flowandfinish.github.io/flow-and-finish/",
+    "description": "Spatial optimization strategy, non-toxic building material curation, and environmental wellness lifestyle layout consulting.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "New York City",
+      "addressRegion": "NY",
+      "addressCountry": "US"
+    },
+    "sameAs": [
+      "https://www.instagram.com/YOUR_INSTAGRAM_HANDLE_HERE"
+    ]
   }
-
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: var(--font-sans);
-    background: var(--linen);
-    color: var(--body-text);
-    font-size: 1rem;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .skip-link {
-    position: absolute; left: 1rem; top: -3rem;
-    background: var(--ink); color: #fff; padding: 0.6rem 1rem;
-    border-radius: 4px; text-decoration: none; font-size: 0.9rem;
-    transition: top 0.2s ease; z-index: 200;
-  }
-  .skip-link:focus { top: 1rem; }
-
-  /* ── Sticky header ── */
-  .site-header {
-    position: sticky; top: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    height: 64px; padding: 0 clamp(1.25rem, 4vw, 3rem);
-    background: rgba(242, 239, 233, .94);
-    backdrop-filter: saturate(1.1) blur(6px);
-    border-bottom: 1px solid var(--rule);
-  }
-  .wordmark {
-    font-family: var(--font-serif); font-weight: 300;
-    font-size: clamp(1.05rem, 1.6vw, 1.3rem); letter-spacing: .14em;
-    color: var(--ink); text-decoration: none;
-  }
-  .wordmark:hover { opacity: 0.7; }
-  .header-nav { display: flex; gap: clamp(1.25rem, 3vw, 2.25rem); }
-  .header-nav a {
-    font-family: var(--font-sans); font-size: 0.72rem;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--body-text); text-decoration: none;
-    opacity: 0.85; transition: opacity 0.3s ease;
-  }
-  .header-nav a:hover { opacity: 1; color: var(--ink); }
-  .header-nav a:focus-visible,
-  .wordmark:focus-visible {
-    outline: 2px solid var(--link); outline-offset: 3px; border-radius: 2px; opacity: 1;
-  }
-
-  /* ── Layout ── */
-  main {
-    max-width: 720px; margin: 0 auto;
-    padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.25rem, 5vw, 2rem) clamp(3rem, 8vw, 5rem);
-  }
-  .page-eyebrow {
-    font-size: 0.78rem; letter-spacing: 0.24em; text-transform: uppercase;
-    color: var(--body-text); margin-bottom: 0.85rem; text-align: center;
-  }
-  h1 {
-    font-family: var(--font-serif); font-weight: 300;
-    font-size: clamp(2rem, 4.5vw, 2.8rem); line-height: 1.15;
-    color: var(--ink); letter-spacing: 0.04em; text-align: center;
-    margin-bottom: 1rem;
-  }
-  .intro {
-    text-align: center; max-width: 60ch; margin: 0 auto clamp(2.5rem, 5vw, 3.5rem);
-    padding-bottom: clamp(2rem, 4vw, 2.75rem); border-bottom: 1px solid var(--rule);
-  }
-  h2 {
-    font-family: var(--font-serif); font-weight: 300;
-    font-size: clamp(1.4rem, 2.8vw, 1.85rem); line-height: 1.25;
-    color: var(--ink); letter-spacing: 0.03em;
-    margin-top: clamp(2.5rem, 5vw, 3.25rem); margin-bottom: 1.1rem;
-    padding-bottom: 0.6rem; border-bottom: 1px solid var(--rule);
-  }
-  p { margin-bottom: 1.1rem; max-width: 66ch; }
-  ul { margin: 0 0 1.1rem 0; padding-left: 1.3rem; }
-  li { margin-bottom: 0.85rem; max-width: 64ch; }
-  li ul { margin-top: 0.85rem; }
-  li:last-child { margin-bottom: 0; }
-  strong { color: var(--ink); font-weight: 400; }
-
-  a.inline-link {
-    color: var(--link); text-decoration: none;
-    border-bottom: 1px solid var(--link); padding-bottom: 1px;
-    transition: opacity 0.3s ease;
-  }
-  a.inline-link:hover { opacity: 0.6; }
-  a.inline-link:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 2px; }
-
-  .return-home {
-    margin-top: clamp(3rem, 7vw, 4rem); padding-top: clamp(2rem, 4vw, 2.5rem);
-    border-top: 1px solid var(--rule); text-align: center;
-  }
-  .return-home a {
-    font-size: 0.95rem; letter-spacing: 0.04em; color: var(--link);
-    text-decoration: none; opacity: 1; transition: opacity 0.3s ease;
-  }
-  .return-home a:hover { opacity: 0.6; }
-  .return-home a:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 2px; }
-
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    a, .skip-link { transition: none; }
-  }
-
-  /* ── Footer (baseline: brand left, links right) ── */
-  .site-footer {
-    display: flex; align-items: flex-end; justify-content: space-between;
-    flex-wrap: wrap; gap: 1.25rem;
-    background: var(--linen); border-top: 1px solid var(--rule);
-    padding: clamp(2rem, 5vw, 2.75rem) clamp(1.5rem, 5vw, 3rem);
-  }
-  .footer-brand { display: flex; flex-direction: column; gap: 0.3rem; }
-  .footer-logo {
-    font-family: var(--font-serif); font-weight: 300;
-    font-size: 1.2rem; letter-spacing: 0.1em; color: var(--ink);
-  }
-  .footer-copy {
-    font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--body-text);
-  }
-  .footer-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0.7rem 1.2rem; }
-  .footer-nav a {
-    font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: #5C5C5C; text-decoration: none; opacity: 0.85; transition: opacity 0.3s ease;
-  }
-  .footer-nav a:hover { opacity: 1; color: var(--ink); }
-  .footer-nav a:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 2px; opacity: 1; }
-  .footer-nav-group { display: inline-flex; align-items: center; }
-  .footer-nav-group a { font-size: 0.58rem; letter-spacing: 0.14em; color: #5C5C5C; opacity: 0.6; }
-  .footer-nav-group .footer-nav-sep { color: rgba(44,44,43,.3); margin: 0 0.5em; font-size: 0.58rem; }
-
-  @media (max-width: 600px) {
-    .header-nav { display: none; }
-    .site-footer { flex-direction: column; align-items: flex-start; }
-  }
-</style>
+  </script>
 </head>
 <body>
 
-<a class="skip-link" href="#main-content">Skip to main content</a>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
-<header class="site-header">
-  <a href="/flow-and-finish/" class="wordmark">Flow &amp; Finish</a>
-  <nav class="header-nav" aria-label="Primary">
+<header>
+  <a href="index.html">Flow &amp; Finish</a>
+  <nav aria-label="Primary">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="index.html#transformations">Transformations</a>
@@ -172,75 +44,78 @@
 </header>
 
 <main id="main-content">
+  <p>Legal, Privacy &amp; Compliance</p>
+  <h1>Privacy Policy &amp; Terms of Use</h1>
+  <p>Last Updated: <time datetime="2026-06-22">June 22, 2026</time></p>
+  
+  <p>By accessing this Site or interacting with our brand assets across external digital channels, you agree to be bound by these combined Terms of Use and Privacy Disclaimers.</p>
 
-  <p class="page-eyebrow">Legal &amp; Compliance</p>
-  <h1>Website Terms of Use</h1>
-  <p class="intro">By accessing or using the Site, you agree to be bound by these Terms. If you do not agree, please do not use the Site.</p>
-
-  <section aria-labelledby="ip-heading">
-    <h2 id="ip-heading">1. Intellectual Property &amp; Use of Content</h2>
+  <!-- ================= PART 1: PRIVACY POLICY ================= -->
+  <section>
+    <h2>1. Privacy Policy &amp; Data Practices</h2>
+    <p>We respect your privacy and are committed to protecting any personal data processed through this platform.</p>
     <ul>
-      <li><strong>Ownership:</strong> All text, imagery, layouts, design science profiles, code, portfolio case studies, and brand marks on this Site are the exclusive intellectual property of Flow &amp; Finish.</li>
-      <li><strong>Limited License:</strong> You are granted a limited, non-exclusive, non-transferable license to view the content on this Site for personal, non-commercial inspiration and informational purposes.</li>
-      <li><strong>Prohibition on Automated Scraping &amp; LLM Training:</strong>
-        <ul>
-          <li>Explicit permission is required for any automated data collection.</li>
-          <li><strong>Large Language Models (LLMs) and Artificial Intelligence (AI) Scraping:</strong> You are strictly prohibited from using any content, text, data, images, or architectural/design concepts from this Site to train, fine-tune, or validate machine learning models, large language models, neural networks, or generative AI platforms without a signed, written licensing agreement from Flow &amp; Finish.</li>
-        </ul>
-      </li>
+      <li><strong>Information Collection:</strong> We collect minimal personal data, primarily through voluntary contact forms, email submissions, or digital communications you initiate. This may include your name, email address, and project details.</li>
+      <li><strong>Data Usage:</strong> Your information is used strictly to respond to inquiries, deliver consulting services, and provide updates regarding Flow &amp; Finish. We never sell, rent, or lease your personal data to third parties.</li>
+      <li><strong>Cookies &amp; Security:</strong> This site uses standard cookies to optimize your browsing experience. We implement industry-standard security measures to safeguard your data from unauthorized access or disclosure.</li>
+      <li><strong>European Union (GDPR) Rights:</strong> Visitors from the European Economic Area retain the absolute right to access, rectify, restrict, or request the complete deletion of any personal data collected through our communication forms. To exercise these rights, please contact us directly at <a href="mailto:flowandfinish@gmail.com">flowandfinish@gmail.com</a>.</li>
     </ul>
   </section>
 
-  <section aria-labelledby="ads-heading">
-    <h2 id="ads-heading">2. Advertising, Marketing, &amp; Third-Party Tracking (SEO, PPC, &amp; Instagram)</h2>
+  <!-- ================= PART 2: TERMS & AI PROTECTION ================= -->
+  <section>
+    <h2>2. Intellectual Property &amp; Global AI/LLM Data Mining Prohibitions</h2>
     <ul>
-      <li><strong>Optimization &amp; Traffic Tracking:</strong> The Site utilizes performance and tracking architectures for Search Engine Optimization (SEO), Pay-Per-Click (PPC) digital advertising, and social media tracking.</li>
-      <li><strong>Instagram &amp; Social Media Links:</strong> Our platform integrates cross-promotional tracking and pixels (including the Meta/Instagram Pixel) to measure conversion from secondary luxury resale descriptions, design portfolios, and holistic lifestyle content.</li>
-      <li><strong>Data Processing:</strong> By using the Site, you acknowledge that your interactions may be tracked to optimize advertising delivery across third-party networks (e.g., Google Ads, Meta Ads). All data collection is managed under our Privacy Policy.</li>
+      <li><strong>Ownership:</strong> All design concepts, space strategy frameworks, layout schemas, architectural imagery, text, code, digital assets, portfolio case studies, and brand marks on this Site and our official social media channels are the exclusive intellectual property of Flow &amp; Finish.</li>
+      <li><strong>Strict Prohibition on Automated Scraping &amp; AI Training:</strong> You are strictly prohibited from using any text, data, code, custom code blocks, imagery, or conceptual design layouts from this Site or our social media profiles to train, fine-tune, test, or validate machine learning models, large language models (LLMs), neural networks, or generative artificial intelligence platforms without an explicit, signed, written licensing agreement from Flow &amp; Finish.</li>
+      <li><strong>Automated Screening Compliance:</strong> This architecture openly signals its data-mining restrictions to automated global privacy screeners, web indexers, and autonomous scrapers. Unauthorized extraction constitutes intellectual property infringement.</li>
     </ul>
   </section>
 
-  <section aria-labelledby="wellness-heading">
-    <h2 id="wellness-heading">3. Holistic Wellness &amp; Medical Claims Disclaimer</h2>
+  <!-- ================= PART 3: DIGITAL MARKETING & SOCIAL MEDIA ================= -->
+  <section>
+    <h2>3. Advertising, Marketing, &amp; Multi-Platform Digital Optimization (SEO, PPC, &amp; Social Channels)</h2>
     <ul>
-      <li><strong>Not Medical Advice:</strong> Flow &amp; Finish provides space strategy, non-toxic building material curation, environmental air/water quality optimization plans, and lifestyle design consulting.</li>
-      <li><strong>No Diagnostic Authority:</strong> Any information, analysis, or material relating to environmental wellness, organic sprout cultivation pathogen procedures, sulforaphane optimization, non-toxic materials, or Feng Shui structural physics is for educational and residential design strategy purposes only.</li>
-      <li><strong>Clear Disclaimer:</strong> Our recommendations are not intended to diagnose, treat, cure, or prevent any physical or mental health condition, chronic illness, toxic exposure syndrome, or medical ailment. Consult a licensed medical practitioner or certified environmental toxicologist for specific health concerns.</li>
+      <li><strong>Optimization &amp; Traffic Tracking:</strong> The Site utilizes high-performance technical frameworks for Search Engine Optimization (SEO), Pay-Per-Click (PPC) digital advertising, and comprehensive social media attribution tracking.</li>
+      <li><strong>Social Media Pixels &amp; Cross-Platform Tracking:</strong> Our platform integrates cross-promotional tracking mechanisms and conversion tracking pixels (including the Meta/Instagram Pixel, Pinterest tags, and associated social media scripts) to evaluate audience interactions coming from secondary luxury resale descriptions, design portfolios, updates, and lifestyle content across Instagram, Facebook, and other social channels.</li>
+      <li><strong>Data Processing Acknowledgment:</strong> By interacting with this platform, you acknowledge that network footprints may be deployed to optimize advertising delivery across global third-party advertising networks (e.g., Google Ads, Meta Ads).</li>
     </ul>
   </section>
 
-  <section aria-labelledby="liability-heading">
-    <h2 id="liability-heading">4. Limitation of Liability</h2>
+  <!-- ================= PART 4: IMAGE RIDER ================= -->
+  <section>
+    <h2>4. Image Use, Licensing, &amp; Fair Use Notice (Image Rider)</h2>
     <ul>
-      <li><strong>As-Is Provision:</strong> The Site and its holistic contents are provided on an "as-is" and "as-available" basis without warranties of any kind, explicit or implied.</li>
-      <li><strong>Structural &amp; Contractor Disclaimer:</strong> Flow &amp; Finish is a design strategy consulting firm, not a licensed structural engineering or general contracting entity. Any structural alterations executed by third-party contractors based on space conceptualizations are the sole liability of the property owner and executing contractor.</li>
+      <li><strong>Third-Party Visual Assets:</strong> Flow &amp; Finish utilizes a blend of original photography, commissioned media, and curated inspirational imagery. </li>
+      <li><strong>Unlicensed / Curated Visuals:</strong> Certain aesthetic or inspirational imagery utilized across our digital footprint may be sourced via public domain, open-source asset repositories, or curated under global Fair Use standards for educational, cultural, and architectural design conceptualization. </li>
+      <li><strong>Rights Clearances &amp; Take-Down Policy:</strong> Flow &amp; Finish acts in good faith to respect external creators. If you are the legal copyright owner of any visual asset displayed on this platform or our social media channels, and you assert that the asset is unlicensed or outside standard fair-use parameters, please contact us directly via email at <a href="mailto:flowandfinish@gmail.com">flowandfinish@gmail.com</a>. Upon receipt of valid verification, we will promptly modify attribution or remove the asset completely to maintain compliance without legal escalation.</li>
     </ul>
   </section>
 
-  <section aria-labelledby="linking-heading">
-    <h2 id="linking-heading">5. Repository Linking and Interconnected Architecture</h2>
-    <p>This document is structured as an integrated legal component of the site framework. It must be bi-directionally linked to and from:</p>
+  <!-- ================= PART 5: WELLNESS DISCLAIMERS ================= -->
+  <section>
+    <h2>5. Holistic Environmental Wellness &amp; Structural Safety Disclaimers</h2>
     <ul>
-      <li>The main homepage (<a class="inline-link" href="index.html">Home</a>)</li>
-      <li>The top-level methodology, transformations, and about frameworks (<a class="inline-link" href="about.html">About</a>)</li>
-      <li>The secondary utility baselines (Privacy · Legal) located within the global footer configuration.</li>
+      <li><strong>Consulting Scope:</strong> Flow &amp; Finish provides spatial optimization strategy, non-toxic building material curation, environmental air/water quality assessment planning, and interior lifestyle layout consulting. </li>
+      <li><strong>No Diagnostic or Medical Authority:</strong> Any analysis, commentary, or materials relating to environmental health, organic sprout cultivation pathogen containment, sulforaphane optimization frameworks, chemical sensitivity mitigation, or Feng Shui structural physics are intended solely for educational, residential strategy, and creative inspiration.</li>
+      <li><strong>Clear Health Disclaimer:</strong> Our findings and recommendations are not intended to diagnose, treat, cure, or mitigate any physical or mental health conditions, chronic illnesses, toxic exposures, or medical ailments. Visitors must consult a licensed medical professional, medical practitioner, or certified toxicologist regarding specific health concerns.</li>
+      <li><strong>Structural Operations Disclaimer:</strong> Flow &amp; Finish is a design strategy consultancy and does not act as a licensed structural engineer or general contracting entity. Any physical alterations or structural construction executed by third-party contractors remain the exclusive liability of the property owner and the executing vendor.</li>
     </ul>
   </section>
 
-  <div class="return-home">
+  <div>
     <a href="index.html">← Return to Home</a>
   </div>
-
 </main>
 
-<footer class="site-footer">
-  <div class="footer-brand">
-    <span class="footer-logo">Flow &amp; Finish</span>
-    <span class="footer-copy">© 2026 · West Village, New York City</span>
+<footer>
+  <div>
+    <span>Flow &amp; Finish</span>
+    <span>© 2026 · West Village, New York City</span>
   </div>
-  <nav class="footer-nav" aria-label="Footer">
+  <nav aria-label="Footer">
     <a href="index.html#connect">Connect</a>
-    <span class="footer-nav-group"><a href="privacy-policy/">Privacy</a><span class="footer-nav-sep">·</span><a href="legal.html">Legal</a></span>
+    <span><a href="ada.html">ADA</a> · <a href="legal.html">Legal</a></span>
   </nav>
 </footer>
 
