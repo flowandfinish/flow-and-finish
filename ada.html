@@ -113,26 +113,30 @@
       padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.25rem, 5vw, 2rem) clamp(3rem, 8vw, 5rem);
     }
 
-    /* ── Hero section with consistent max-width ── */
+    /* ── Hero section — all children fill the same axis so they center together ── */
     .page-hero {
       max-width: 60ch;
       margin: 0 auto clamp(2.5rem, 5vw, 3.5rem);
       padding-bottom: clamp(2rem, 4vw, 2.75rem);
       border-bottom: 1px solid var(--rule);
+      text-align: center;
     }
 
     .page-eyebrow {
+      display: block; width: 100%;
       font-size: 0.78rem; letter-spacing: 0.24em; text-transform: uppercase;
-      color: var(--body-text); margin-bottom: 0.85rem; text-align: center;
+      color: var(--body-text); margin-bottom: 0.85rem;
     }
     h1 {
+      display: block; width: 100%;
       font-family: var(--font-serif); font-weight: 300;
       font-size: clamp(2rem, 4.5vw, 2.8rem); line-height: 1.15;
-      color: var(--ink); letter-spacing: 0.04em; text-align: center;
+      color: var(--ink); letter-spacing: 0.04em;
       margin-bottom: 1rem;
     }
     .intro {
-      text-align: center;
+      display: block; width: 100%; max-width: none;
+      margin: 0 auto;
     }
 
     h2 {
@@ -298,8 +302,8 @@
     <span class="footer-copy">© 2026 · West Village, New York City</span>
   </div>
   <nav class="footer-nav" aria-label="Footer">
-    <a href="/flow-and-finish/index.html#connect">Connect</a>
-    <span class="footer-nav-group"><a href="/flow-and-finish/legal.html#privacy">Privacy</a><span class="footer-nav-sep">·</span><a href="/flow-and-finish/legal.html#terms">Legal</a></span>
+    <a href="/flow-and-finish/legal.html#privacy">Privacy</a>
+    <a href="/flow-and-finish/ada.html">ADA</a>
   </nav>
 </footer>
 </body>
