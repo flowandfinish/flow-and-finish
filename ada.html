@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light" />
+  <title>Accessibility Statement — Flow &amp; Finish</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Flow & Finish is committed to digital accessibility. Our statement of conformance to WCAG 2.2 Level AA, the standards we follow, and how to share feedback." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://flowandfinish.github.io/flow-and-finish/ada.html" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Flow & Finish" />
+  <meta property="og:title" content="Accessibility Statement — Flow & Finish" />
+  <meta property="og:description" content="Our commitment to digital accessibility and conformance with WCAG 2.2 Level AA." />
+  <meta property="og:url" content="https://flowandfinish.github.io/flow-and-finish/ada.html" />
+  <meta name="twitter:card" content="summary" />
+
+  <!-- Fonts: matched to the live site (Cormorant Garamond for display, Tenor Sans for body/labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Tenor+Sans&display=swap" rel="stylesheet" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Accessibility Statement",
+    "description": "Flow & Finish's commitment to digital accessibility and conformance with WCAG 2.2 Level AA.",
+    "url": "https://flowandfinish.github.io/flow-and-finish/ada.html",
+    "inLanguage": "en",
+    "dateModified": "2026-06-19",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Flow & Finish",
+      "url": "https://flowandfinish.github.io/flow-and-finish/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Flow & Finish",
+      "email": "beflowandfinish@gmail.com",
+      "areaServed": "New York City"
+    }
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #2C2C2B;
+      --body-text: #5C5C5C;   /* 5.8:1 on linen — AA-safe */
+      --linen: #F2EFE9;
+      --link: #8B5E34;        /* accessible bronze — 4.9:1 on linen */
+      --rule: rgba(44, 44, 43, 0.14);
+      --font-serif: 'Cormorant Garamond', serif;
+      --font-sans: 'Tenor Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--linen);
+      color: var(--body-text);
+      font-size: 1rem;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .skip-link {
+      position: absolute; left: 1rem; top: -3rem;
+      background: var(--ink); color: #fff; padding: 0.6rem 1rem;
+      border-radius: 4px; text-decoration: none; font-size: 0.9rem;
+      transition: top 0.2s ease; z-index: 200;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    /* ── Sticky header ── */
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px; padding: 0 clamp(1.25rem, 4vw, 3rem);
+      background: rgba(242, 239, 233, .94);
+      backdrop-filter: saturate(1.1) blur(6px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .wordmark {
+      font-family: var(--font-serif); font-weight: 300;
+      font-size: clamp(1.05rem, 1.6vw, 1.3rem); letter-spacing: .14em;
+      color: var(--ink); text-decoration: none;
+    }
+    .wordmark:hover { opacity: 0.7; }
+    .header-nav { display: flex; gap: clamp(1.25rem, 3vw, 2.25rem); }
+    .header-nav a {
+      font-family: var(--font-sans); font-size: 0.72rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--body-text); text-decoration: none;
+      opacity: 0.85; transition: opacity 0.3s ease;
+    }
+    .header-nav a:hover { opacity: 1; color: var(--ink); }
+    .header-nav a:focus-visible,
+    .wordmark:focus-visible {
+      outline: 2px solid var(--link); outline-offset: 3px; border-radius: 2px; opacity: 1;
+    }
+
+    /* ── Layout ── */
+    main {
+      max-width: 720px; margin: 0 auto;
+      padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.25rem, 5vw, 2rem) clamp(3rem, 8vw, 5rem);
+    }
+
+    /* ── Hero section with consistent max-width ── */
+    .page-hero {
+      max-width: 60ch;
+      margin: 0 auto clamp(2.5rem, 5vw, 3.5rem);
+      padding-bottom: clamp(2rem, 4vw, 2.75rem);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .page-eyebrow {
+      font-size: 0.78rem; letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--body-text); margin-bottom: 0.85rem; text-align: center;
+    }
+    h1 {
+      font-family: var(--font-serif); font-weight: 300;
+      font-size: clamp(2rem, 4.5vw, 2.8rem); line-height: 1.15;
+      color: var(--ink); letter-spacing: 0.04em; text-align: center;
+      margin-bottom: 1rem;
+    }
+    .intro {
+      text-align: center;
+    }
+
+    h2 {
+      font-family: var(--font-serif); font-weight: 300;
+      font-size: clamp(1.4rem, 2.8vw, 1.85rem); line-height: 1.25;
+      color: var(--ink); letter-spacing: 0.03em;
+      margin-top: clamp(2.5rem, 5vw, 3.25rem); margin-bottom: 1.1rem;
+      padding-bottom: 0.6rem; border-bottom: 1px solid var(--rule);
+    }
+    /* anchor jumps clear the sticky header */
+    .legal-part { scroll-margin-top: 84px; }
+    .part-label {
+      font-size: 0.7rem; letter-spacing: 0.26em; text-transform: uppercase;
+      color: var(--link); margin-bottom: 0.4rem;
+    }
+    .legal-part h2 { margin-top: 0; }
+    .doc-meta {
+      font-size: 0.82rem; letter-spacing: 0.04em; color: var(--body-text);
+      margin: -0.4rem 0 1.75rem;
+    }
+    h3 {
+      font-family: var(--font-sans); font-weight: 400;
+      font-size: 0.92rem; letter-spacing: 0.07em; text-transform: uppercase;
+      color: var(--ink); margin-top: 1.9rem; margin-bottom: 0.7rem;
+    }
+    .part-divider {
+      border: none; border-top: 1px solid var(--rule);
+      margin: clamp(3rem, 6vw, 4rem) 0;
+    }
+    p { margin-bottom: 1.1rem; max-width: 66ch; }
+    ul { margin: 0 0 1.1rem 0; padding-left: 1.3rem; }
+    li { margin-bottom: 0.85rem; max-width: 64ch; }
+    li ul { margin-top: 0.85rem; }
+    li:last-child { margin-bottom: 0; }
+    strong { color: var(--ink); font-weight: 400; }
+
+    a.inline-link {
+      color: var(--link); text-decoration: none;
+      border-bottom: 1px solid var(--link); padding-bottom: 1px;
+      transition: opacity 0.3s ease;
+    }
+    a.inline-link:hover { opacity: 0.6; }
+    a.inline-link:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 2px; }
+
+    .return-home {
+      margin-top: clamp(3rem, 7vw, 4rem); padding-top: clamp(2rem, 4vw, 2.5rem);
+      border-top: 1px solid var(--rule); text-align: center;
+    }
+    .return-home a {
+      font-size: 0.95rem; letter-spacing: 0.04em; color: var(--link);
+      text-decoration: none; opacity: 1; transition: opacity 0.3s ease;
+    }
+    .return-home a:hover { opacity: 0.6; }
+    .return-home a:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 2px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      a, .skip-link { transition: none; }
+    }
+
+    /* ── Footer (baseline: brand left, links right) ── */
+    .site-footer {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      flex-wrap: wrap; gap: 1.25rem;
+      background: var(--linen); border-top: 1px solid var(--rule);
+      padding: clamp(2rem, 5vw, 2.75rem) clamp(1.5rem, 5vw, 3rem);
+    }
+    .footer-brand { display: flex; flex-direction: column; gap: 0.3rem; }
+    .footer-logo {
+      font-family: var(--font-serif); font-weight: 300;
+      font-size: 1.2rem; letter-spacing: 0.1em; color: var(--ink);
+    }
+    .footer-copy {
+      font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--body-text);
+    }
+    .footer-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0.7rem 1.2rem; }
+    .footer-nav a {
+      font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: #5C5C5C; text-decoration: none; opacity: 0.85; transition: opacity 0.3s ease;
+    }
+    .footer-nav a:hover { opacity: 1; color: var(--ink); }
+    .footer-nav a:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 2px; opacity: 1; }
+    .footer-nav-group { display: inline-flex; align-items: center; }
+    .footer-nav-group a { font-size: 0.58rem; letter-spacing: 0.14em; color: #5C5C5C; opacity: 0.6; }
+    .footer-nav-group .footer-nav-sep { color: rgba(44,44,43,.3); margin: 0 0.5em; font-size: 0.58rem; }
+
+    @media (max-width: 600px) {
+      .header-nav { display: none; }
+      .site-footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="/flow-and-finish/ada.html#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <a href="/flow-and-finish/" class="wordmark">Flow &amp; Finish</a>
+    <nav class="header-nav" aria-label="Primary">
+      <a href="/flow-and-finish/">Home</a>
+      <a href="/flow-and-finish/about.html">About</a>
+      <a href="/flow-and-finish/index.html#transformations">Transformations</a>
+      <a href="/flow-and-finish/index.html#connect">Connect</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <div class="page-hero">
+      <p class="page-eyebrow">Accessibility</p>
+      <h1>Accessibility Statement</h1>
+      <p class="intro">This statement describes our commitment to digital accessibility and our ongoing efforts to conform to WCAG 2.2 Level AA standards.</p>
+    </div>
+
+    <section class="legal-part" aria-labelledby="s1">
+      <p class="part-label">Framework</p>
+      <h2 id="s1">1. Our Commitment to Accessibility</h2>
+      <p class="doc-meta">Last Updated: <time datetime="2026-06-19">June 19, 2026</time></p>
+      <p>Flow &amp; Finish is committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone and applying the relevant accessibility standards to ensure our holistic design portfolio, space strategy frameworks, and digital interfaces are welcoming and usable for all visitors.</p>
+    </section>
+
+    <hr class="part-divider" aria-hidden="true">
+
+    <section class="legal-part" aria-labelledby="s2">
+      <p class="part-label">Standards</p>
+      <h2 id="s2">2. Conformance Status</h2>
+      <p class="doc-meta">Adopted <time datetime="2026-06-19">June 19, 2026</time></p>
+      <p>We actively work to align this website with the Web Content Accessibility Guidelines (WCAG) 2.2, Level AA — the current W3C standard, which also encompasses the earlier 2.1 success criteria. These guidelines explain how to make web content more accessible for people with visual, auditory, motor, and cognitive disabilities.</p>
+      <p>This site is substantially conformant with WCAG 2.2 Level AA, meaning most content meets the standard while some elements may not yet fully conform. We treat accessibility as an ongoing process and welcome reports of any barriers. In pursuing these benchmarks we also have regard to the Americans with Disabilities Act (ADA) and Section 508 in the United States, the European Accessibility Act and EN 301 549 in the European Union, the Equality Act 2010 in the United Kingdom, and the Accessibility for Ontarians with Disabilities Act (AODA) and the Accessible Canada Act.</p>
+    </section>
+
+    <hr class="part-divider" aria-hidden="true">
+
+    <section class="legal-part" aria-labelledby="s3">
+      <p class="part-label">Implementation</p>
+      <h2 id="s3">3. Core Accessibility Features Implemented on Our Site</h2>
+      <p class="doc-meta">Reviewed <time datetime="2026-06-19">June 19, 2026</time></p>
+      <p>To optimize navigation and usability, this site is built using the following structural frameworks:</p>
+      <ul class="feature-list">
+        <li><strong>Semantic Code:</strong> Clean HTML structure and semantic tags to ensure assistive technologies (like screen readers) can accurately parse and read content.</li>
+        <li><strong>Contrast &amp; Typography:</strong> Strict attention to text-to-background contrast ratios and elegant, legible typography to minimize cognitive load and visual fatigue.</li>
+        <li><strong>Alternative Text:</strong> Inclusion of descriptive alt text for images, portfolios, structural transformations, and secondary luxury resale market archival imagery.</li>
+        <li><strong>Keyboard Navigation:</strong> Clean element sequencing to support users navigating without a mouse.</li>
+      </ul>
+    </section>
+
+    <hr class="part-divider" aria-hidden="true">
+
+    <section class="legal-part" aria-labelledby="s4">
+      <p class="part-label">Contact</p>
+      <h2 id="s4">4. Ongoing Review &amp; Feedback</h2>
+      <p class="doc-meta">Effective <time datetime="2026-06-19">June 19, 2026</time></p>
+      <p>Accessibility is an ongoing journey. If you experience any difficulty accessing any material, layout, or function on this Site, or if you have suggestions on how we can improve accessibility, please reach out to us at <a class="inline-link" href="mailto:beflowandfinish@gmail.com">beflowandfinish@gmail.com</a>. We welcome your feedback and aim to acknowledge accessibility-related messages within five business days. Where a barrier prevents you from accessing content, we will work with you to provide the information in an alternative, accessible format, and we will work diligently to accommodate your needs.</p>
+    </section>
+
+    <div class="return-home">
+      <a href="/flow-and-finish/">← Return to Home</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+  <div class="footer-brand">
+    <span class="footer-logo">Flow &amp; Finish</span>
+    <span class="footer-copy">© 2026 · West Village, New York City</span>
+  </div>
+  <nav class="footer-nav" aria-label="Footer">
+    <a href="/flow-and-finish/index.html#connect">Connect</a>
+    <span class="footer-nav-group"><a href="/flow-and-finish/legal.html#privacy">Privacy</a><span class="footer-nav-sep">·</span><a href="/flow-and-finish/legal.html#terms">Legal</a></span>
+  </nav>
+</footer>
+</body>
+</html>
