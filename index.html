@@ -19,9 +19,11 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Methodology — Flow &amp; Finish</title>
+<title>Flow &amp; Finish — Spatial Wellness &amp; Design Curation</title>
 <meta name="description" content="Transforming private residences and retreat spaces into health-first sanctuaries. West Village, New York City.">
-
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Flow & Finish","description":"Transforming private residences and retreat spaces into health-first sanctuaries. Manhattan, New York City.","url":"https://flowandfinish.com","address":{"@type":"PostalAddress","streetAddress":"West Village","addressLocality":"New York","addressRegion":"NY","postalCode":"10014","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":40.7335,"longitude":-74.0027},"priceRange":"$$$$$","serviceType":["Architectural Renovation","Spatial Design Layout","Healthy Home Inspections","Non-Toxic Building Materials","EMF Mitigation","Pre-Acquisition Strategy"],"areaServed":{"@type":"City","name":"New York City"}}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Tenor+Sans&display=swap" rel="stylesheet">
@@ -60,6 +62,7 @@ body{
 
 /* ── accessibility ───────────────────────────────── */
 a:focus-visible,label:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:2px;}
+.hero a:focus-visible{outline-color:#fff;}
 .skip-link{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--linen);padding:10px 16px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;z-index:200;}
 .skip-link:focus{left:8px;top:8px;}
 
@@ -120,118 +123,90 @@ a:focus-visible,label:focus-visible{outline:2px solid var(--ink);outline-offset:
 }
 .mobile-nav a:first-child{border-top:none;}
 
-/* ════════════════════════ ARUP METHODOLOGY LAYOUT ════════════════════════ */
-.methodology-content {
-  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.25rem, 4vw, 3rem);
-  max-width: 1200px;
-  margin: 0 auto;
+/* ════════════════════════ HERO ════════════════════════ */
+.hero{position:relative;display:flex;flex-direction:column;}
+.hero-copy{
+  order:1;background:var(--linen);text-align:center;
+  padding:clamp(2.75rem,8vw,4.5rem) clamp(1.5rem,6vw,2.5rem) clamp(2.5rem,7vw,4rem);
 }
+.eyebrow{
+  font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;
+  color:var(--stone);margin-bottom:1.15rem;line-height:1.9;
+}
+.hero-title{
+  font-family:var(--font-serif);font-weight:300;
+  font-size:clamp(2.1rem,5vw,4.25rem);line-height:1.12;
+  color:var(--ink);margin-bottom:1.15rem;
+}
+.lede{
+  font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--stone);line-height:2.3;margin-bottom:1.85rem;
+  max-width:34ch;margin-left:auto;margin-right:auto;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:1.1rem;justify-content:center;align-items:center;}
 
-/* 1. Hero Block */
-.methodology-hero {
-  text-align: center;
-  padding-bottom: 2rem;
+.cta{
+  display:inline-block;font-family:var(--font-sans);
+  text-transform:uppercase;letter-spacing:.24em;font-size:.68rem;
+  text-decoration:none;cursor:pointer;
+  transition:all .55s cubic-bezier(.22,.61,.36,1);
 }
-.methodology-hero h1 {
-  font-family: var(--font-serif);
-  font-weight: 300;
-  font-size: clamp(2.1rem, 4.5vw, 3.75rem);
-  line-height: 1.15;
-  color: var(--ink);
-  margin-bottom: 1rem;
+.cta--solid{
+  background:var(--linen-warm);border:0.5px solid var(--sand);
+  color:var(--ink);padding:.95rem 1.9rem;
 }
-.certification-badge {
-  font-size: .66rem;
-  letter-spacing: .24em;
-  text-transform: uppercase;
-  color: var(--stone);
-  margin-bottom: 2.5rem;
+.cta--solid:hover{background:#fff;letter-spacing:.3em;}
+.cta--text{
+  color:var(--ink);border-bottom:0.5px solid var(--sand);
+  padding-bottom:3px;
 }
-.hero-divider {
-  border: 0;
-  border-top: 0.5px solid rgba(44,44,43,.1);
-  width: 100%;
-}
+.cta--text:hover{letter-spacing:.3em;}
+.hero-actions .cta--text{display:none;} /* desktop only */
 
-/* 2. Navigation Block (Categorical Intent) */
-.filter-navigation {
-  padding: 2.5rem 0;
+.hero-media{
+  order:2;position:relative;
+  height:clamp(280px,42vh,420px);overflow:hidden;background:var(--dust);
 }
-.filter-list {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1.5rem clamp(1.5rem, 3vw, 2.5rem);
-  list-style: none;
+/* TWO video tags, swapped by CSS — no JavaScript required */
+.hero-video{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;display:block;background:var(--dust);
 }
-.filter-item {
-  font-size: .66rem;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  color: var(--stone-soft);
-  cursor: pointer;
-  transition: color .4s ease;
+.hero-video--desktop{display:none;}      /* phone shows the mobile cut */
+.hero-scrim{
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top,rgba(44,44,43,.38) 0%,rgba(44,44,43,0) 38%);
 }
-.filter-item:hover, .filter-item.active {
-  color: var(--ink);
+.methodology-pills{
+  position:absolute;bottom:0;left:0;right:0;z-index:3;
+  display:flex;justify-content:center;align-items:center;gap:.55rem;
+  padding:.85rem 1rem;
 }
+.methodology-pills a{
+  font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;
+  color:rgba(255,255,255,.82);text-decoration:none;
+  text-shadow:0 1px 4px rgba(44,44,43,.45);
+  transition:all .5s cubic-bezier(.22,.61,.36,1);
+}
+.methodology-pills a:hover{color:#fff;letter-spacing:.34em;}
+.methodology-pills .sep{color:rgba(255,255,255,.5);font-size:.62rem;}
 
-/* 3. The Grid Block */
-.insights-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2.5rem;
-  margin-top: 1rem;
+/* ════════════════════════ ORIGIN ════════════════════════ */
+.origin{
+  background:var(--linen-warm);text-align:center;
+  padding:clamp(3rem,9vw,5.5rem) clamp(1.5rem,6vw,2.5rem);
 }
-
-.insight-card {
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  flex-direction: column;
-  transition: transform .4s ease;
+.origin-eyebrow{
+  font-size:.64rem;letter-spacing:.36em;text-transform:uppercase;
+  color:var(--stone-soft);margin-bottom:1.1rem;
 }
-.insight-card:hover {
-  transform: translateY(-4px);
+.origin-quote{
+  font-family:var(--font-serif);font-style:italic;font-weight:300;
+  font-size:clamp(1.5rem,3.4vw,2.5rem);line-height:1.45;
+  color:var(--ink);margin-bottom:1.4rem;max-width:24ch;
+  margin-left:auto;margin-right:auto;
 }
-
-.card-image-wrapper {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  border-radius: 16px;
-  overflow: hidden;
-  background: var(--dust);
-  margin-bottom: 1.25rem;
-}
-.card-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.card-content {
-  padding: 0 0.25rem;
-}
-.card-category {
-  display: block;
-  font-size: .6rem;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: var(--stone);
-  margin-bottom: 0.5rem;
-}
-.card-title {
-  font-family: var(--font-serif);
-  font-weight: 300;
-  font-size: clamp(1.25rem, 2vw, 1.5rem);
-  line-height: 1.3;
-  color: var(--ink);
-}
-
-/* Card Hide System for JS filter */
-.insight-card.is-hidden {
-  display: none;
-}
+.origin-cta{font-size:.66rem;}
 
 /* ════════════════════════ FOOTER ════════════════════════ */
 .site-footer{
@@ -252,30 +227,31 @@ a:focus-visible,label:focus-visible{outline:2px solid var(--ink);outline-offset:
 .footer-nav{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.7rem 1.2rem;}
 .footer-nav a{
   font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
-  color:#5C5C5C;text-decoration:none;
+  color:#5C5C5C;text-decoration:none; /* 5.8:1 on linen — AA-compliant */
   opacity:.85;transition:opacity .3s ease;
 }
 .footer-nav a:hover{opacity:1;color:var(--ink);}
+.footer-nav a:focus-visible{outline:2px solid #8B5E34;outline-offset:3px;border-radius:2px;opacity:1;}
 .footer-nav-group{display:inline-flex;align-items:center;}
 .footer-nav-group a{
   font-size:.58rem;letter-spacing:.14em;
-  color:#5C5C5C;
+  color:#5C5C5C; /* 5.8:1 on linen — AA-compliant */
   text-decoration:none;opacity:.6;transition:opacity .3s ease;
 }
 .footer-nav-group a:hover{opacity:1;}
+.footer-nav-group a:focus-visible{outline:2px solid #8B5E34;outline-offset:3px;border-radius:2px;opacity:1;}
 .footer-nav-group .footer-nav-sep{color:rgba(44,44,43,.3);margin:0 .5em;font-size:.58rem;}
 
-/* ════════════════════════ LAYOUT RESPONSIVENESS ════════════════════════ */
+/* ════════════════════════ ≥ 768px — iPad ════════════════════════ */
 @media (min-width:768px){
   :root{--header-h:72px;}
   .primary-nav{display:flex;}
   .nav-toggle{display:none;}
   .mobile-nav,.nav-toggle-cb:checked ~ .mobile-nav{display:none !important;}
-  
-  .insights-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
+  .hero-video--mobile{display:none;}     /* iPad + desktop use the desktop cut */
+  .hero-video--desktop{display:block;}
+  .hero-media{height:clamp(360px,48vh,520px);}
+  .lede{max-width:46ch;}
   .site-footer{
     flex-direction:row;justify-content:space-between;align-items:center;
     text-align:left;
@@ -283,36 +259,55 @@ a:focus-visible,label:focus-visible{outline:2px solid var(--ink);outline-offset:
   .footer-nav{justify-content:flex-end;}
 }
 
+/* ════════════════════════ ≥ 1024px — Desktop (overlay hero) ════════════════════════ */
 @media (min-width:1024px){
   .connect-cta{display:inline-block;}
-  .insights-grid {
-    grid-template-columns: repeat(3, 1fr);
+
+  .hero{min-height:78vh;max-height:780px;display:block;}
+  .hero-media{order:0;position:absolute;inset:0;height:100%;}
+  .hero-scrim{
+    background:linear-gradient(90deg,rgba(44,44,43,.62) 0%,rgba(44,44,43,.28) 50%,rgba(44,44,43,.06) 100%);
   }
+  .hero-copy{
+    order:0;position:absolute;inset:0;background:transparent;
+    display:flex;flex-direction:column;justify-content:center;align-items:flex-start;
+    text-align:left;padding:0 clamp(3rem,6vw,6rem);z-index:2;
+  }
+  .eyebrow{color:rgba(255,255,255,.9);}
+  .hero-title{color:#fff;}
+  .lede{color:rgba(255,255,255,.82);margin-left:0;margin-right:0;}
+  .hero-actions{justify-content:flex-start;}
+  .hero-actions .cta--text{display:inline-block;}
+  .cta--solid{background:rgba(249,241,240,.94);}
+  .hero .cta--text{color:rgba(255,255,255,.9);border-bottom-color:rgba(255,255,255,.5);}
+  .methodology-pills{justify-content:center;padding:1.15rem;}
+  .methodology-pills a{font-size:.66rem;}
 }
 
+/* ════════════════════════ reduced motion ════════════════════════ */
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto;}
   .fade{animation:none;}
-  .primary-nav a,.connect-cta,.footer-nav a,.insight-card{transition:none;}
+  .cta,.primary-nav a,.connect-cta,.methodology-pills a,.footer-nav a{transition:none;}
 }
 </style>
 </head>
 <body>
 
-<a class="skip-link" href="#methodology-main">Skip to content</a>
+<a class="skip-link" href="#home">Skip to content</a>
 
 <!-- drives the mobile menu with zero JavaScript -->
 <input type="checkbox" id="nav-toggle-cb" class="nav-toggle-cb" aria-label="Toggle navigation menu">
 
 <header class="site-header">
-  <a href="index.html" class="wordmark">Flow &amp; Finish</a>
+  <a href="#home" class="wordmark">Flow &amp; Finish</a>
   <nav class="primary-nav" aria-label="Primary">
-    <a href="index.html">Home</a>
-    <a href="methodology.html" class="active">Methodology</a>
-    <a href="index.html#transformations">Transformations</a>
-    <a href="index.html#hospitality">The Hospitality Edit</a>
+    <a href="#home" class="active">Home</a>
+    <a href="methodology.html">Methodology</a>
+    <a href="#transformations">Transformations</a>
+    <a href="#hospitality">The Hospitality Edit</a>
   </nav>
-  <a href="index.html#connect" class="connect-cta">Connect</a>
+  <a href="#connect" class="connect-cta">Connect</a>
   <label for="nav-toggle-cb" class="nav-toggle" tabindex="0" aria-label="Open menu">
     <i class="ti ti-menu-2 icon-open" aria-hidden="true"></i>
     <i class="ti ti-x icon-close" aria-hidden="true"></i>
@@ -320,76 +315,47 @@ a:focus-visible,label:focus-visible{outline:2px solid var(--ink);outline-offset:
 </header>
 
 <nav class="mobile-nav" aria-label="Mobile">
-  <a href="index.html">Home</a>
+  <a href="#home">Home</a>
   <a href="methodology.html">Methodology</a>
-  <a href="index.html#transformations">Transformations</a>
-  <a href="index.html#hospitality">The Hospitality Edit</a>
-  <a href="index.html#insight">Insight</a>
-  <a href="index.html#connect">Connect</a>
+  <a href="#transformations">Transformations</a>
+  <a href="#hospitality">The Hospitality Edit</a>
+  <a href="#insight">Insight</a>
+  <a href="#connect">Connect</a>
 </nav>
 
-<main id="methodology-main" class="fade fade-d1">
-  <div class="methodology-content">
-    
-    <!-- 1. Hero Block -->
-    <section class="methodology-hero">
-      <h1>Our Methodology &amp; Practice</h1>
-      <div class="certification-badge">Certified Bio-Adaptive Design Protocols</div>
-      <hr class="hero-divider">
-    </section>
+<main>
+  <section class="hero" id="home">
+    <div class="hero-media">
+      <video class="hero-video hero-video--mobile" autoplay muted loop playsinline preload="auto">
+        <source src="flow-finish-hero-mobile-v2.mp4" type="video/mp4">
+      </video>
+      <video class="hero-video hero-video--desktop" autoplay muted loop playsinline preload="auto">
+        <source src="flow-finish-hero-desktop-v2.mp4" type="video/mp4">
+      </video>
+      <div class="hero-scrim"></div>
+      <nav class="methodology-pills" aria-label="Methodology">
+        <a href="#methodology">Breath</a><span class="sep">·</span><a href="#methodology">Vitality</a><span class="sep">·</span><a href="#methodology">Flow</a>
+      </nav>
+    </div>
+    <div class="hero-copy">
+      <p class="eyebrow fade fade-d1">Spatial Wellness · Design Curation</p>
+      <h1 class="hero-title fade fade-d2">Spaces Evolved to Restore You.</h1>
+      <p class="lede fade fade-d3">Transforming private residences and retreat spaces into health-first sanctuaries.</p>
+      <div class="hero-actions fade fade-d4">
+        <a href="#connect" class="cta cta--solid">Begin the Evolution</a>
+        <a href="#methodology" class="cta cta--text">Explore Methodologies</a>
+      </div>
+    </div>
+  </section>
 
-    <!-- 2. The Navigation Filter Block -->
-    <nav class="filter-navigation" aria-label="Category Filter">
-      <ul class="filter-list">
-        <li class="filter-item active" data-filter="all">All Insights</li>
-        <li class="filter-item" data-filter="building-science">Building Science</li>
-        <li class="filter-item" data-filter="biophilic-design">Biophilic Design</li>
-        <li class="filter-item" data-filter="human-homeostasis">Human Homeostasis</li>
-      </ul>
-    </nav>
-
-    <!-- 3. The Grid Block -->
-    <section class="insights-grid">
-      
-      <!-- Card 1 -->
-      <a href="#" class="insight-card" data-category="building-science">
-        <div class="card-image-wrapper">
-          <!-- Add image path here -->
-          <img src="gigi-portrait.png" alt="Building Science Asset" class="card-image">
-        </div>
-        <div class="card-content">
-          <span class="card-category">Building Science</span>
-          <h3 class="card-title">Passive Environmental Shifts and Nervous System Baseline Resonance</h3>
-        </div>
-      </a>
-
-      <!-- Card 2 -->
-      <a href="#" class="insight-card" data-category="biophilic-design">
-        <div class="card-image-wrapper">
-          <img src="gigi-portrait.png" alt="Biophilic Design Asset" class="card-image">
-        </div>
-        <div class="card-content">
-          <span class="card-category">Biophilic Design</span>
-          <h3 class="card-title">Circadian Alignment: Effectively Eliminating Artificial Spikes</h3>
-        </div>
-      </a>
-
-      <!-- Card 3 -->
-      <a href="#" class="insight-card" data-category="human-homeostasis">
-        <div class="card-image-wrapper">
-          <img src="gigi-portrait.png" alt="Human Homeostasis Asset" class="card-image">
-        </div>
-        <div class="card-content">
-          <span class="card-category">Human Homeostasis</span>
-          <h3 class="card-title">Acoustic Grounding: Mitigating High-Frequency Stressors</h3>
-        </div>
-      </a>
-
-    </section>
-  </div>
+  <section class="origin" id="insight">
+    <p class="origin-eyebrow">The Origin</p>
+    <blockquote class="origin-quote">"Slowing down is the ultimate modern luxury."</blockquote>
+    <a href="about.html" class="cta cta--text origin-cta">Read Our Story</a>
+  </section>
 </main>
 
-<footer class="site-footer">
+<footer class="site-footer" id="connect">
   <div class="footer-brand">
     <span class="footer-logo">Flow &amp; Finish</span>
     <span class="footer-copy">© 2026 · West Village, New York City</span>
@@ -400,35 +366,8 @@ a:focus-visible,label:focus-visible{outline:2px solid var(--ink);outline-offset:
         <span class="footer-nav-sep">&middot;</span>
         <a href="ada.html">ADA</a>
     </span>
-  </nav>
+</nav>
 </footer>
-
-<!-- JavaScript Interactive Filter Logic -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const filterItems = document.querySelectorAll('.filter-item');
-  const insightCards = document.querySelectorAll('.insight-card');
-
-  filterItems.forEach(item => {
-    item.addEventListener('click', () => {
-      // Remove active class from all navigation items
-      filterItems.forEach(i => i.classList.remove('active'));
-      // Add active status to clicked link
-      item.classList.add('active');
-
-      const filterValue = item.getAttribute('data-filter');
-
-      insightCards.forEach(card => {
-        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-          card.classList.remove('is-hidden');
-        } else {
-          card.classList.add('is-hidden');
-        }
-      });
-    });
-  });
-});
-</script>
 
 </body>
 </html>
