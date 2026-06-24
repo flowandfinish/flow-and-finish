@@ -18,6 +18,7 @@
   --stone: #888780;
   --stone-soft: #a8a59d;
   --gold: #B28651;
+  --sand: #d8d0c4;
   --font-serif: 'Cormorant Garamond', serif;
   --font-sans: 'Tenor Sans', sans-serif;
 }
@@ -28,8 +29,8 @@ body {
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
 }
-
 /* ═══════════════════════════ HEADER ═══════════════════════════ */
+.nav-toggle-cb { position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .site-header {
   position: sticky;
   top: 0;
@@ -50,9 +51,71 @@ body {
   letter-spacing: .1em;
   color: var(--ink);
   text-decoration: none;
+  white-space: nowrap;
 }
+.primary-nav { display: none; align-items: center; gap: clamp(1.1rem, 2vw, 1.9rem); }
+.primary-nav a {
+  font-size: .66rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--stone-soft);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color .5s cubic-bezier(.22,.61,.36,1);
+}
+.primary-nav a:hover, .primary-nav a.active { color: var(--ink); }
+.connect-cta {
+  display: none;
+  font-size: .66rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  background: var(--linen-warm);
+  border: 0.5px solid var(--sand);
+  color: var(--ink);
+  text-decoration: none;
+  padding: .55rem .95rem;
+  transition: all .5s cubic-bezier(.22,.61,.36,1);
+}
+.connect-cta:hover { background: #fff; letter-spacing: .28em; }
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  color: var(--ink);
+  font-size: 1.25rem;
+}
+.nav-toggle .icon-close { display: none; }
+.nav-toggle-cb:checked ~ .site-header .nav-toggle .icon-open { display: none; }
+.nav-toggle-cb:checked ~ .site-header .nav-toggle .icon-close { display: inline; }
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  background: var(--linen-warm);
+  border-bottom: 0.5px solid rgba(44, 44, 43, .1);
+  padding: .5rem 0;
+}
+.nav-toggle-cb:checked ~ .mobile-nav { display: flex; }
+.mobile-nav a {
+  font-size: .72rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  padding: .85rem clamp(1.25rem, 4vw, 3rem);
+  border-top: 0.5px solid rgba(44, 44, 43, .06);
+}
+.mobile-nav a:first-child { border-top: none; }
 @media (min-width: 768px) {
   .site-header { height: 72px; }
+  .primary-nav { display: flex; }
+  .nav-toggle { display: none; }
+  .mobile-nav, .nav-toggle-cb:checked ~ .mobile-nav { display: none !important; }
+}
+@media (min-width: 1024px) {
+  .connect-cta { display: inline-block; }
 }
 
 /* ═══════════════════════════ MAIN CONTENT ═══════════════════════════ */
@@ -587,9 +650,32 @@ footer {
 </head>
 <body>
 
+<!-- drives the mobile menu with zero JavaScript -->
+<input type="checkbox" id="nav-toggle-cb" class="nav-toggle-cb" aria-label="Toggle navigation menu">
+
 <header class="site-header">
   <a href="index.html" class="wordmark">Flow &amp; Finish</a>
+  <nav class="primary-nav" aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="methodology.html">Methodology</a>
+    <a href="index.html#transformations">Transformations</a>
+    <a href="index.html#hospitality">The Hospitality Edit</a>
+  </nav>
+  <a href="index.html#connect" class="connect-cta">Connect</a>
+  <label for="nav-toggle-cb" class="nav-toggle" tabindex="0" aria-label="Open menu">
+    <i class="ti ti-menu-2 icon-open" aria-hidden="true"></i>
+    <i class="ti ti-x icon-close" aria-hidden="true"></i>
+  </label>
 </header>
+
+<nav class="mobile-nav" aria-label="Mobile">
+  <a href="index.html">Home</a>
+  <a href="methodology.html">Methodology</a>
+  <a href="index.html#transformations">Transformations</a>
+  <a href="index.html#hospitality">The Hospitality Edit</a>
+  <a href="index.html#insight">Insight</a>
+  <a href="index.html#connect">Connect</a>
+</nav>
 
 <main>
 
