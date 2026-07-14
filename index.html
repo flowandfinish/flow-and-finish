@@ -187,8 +187,8 @@ a:focus-visible,label:focus-visible{outline:2px solid var(--ink);outline-offset:
 .hero-actions .cta--text{display:none;} /* desktop only */
 
 .hero-media{
-  order:2;position:relative;
-  height:clamp(280px,42vh,420px);overflow:hidden;background:var(--dust);
+  position:absolute;inset:0;height:100%;
+  overflow:hidden;background:var(--dust);
 }
 /* TWO video tags, swapped by CSS — no JavaScript required */
 .hero-video{
@@ -273,7 +273,6 @@ a:focus-visible,label:focus-visible{outline:2px solid var(--ink);outline-offset:
   .mobile-nav,.nav-toggle-cb:checked ~ .mobile-nav{display:none !important;}
   .hero-video--mobile{display:none;}     /* iPad + desktop use the desktop cut */
   .hero-video--desktop{display:block;}
-  .hero-media{height:clamp(360px,48vh,520px);}
   .lede{max-width:46ch;}
   .site-footer{
     flex-direction:row;justify-content:space-between;align-items:center;
