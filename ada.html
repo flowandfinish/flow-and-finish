@@ -176,8 +176,19 @@
     .footer-nav a:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 2px; opacity: 1; }
 
     @media (max-width: 600px) {
-      .header-nav { display: none; }
-      .site-footer { flex-direction: column; align-items: flex-start; }
+      .site-header {
+  flex-wrap: wrap;
+  height: auto;
+  padding: 0.85rem clamp(1.25rem, 4vw, 3rem);
+  row-gap: 0.6rem;
+}
+.header-nav {
+  width: 100%;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.site-footer { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -189,9 +200,10 @@
   <a href="/" class="wordmark">Flow &amp; Finish</a>
   <nav class="header-nav" aria-label="Primary">
     <a href="/">Home</a>
-    <a href="/about.html">About</a>
-    <a href="/index.html#transformations">Transformations</a>
-    <a href="/index.html#connect">Connect</a>
+<a href="/about.html">About</a>
+<a href="/methodology.html">Methodology</a>
+<!-- <a href="/index.html#transformations">Transformations</a> -->
+<a href="/index.html#connect">Connect</a>
   </nav>
 </header>
 
