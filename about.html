@@ -669,6 +669,95 @@ footer {
   color: var(--stone);
   margin-top: 0.85rem;
 }
+  </style>
+<style>
+.ffw-container {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.ffw-wheel-column { display: flex; justify-content: center; align-items: center; }
+.ffw-wheel-wrapper { position: relative; width: 300px; height: 300px; max-width: 100%; }
+.ffw-wheel-svg { width: 100%; height: 100%; transform: rotate(-22.5deg); display: block; }
+.ffw-wedge-group { cursor: pointer; }
+.ffw-sector {
+  stroke: rgba(44, 44, 43, 0.06);
+  stroke-width: 1px;
+  transition: fill 0.4s ease, transform 0.4s ease;
+  transform-origin: 200px 200px;
+}
+.ffw-wedge-group:hover .ffw-sector { fill: #ffffff !important; transform: scale(1.025); }
+.ffw-icon-mark path, .ffw-icon-mark circle, .ffw-icon-mark line, .ffw-icon-mark polyline {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 1.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke 0.4s ease;
+}
+.ffw-wedge-group:nth-child(1):hover .ffw-icon-mark path { stroke: #5faec0; }
+.ffw-wedge-group:nth-child(2):hover .ffw-icon-mark path { stroke: #7faee3; }
+.ffw-wedge-group:nth-child(3):hover .ffw-icon-mark path { stroke: #e3be7f; }
+.ffw-wedge-group:nth-child(4):hover .ffw-icon-mark path { stroke: #a396d2; }
+.ffw-wedge-group:nth-child(5):hover .ffw-icon-mark path { stroke: #c5a9a0; }
+.ffw-wedge-group:nth-child(6):hover .ffw-icon-mark path { stroke: #99aba0; }
+.ffw-wedge-group:nth-child(7):hover .ffw-icon-mark path { stroke: #e59f93; }
+.ffw-wedge-group:nth-child(8):hover .ffw-icon-mark path { stroke: #8cc39b; }
+.ffw-center-hole { fill: var(--linen); stroke: rgba(44, 44, 43, 0.06); stroke-width: 1px; }
+.ffw-center-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: 1.05rem;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  text-align: center;
+  pointer-events: none;
+  color: var(--stone);
+}
+.ffw-narrative-column { min-height: 280px; display: flex; flex-direction: column; justify-content: center; text-align: left; }
+.ffw-num-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+  min-height: 1.2em;
+  line-height: 1.8;
+  transition: opacity 0.35s ease;
+}
+.ffw-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 20px;
+  min-height: 1.15em;
+  transition: opacity 0.35s ease;
+}
+.ffw-desc {
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 1.8;
+  color: var(--stone);
+  min-height: 3.5em;
+  transition: opacity 0.35s ease;
+}
+@media (max-width: 700px) {
+  .ffw-container { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+  .ffw-narrative-column { text-align: center; }
+  .ffw-wheel-wrapper { width: 260px; height: 260px; }
+}
 </style>
 </head>
 <body>
@@ -745,10 +834,42 @@ footer {
   <section class="elements-section">
     <h2 class="section-heading">The Elements of a Calibrated Space</h2>
     <p class="elements-intro">These eight elements form the foundation of every calibrated space. Each plays a vital role in supporting your biology and well-being.</p>
-    <div class="wheel-container">
-      <img src="wellness-wheel.png" alt="The Elements of a Calibrated Space — wellness wheel" class="wheel-image">
+  <div class="ffw-container">
+  <div class="ffw-wheel-column">
+    <div class="ffw-wheel-wrapper">
+      <svg class="ffw-wheel-svg" viewBox="0 0 400 400">
+        <defs>
+          <linearGradient id="ffw-grad-0" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#b4e1eb;"/><stop offset="100%" style="stop-color:#d4f3fa;"/></linearGradient>
+          <linearGradient id="ffw-grad-1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#bcd7f5;"/><stop offset="100%" style="stop-color:#def0ff;"/></linearGradient>
+          <linearGradient id="ffw-grad-2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f4deb6;"/><stop offset="100%" style="stop-color:#fdf4dc;"/></linearGradient>
+          <linearGradient id="ffw-grad-3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#cfc5f0;"/><stop offset="100%" style="stop-color:#ebe4ff;"/></linearGradient>
+          <linearGradient id="ffw-grad-4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#dfcac2;"/><stop offset="100%" style="stop-color:#f5eae6;"/></linearGradient>
+          <linearGradient id="ffw-grad-5" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#c2cfc7;"/><stop offset="100%" style="stop-color:#e2ebe6;"/></linearGradient>
+          <linearGradient id="ffw-grad-6" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f2c9c2;"/><stop offset="100%" style="stop-color:#fbebe8;"/></linearGradient>
+          <linearGradient id="ffw-grad-7" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#bde2c8;"/><stop offset="100%" style="stop-color:#def5e5;"/></linearGradient>
+        </defs>
+        <g>
+          <g class="ffw-wedge-group" data-index="0"><path id="ffw-sec-0" class="ffw-sector" style="fill:url(#ffw-grad-0)" d="M200,200 L200,10 A190,190 0 0,1 334.35,65.65 Z"/><g class="ffw-icon-mark" transform="translate(200,200) rotate(22.5) translate(0,-130) rotate(-22.5) rotate(22.5) translate(-12,-12)"><path d="M4,6 C12,0 20,12 28,6 C36,0 44,12 44,6" transform="scale(0.5)"/><path d="M4,14 C12,8 20,20 28,14 C36,8 44,20 44,14" transform="scale(0.5)"/><path d="M4,22 C12,16 20,28 28,22 C36,16 44,28 44,22" transform="scale(0.5)"/></g></g>
+          <g class="ffw-wedge-group" data-index="1"><path id="ffw-sec-1" class="ffw-sector" style="fill:url(#ffw-grad-1)" d="M200,200 L334.35,65.65 A190,190 0 0,1 390,200 Z"/><g class="ffw-icon-mark" transform="translate(200,200) rotate(67.5) translate(0,-130) rotate(-67.5) rotate(22.5) translate(-12,-12)"><path d="M20,4 C20,4 32,20 32,26 A12,12 0 1,1 8,26 C8,20 20,4 20,4 Z" transform="scale(0.6)"/></g></g>
+          <g class="ffw-wedge-group" data-index="2"><path id="ffw-sec-2" class="ffw-sector" style="fill:url(#ffw-grad-2)" d="M200,200 L390,200 A190,190 0 0,1 334.35,334.35 Z"/><g class="ffw-icon-mark" transform="translate(200,200) rotate(112.5) translate(0,-130) rotate(-112.5) rotate(22.5) translate(-12,-12)"><path d="M20,5 L10,35 M20,5 L20,35 M20,5 L30,35 M15,5 L10,15 M25,5 L30,15"/></g></g>
+          <g class="ffw-wedge-group" data-index="3"><path id="ffw-sec-3" class="ffw-sector" style="fill:url(#ffw-grad-3)" d="M200,200 L334.35,334.35 A190,190 0 0,1 200,390 Z"/><g class="ffw-icon-mark" transform="translate(200,200) rotate(157.5) translate(0,-130) rotate(-157.5) rotate(22.5) translate(-12,-12)"><path d="M32,20 A12,12 0 0,0 8,20 A12,12 0 0,0 32,20"/><path d="M20,10 L15,22 L25,22 L20,30"/></g></g>
+          <g class="ffw-wedge-group" data-index="4"><path id="ffw-sec-4" class="ffw-sector" style="fill:url(#ffw-grad-4)" d="M200,200 L200,390 A190,190 0 0,1 65.65,334.35 Z"/><g class="ffw-icon-mark" transform="translate(200,200) rotate(202.5) translate(0,-130) rotate(-202.5) rotate(22.5) translate(-16,-16)"><circle cx="20" cy="20" r="15" fill="none"/><path d="M35,20 A15,15 0 0,0 20,5 A11,11 0 0,0 9,16 A7,7 0 0,0 16,23 A4,4 0 0,0 20,19"/></g></g>
+          <g class="ffw-wedge-group" data-index="5"><path id="ffw-sec-5" class="ffw-sector" style="fill:url(#ffw-grad-5)" d="M200,200 L65.65,334.35 A190,190 0 0,1 10,200 Z"/><g class="ffw-icon-mark" transform="translate(200,200) rotate(247.5) translate(0,-130) rotate(-247.5) rotate(22.5) translate(-12,-12)"><path d="M2,20 Q8,5 12,25 T20,20 T28,20 L38,20"/></g></g>
+          <g class="ffw-wedge-group" data-index="6"><path id="ffw-sec-6" class="ffw-sector" style="fill:url(#ffw-grad-6)" d="M200,200 L10,200 A190,190 0 0,1 65.65,65.65 Z"/><g class="ffw-icon-mark" transform="translate(200,200) rotate(292.5) translate(0,-130) rotate(-292.5) rotate(22.5) translate(-12,-12)"><path d="M20,2 L32,15 L20,38 L8,15 Z M20,2 L20,38 M8,15 L20,25 L32,15"/></g></g>
+          <g class="ffw-wedge-group" data-index="7"><path id="ffw-sec-7" class="ffw-sector" style="fill:url(#ffw-grad-7)" d="M200,200 L65.65,65.65 A190,190 0 0,1 200,10 Z"/><g class="ffw-icon-mark" transform="translate(200,200) rotate(337.5) translate(0,-130) rotate(-337.5) rotate(22.5) translate(-12,-12)"><path d="M2,20 C10,5 30,5 38,20 C30,35 10,35 2,20 Z"/><path d="M2,20 L38,20"/></g></g>
+        </g>
+        <circle class="ffw-center-hole" cx="200" cy="200" r="80"/>
+      </svg>
+      <div class="ffw-center-label">Calibration</div>
     </div>
-  </section>
+  </div>
+  <div class="ffw-narrative-column">
+    <div id="ffw-num" class="ffw-num-label">System architecture</div>
+    <h3 id="ffw-title" class="ffw-title">The elements</h3>
+    <p id="ffw-desc" class="ffw-desc">Interact with any sector of the architectural wheel to unfold the environmental metrics, biological blueprints, and sacred structures shaping your calibrated space.</p>
+  </div>
+</div>
+</section>
 
   <!-- A NEW GLOBAL STANDARD -->
   <section class="closing-section">
@@ -831,6 +952,34 @@ footer {
     <a href="legal.html">Privacy</a><span class="footer-nav-sep">&middot;</span><a href="ada.html">ADA</a>
   </nav>
 </footer>
-
+<script>
+(function () {
+  var sectorsData = [
+    { num: "01 / Atmospheric balance", title: "Breath", desc: "Air purification and qualitative atmospheric transmutation." },
+    { num: "02 / Structural hydration", title: "Source", desc: "Water filtration and geometric structural memory calibration." },
+    { num: "03 / Circadian architecture", title: "Light", desc: "Circadian alignment, flicker elimination, and color harmonics." },
+    { num: "04 / Field harmonization", title: "Ether", desc: "Active EMF harmonization and energetic cell shielding." },
+    { num: "05 / Material integrity", title: "Matter", desc: "Chemically pure, non-toxic, and resonant tactile foundations." },
+    { num: "06 / Wave diffusion", title: "Stillness", desc: "Acoustic dampening, wave diffusion, and thermal ease." },
+    { num: "07 / Sacred geometry", title: "Resonance", desc: "BioGeometrical layout alignment, mineral nodes, and sacred math." },
+    { num: "08 / Living systems", title: "Vitality", desc: "Biophilic integration, living architecture, and organic flow." }
+  ];
+  var root = document.querySelector('.elements-section');
+  if (!root) return;
+  var numEl = root.querySelector('#ffw-num');
+  var titleEl = root.querySelector('#ffw-title');
+  var descEl = root.querySelector('#ffw-desc');
+  root.querySelectorAll('.ffw-wedge-group').forEach(function (wedge) {
+    wedge.addEventListener('mouseenter', function () {
+      var data = sectorsData[parseInt(wedge.getAttribute('data-index'), 10)];
+      numEl.style.opacity = 0.2; titleEl.style.opacity = 0.2; descEl.style.opacity = 0.2;
+      setTimeout(function () {
+        numEl.innerText = data.num; titleEl.innerText = data.title; descEl.innerText = data.desc;
+        numEl.style.opacity = 1; titleEl.style.opacity = 1; descEl.style.opacity = 1;
+      }, 150);
+    });
+  });
+})();
+</script>
 </body>
 </html>
